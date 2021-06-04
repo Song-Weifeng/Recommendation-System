@@ -1,0 +1,251 @@
+4,JavaScript: Gather and display infromation from an object ,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Reading status of a book library</title>
+</head>
+<body>
+</body>
+</html>
+","var library = [ 
+    {
+        title: 'Bill Gates',
+        author: 'The Road Ahead',
+        readingStatus: true
+    },
+    {
+        title: 'Steve Jobs',
+        author: 'Walter Isaacson',
+        readingStatus: true
+    },
+    {
+        title: 'Mockingjay: The Final Book of The Hunger Games',
+        author: 'Suzanne Collins',
+        readingStatus: false
+    }];
+
+for (var i = 0; i < library.length; i++) 
+   {
+    var book = ""'"" + library[i].title + ""'"" + ' by ' + library[i].author + ""."";
+    if (library[i].readingStatus) {
+      console.log(""Already read "" + book);
+    } else
+    {
+     console.log(""You still need to read "" + book);
+    }
+   }
+   ","Easy
+"
+5,JavaScript: Calculate the volume of a Cylinder ,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>Volume of a Cylinder</title>
+</head>
+<body>
+</body>
+</html>
+","function Cylinder(cyl_height, cyl_diameter) {
+  this.cyl_height = cyl_height;
+  this.cyl_diameter = cyl_diameter;
+}
+
+Cylinder.prototype.Volume = function () {
+  var radius = this.cyl_diameter / 2;
+  return this.cyl_height * Math.PI * radius * radius;
+};
+
+var cyl = new Cylinder(7, 4);
+// Volume of the cylinder with four decimal places.
+console.log('volume =', cyl.Volume().toFixed(4));
+","Easy
+"
+6,JavaScript: Sort an array using Bubble Sorting method ,"<!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset=""utf-8"">
+  <title>Bubble Sort</title>
+  </head>
+  <body>
+</body>
+  </html>
+  ","Array.prototype.bubbleSort_algo = function() 
+{
+var is_sorted = false;
+ while (!is_sorted) 
+ {
+    is_sorted = true;
+    for (var n = 0; n < this.length - 1; n++) 
+    {
+      if (this[n] > this[n+1]){
+        var x = this[n+1];
+        this[n+1] = this[n];
+        this[n] = x;
+        is_sorted = false;
+      }
+    }
+  }
+  return this;
+};
+
+console.log([6,4,0, 3,-2,1].bubbleSort_algo());
+","Easy
+"
+11,JavaScript: Print all the methods in an JavaScript object ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to display all methods in a object.</title>
+</head>
+<body>
+
+</body>
+</html>
+","function FindAllMethods(obj) {
+    return Object.getOwnPropertyNames(obj).filter(function(property) {
+        return typeof obj[property] == ""function"";
+    });
+}
+//above code finds methods only
+//Following code finds both properties and methods 
+console.log(FindAllMethods(Math));
+console.log(FindAllMethods(Array));
+function all_properties(obj) 
+{
+ return Object.getOwnPropertyNames(obj);
+}
+
+console.log(all_properties(Math));
+
+console.log(all_properties(Array));
+","Medium
+"
+14,JavaScript: Retrieve all the values of an object's properties ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to retrieve all the values of an object's properties.</title>
+</head>
+<body>
+
+</body>
+</html>
+","function all_values(obj) {
+    var keys = _keys(obj);
+    var length = keys.length;
+    var values = Array(length);
+    for (var i = 0; i < length; i++) {
+      values[i] = obj[keys[i]];
+    }
+    return values;
+  }
+function _keys(obj) 
+ {
+    if (!isObject(obj)) return [];
+    if (Object.keys) return Object.keys(obj);
+    var keys = [];
+    for (var key in obj) if (_.has(obj, key)) keys.push(key);
+    return keys;
+  }
+function isObject(obj)   
+{  
+    var type = typeof obj;  
+    return type === 'function' || type === 'object' && !!obj;  
+  } 
+console.log(all_values({red: ""#FF0000"", green: ""#00FF00"", white: ""#FFFFFF""}));
+","Medium
+"
+15,JavaScript: Convert an object into a list of pairs ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to convert an object into a list of pairs.</title>
+</head>
+<body>
+
+</body>
+</html>
+","function key_value_pairs(obj) 
+   {
+    var keys = _keys(obj);
+    var length = keys.length;
+    var pairs = Array(length);
+    for (var i = 0; i < length; i++) 
+    {
+      pairs[i] = [keys[i], obj[keys[i]]];
+    }
+    return pairs;
+  }
+
+function _keys(obj) 
+  {
+    if (!isObject(obj)) return [];
+    if (Object.keys) return Object.keys(obj);
+    var keys = [];
+    for (var key in obj) if (_.has(obj, key)) keys.push(key);
+    return keys;
+  }
+function isObject(obj) 
+ {
+    var type = typeof obj;
+    return type === 'function' || type === 'object' && !!obj;
+  }
+console.log(key_value_pairs({red: ""#FF0000"", green: ""#00FF00"", white: ""#FFFFFF""}));
+","Medium
+"
+16,JavaScript: Get a copy of the object where the keys have become the values and the values the keys ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to get a copy of the object where the keys have become the values and the values the keys.</title>
+</head>
+<body>
+
+</body>
+</html>
+","function invert_key_value(obj) {
+    var result = {};
+    var keys = _keys(obj);
+    for (var i = 0, length = keys.length; i < length; i++) {
+      result[obj[keys[i]]] = keys[i];
+    }
+    return result;
+  }
+function _keys(obj) 
+  {
+    if (!isObject(obj)) return [];
+    if (Object.keys) return Object.keys(obj);
+    var keys = [];
+    for (var key in obj) if (_.has(obj, key)) keys.push(key);
+    return keys;
+  }
+function isObject(obj) 
+ {
+    var type = typeof obj;
+    return type === 'function' || type === 'object' && !!obj;
+  }
+console.log(invert_key_value({red: ""#FF0000"", green: ""#00FF00"", white: ""#FFFFFF""}));
+","Medium
+"
+17,JavaScript: Check whether an object contains specified property ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to check whether an object contains given property.</title>
+</head>
+<body>
+
+</body>
+</html>
+","function hasKey(obj, key) {
+    return obj != null && hasOwnProperty.call(obj, key);
+  }
+console.log(hasKey({red: ""#FF0000"", green: ""#00FF00"", white: ""#FFFFFF""}, ""green""));
+","Easy
+"
+18,JavaScript: Check whether a specified value is a DOM element ,,"function is_dom_element(obj) {
+    return !!(obj && obj.nodeType === 1);
+  }
+console.log(is_dom_element(jQuery('body')[0]));
+","Easy
+"

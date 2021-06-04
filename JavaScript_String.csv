@@ -1,0 +1,992 @@
+1,JavaScript: Check whether an 'input' is a string or not ,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>Check whether an input is a string or not</title>
+</head>
+<body>
+</body>
+</html>
+","is_string = function(input) {
+  if (Object.prototype.toString.call(input) === '[object String]')
+    return true;
+  else
+    return false;   
+    };
+console.log(is_string('w3resource'));
+console.log(is_string([1, 2, 4, 0]));
+","Easy
+"
+2,JavaScript: Check whether a string is blank or not ,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>JS string : is blank</title>
+</head>
+<body>
+</body>
+</html>
+","is_Blank =  function(input) {
+        if (input.length === 0)
+        return true;
+        else 
+        return false;
+      }
+console.log(is_Blank(''));
+console.log(is_Blank('abc'));
+","Easy
+"
+3,JavaScript: Split a string and convert it into an array of words ,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>Split a string and convert it into an array of words.</title>
+</head>
+<body>
+</body>
+</html>
+","string_to_array = function (str) {
+     return str.trim().split("" "");
+};
+console.log(string_to_array(""Robin Singh""));
+","Medium
+"
+4,JavaScript: Extract a specific number of characters from a string ,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>Extract a specific number of characters from a string</title>
+</head>
+<body>
+</body>
+</html>
+","truncate_string = function (str1, length) {
+  
+    if ((str1.constructor === String) && (length>0)) {
+        return str1.slice(0, length);
+    }
+};
+console.log(truncate_string(""Robin Singh"",4));
+","Easy
+"
+5,JavaScript: Convert a string in abbreviated form ,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>Convert a string in abbreviated form</title>
+</head>
+<body>
+</body>
+</html>
+","abbrev_name = function (str1) {
+    var split_names = str1.trim().split("" "");
+    if (split_names.length > 1) {
+        return (split_names[0] + "" "" + split_names[1].charAt(0) + ""."");
+    }
+    return split_names[0];
+};
+console.log(abbrev_name(""Robin Singh""));
+","Medium
+"
+6,JavaScript: Hide email addresses to protect from unauthorized user ,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>Hide email addresses to protect from unauthorised user</title>
+</head>
+<body>
+</body>
+</html>
+",,"Medium
+"
+7,JavaScript: Parameterize a string ,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>Parameterize a string</title>
+</head>
+<body>
+</body>
+</html>
+","string_parameterize = function (str1) {
+    return str1.trim().toLowerCase().replace(/[^a-zA-Z0-9 -]/, """").replace(/\s/g, ""-"");
+};
+console.log(string_parameterize(""Robin Singh from USA.""));
+","Easy
+"
+8,JavaScript: Make capitalize the first letter of a string ,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>Make capitalize the first letter of a string</title>
+</head>
+<body>
+</body>
+</html>
+","capitalize = function(str1){
+  return str1.charAt(0).toUpperCase() + str1.slice(1);
+}
+    
+ console.log(capitalize('js string exercises'));
+ ","Easy
+"
+9,JavaScript: Make capitalize the first letter of each word in a string ,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>Make capitalize the first letter of each word in a string</title>
+</head>
+<body>
+</body>
+</html>
+","//capitalize_Words 
+function capitalize_Words(str)
+{
+ return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
+console.log(capitalize_Words('js string exercises'));
+","Medium
+"
+10,JavaScript: Input a string and converts upper case letters to lower and vice versa ,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>JS swap case</title>
+</head>
+<body>
+</body>
+</html>
+","swapcase = function swapcase(str) {
+        return str.replace(/([a-z]+)|([A-Z]+)/g, function(match, chr) {
+            return chr ? match.toUpperCase() : match.toLowerCase();
+        });
+    }
+console.log(swapcase('AaBbc'));
+","Medium
+"
+11,JavaScript: Convert a string into camel case ,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>Javascript camel case</title>
+</head>
+<body>
+</body>
+</html>
+","camelize = function camelize(str) {
+      return str.replace(/\W+(.)/g, function(match, chr)
+       {
+            return chr.toUpperCase();
+        });
+    }
+
+console.log(camelize(""JavaScript Exercises""));
+console.log(camelize(""JavaScript exercises""));
+console.log(camelize(""JavaScriptExercises""));
+","Easy
+"
+12,JavaScript: Make a string uncamelize,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>JavaScript uncamelize function</title>
+</head>
+<body>
+</body>
+</html>
+","function uncamelize(str, separator) {
+  // Assume default separator is a single space.
+  if(typeof(separator) == ""undefined"") {
+    separator = "" "";
+  }
+  // Replace all capital letters by separator followed by lowercase one
+  var str = str.replace(/[A-Z]/g, function (letter) 
+  {
+    return separator + letter.toLowerCase();
+  });
+  // Remove first separator
+  return str.replace(""/^"" + separator + ""/"", '');
+}
+console.log(uncamelize('helloWorld'));
+console.log(uncamelize('helloWorld','-'));
+console.log(uncamelize('helloWorld','_'));
+","Easy
+"
+13,JavaScript: Concatenate a specific string for a specific number of times,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>JavaScript program to concatenates a given string n times (default is 1).</title>
+</head>
+<body>
+</body>
+</html>
+","repeat = function repeat(str, count) {
+    if(typeof(count) == ""undefined"") {
+    count =1;
+  }
+  return count < 1 ? '' : new Array(count + 1).join(str);
+    }
+console.log(repeat('Ha!'));
+console.log(repeat('Ha!',2));
+console.log(repeat('Ha!',3));
+","Medium
+"
+14,JavaScript: Insert a string within a specific position in another string,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>Insert a string within a specific position in another string</title>
+</head>
+<body>
+</body>
+</html>
+","insert = function insert(main_string, ins_string, pos) {
+   if(typeof(pos) == ""undefined"") {
+    pos = 0;
+  }
+   if(typeof(ins_string) == ""undefined"") {
+    ins_string = '';
+  }
+   return main_string.slice(0, pos) + ins_string + main_string.slice(pos);
+    }
+console.log(insert('We are doing some exercises.'));
+console.log(insert('We are doing some exercises.','JavaScript '));
+console.log(insert('We are doing some exercises.','JavaScript ',18));
+","Easy
+"
+15,JavaScript: Formats a number to a human-readable string,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>Formats a number to a human-readable string </title>
+</head>
+<body>
+</body>
+</html>
+","humanize_format = function humanize(num) {
+   if(typeof(num) == ""undefined"") return;
+  if(num % 100 >= 11 && num % 100 <= 13)
+        return num + ""th"";
+        
+        switch(num % 10) {
+            case 1: return num + ""st"";
+            case 2: return num + ""nd"";
+            case 3: return num + ""rd"";
+        }
+        return num + ""th"";
+    }
+console.log(humanize_format());  
+console.log(humanize_format(1));  
+console.log(humanize_format(8));  
+console.log(humanize_format(301));  
+console.log(humanize_format(402)); 
+","Medium
+"
+16,JavaScript: Truncate a string if it is longer than the specified number of characters,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>JS truncates a string</title>
+</head>
+<body>
+</body>
+</html>
+","text_truncate = function(str, length, ending) {
+    if (length == null) {
+      length = 100;
+    }
+    if (ending == null) {
+      ending = '...';
+    }
+    if (str.length > length) {
+      return str.substring(0, length - ending.length) + ending;
+    } else {
+      return str;
+    }
+  };
+console.log(text_truncate('We are doing JS string exercises.'))
+console.log(text_truncate('We are doing JS string exercises.',19))
+console.log(text_truncate('We are doing JS string exercises.',15,'!!'))
+","Easy
+"
+17,JavaScript: Chop a string into chunks of a specific length,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>chop a string into chunks of a given length</title>
+</head>
+<body>
+</body>
+</html>
+","string_chop =  function(str, size){
+      if (str == null) return [];
+      str = String(str);
+      size = ~~size;
+return size > 0 ? str.match(new RegExp('.{1,' + size + '}', 'g')) : [str];
+}
+console.log(string_chop('w3resource'));
+console.log(string_chop('w3resource',2));
+console.log(string_chop('w3resource',3));
+","Medium
+"
+18,JavaScript: Count the occurrence of a substring in a string,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Write a JavaScript function to count the occurrence of a substring in a string.</title>
+</head>
+<body>
+</body>
+</html>
+","function count(main_str, sub_str) 
+    {
+    main_str += '';
+    sub_str += '';
+
+    if (sub_str.length <= 0) 
+    {
+        return main_str.length + 1;
+    }
+
+       subStr = sub_str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+       return (main_str.match(new RegExp(subStr, 'gi')) || []).length;
+    }
+ 
+console.log(count(""The quick brown fox jumps over the lazy dog"", 'the'));
+console.log(count(""The quick brown fox jumps over the lazy dog"", 'fox',false));
+","Medium
+"
+19,JavaScript: Escape a HTML string,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Write a JavaScript function to escape a HTML string.</title>
+</head>
+<body>
+
+</body>
+</html>
+",,"Easy
+"
+20,"JavaScript: Pad (left, right) a string to get to a determined length","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Write a JavaScript function that can pad (left, right) a string to get to a determined length.</title>
+</head>
+<body>
+
+</body>
+</html>
+","function formatted_string(pad, user_str, pad_pos)
+{
+  if (typeof user_str === 'undefined') 
+    return pad;
+  if (pad_pos == 'l')
+     {
+     return (pad + user_str).slice(-pad.length);
+     }
+  else 
+    {
+    return (user_str + pad).substring(0, pad.length);
+    }
+}
+console.log(formatted_string('0000',123,'l'));
+console.log(formatted_string('00000000',123,''));
+","Medium
+"
+21,JavaScript: Repeat a string a specified times,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Write a JavaScript function to repeat a string a specified times.</title>
+</head>
+<body>
+
+</body>
+</html>
+","function repeat_string(string, count) 
+  {
+    if ((string == null) || (count < 0) || (count === Infinity) || (count == null))
+      {
+        return('Error in string or count.');
+      }
+        count = count | 0; // Floor count.
+    return new Array(count + 1).join(string);
+  }
+
+console.log(repeat_string('a', 4));
+console.log(repeat_string('a'));
+console.log(repeat_string('a', -2));
+console.log(repeat_string('a', Infinity));
+","Easy
+"
+22,JavaScript: Get a part of string after a specified character,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Write a JavaScript function to get a part of string after a specified character.</title>
+</head>
+<body>
+
+</body>
+</html>
+","function subStrAfterChars(str, char, pos)
+{
+  if(pos=='b')
+   return str.substring(str.indexOf(char) + 1);
+  else if(pos=='a') 
+   return str.substring(0, str.indexOf(char));
+  else
+  return str;  
+}
+
+console.log(subStrAfterChars('w3resource: JavaScript Exercises', ':','a'));
+
+console.log(subStrAfterChars('w3resource: JavaScript Exercises', 'E','b'));
+","Medium
+"
+23,JavaScript: Strip leading and trailing spaces from a string,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Write a JavaScript function to strip leading and trailing spaces from a string.</title>
+</head>
+<body>
+
+</body>
+</html>
+","function strip(str) {
+    return str.replace(/^\s+|\s+$/g, '');
+}
+
+console.log(strip('w3resource '));
+console.log(strip(' w3resource'));
+console.log(strip(' w3resource  '));
+","Medium
+"
+24,JavaScript: Truncate a string to a certain number of words,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+<title>JavaScript function to truncate a string to a certain number of words</title>
+</head>
+<body>
+
+</body>
+</html>
+","function truncate(str, no_words) {
+    return str.split("" "").splice(0,no_words).join("" "");
+}
+
+console.log(truncate('The quick brown fox jumps over the lazy dog', 4));
+","Easy
+"
+25,JavaScript: Alphabetize a given string,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Write a JavaScript function to alphabetize a given string.</title>
+</head>
+<body>
+
+</body>
+</html>
+","function alphabetize_string(str) 
+{
+	
+return str.split('').sort().join('').trim();
+
+}
+console.log(alphabetize_string('United States'));
+","Easy
+"
+26,JavaScript: Remove the first occurrence of a given 'search string' from a string,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Write a JavaScript function to remove the first occurrence of a given 'search string' from a string</title>
+</head>
+<body>
+
+</body>
+</html>
+","function remove_first_occurrence(str, searchstr)       {
+	var index = str.indexOf(searchstr);
+	if (index === -1) {
+		return str;
+	}
+	return str.slice(0, index) + str.slice(index + searchstr.length);
+}
+
+console.log(remove_first_occurrence(""The quick brown fox jumps over the lazy dog"", 'the'));
+","Easy
+"
+27,JavaScript: Convert ASCII to Hexadecimal format,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Write a JavaScript function to Convert ASCII to hex format.</title>
+</head>
+<body>
+
+</body>
+</html>
+","function ascii_to_hexa(str)
+  {
+	var arr1 = [];
+	for (var n = 0, l = str.length; n < l; n ++) 
+     {
+		var hex = Number(str.charCodeAt(n)).toString(16);
+		arr1.push(hex);
+	 }
+	return arr1.join('');
+   }
+
+console.log(ascii_to_hexa('12'));
+console.log(ascii_to_hexa('100'));
+","Easy
+"
+28,JavaScript: Convert Hexadecimal to ASCII format,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Write a JavaScript function to convert Hexadecimal to ASCII</title>
+</head>
+<body>
+
+</body>
+</html>
+","function hex_to_ascii(str1)
+ {
+	var hex  = str1.toString();
+	var str = '';
+	for (var n = 0; n < hex.length; n += 2) {
+		str += String.fromCharCode(parseInt(hex.substr(n, 2), 16));
+	}
+	return str;
+ }
+console.log(hex_to_ascii('3132'));
+console.log(hex_to_ascii('313030'));
+","Easy
+"
+29,JavaScript: Find a word within a string,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to find a word within a string</title>
+</head>
+<body>
+
+</body>
+</html>
+","function search_word(text, word){
+    
+    var x = 0, y=0;
+   
+    for (i=0;i< text.length;i++)
+        {
+        if(text[i] == word[0])
+            {
+            for(j=i;j< i+word.length;j++)
+               {
+                if(text[j]==word[j-i])
+                  {
+                    y++;
+                  }
+                if (y==word.length){
+                    x++;
+                }
+            }
+            y=0;
+        }
+    }
+   return ""'""+word+""' was found ""+x+"" times."";
+}
+
+console.log(search_word('The quick brown fox', 'fox'));
+console.log(search_word('aa, bb, cc, dd, aa', 'aa'));
+","Medium
+"
+30,JavaScript: Check if a string ends with specified suffix,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function check if a string ends with specified suffix</title>
+</head>
+<body>
+
+</body>
+</html>
+","function string_endsWith(str, suffix) 
+{
+ 
+ if (((str===null) || (str==='')) || ((suffix===null) || (suffix==='')))
+   {
+    return false;
+   }
+  else
+  {     
+   str = str.toString();
+   suffix = suffix.toString();
+   }
+ return str.indexOf(suffix, str.length -     suffix.length) !== -1;
+}
+
+console.log(string_endsWith('JS PHP PYTHON','PYTHON'));
+
+console.log(string_endsWith('JS PHP PYTHON',''));
+","Medium
+"
+31,JavaScript: Escapes special characters for use in HTML,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to escapes special characters for use in HTML.</title>
+</head>
+<body>
+
+</body>
+</html>
+","function escape_html(str) {
+  
+ if ((str===null) || (str===''))
+       return false;
+ else
+   str = str.toString();
+  
+  var map = {
+    '&': '&amp;',
+	'<': '&lt;',
+	'>': '&gt;',
+	'""': '&quot;',
+	""'"": '&#039;'
+  };
+
+  return str.replace(/[&<>""']/g, function(m) { return map[m]; });
+}
+console.log(escape_html('PHP & MySQL'));
+console.log(escape_html('3 > 2'));
+","Medium
+"
+32,JavaScript: Remove non-printable ASCII chars,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to remove non-printable ASCII chars.</title>
+</head>
+<body>
+
+</body>
+</html>
+","function remove_non_ascii(str) {
+  
+  if ((str===null) || (str===''))
+       return false;
+ else
+   str = str.toString();
+  
+  return str.replace(/[^\x20-\x7E]/g, '');
+}
+
+console.log(remove_non_ascii('äÄçÇéÉêPHP-MySQLöÖÐþúÚ'));
+","Easy
+"
+33,JavaScript: Remove non-word characters,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to remove non-word characters.</title>
+</head>
+<body>
+
+</body>
+</html>
+",,"Hard
+"
+34,JavaScript: Convert a string to title case,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to convert a string to title case.</title>
+</head>
+<body>
+
+</body>
+</html>
+","function sentenceCase (str) {
+  if ((str===null) || (str===''))
+       return false;
+  else
+   str = str.toString();
+
+ return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
+
+console.log(sentenceCase('PHP exercises. python exercises.'));
+","Easy
+"
+35,JavaScript: Remove HTML/XML tags from string,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to remove HTML/XML tags from string</title>
+</head>
+<body>
+
+</body>
+</html>
+",,"Easy
+"
+37,JavaScript: Test case insensitive (except special Unicode characters) string comparison,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to test case insensitive (except special Unicode characters) string comparison</title>
+</head>
+<body>
+
+</body>
+</html>
+","function compare_strings(str1, str2)
+{
+var areEqual = str1.toUpperCase() === str2.toUpperCase();
+  return areEqual;
+}
+
+console.log(compare_strings('abcd', 'AbcD'));
+console.log(compare_strings('ABCD', 'Abce'));
+","Hard
+"
+38,JavaScript: Create a case-insensitive search,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to create a case-insensitive search.</title>
+</head>
+<body>
+
+</body>
+</html>
+","function case_insensitive_search(str, search_str)
+  {
+    var result= str.search(new RegExp(search_str, ""i""));
+  
+    if (result>0)
+    return 'Matched';
+    else
+    return 'Not Matched';  
+   }
+
+console.log(case_insensitive_search('JavaScript Exercises', 'exercises'));
+
+console.log(case_insensitive_search('JavaScript Exercises', 'Exercises'));
+
+console.log(case_insensitive_search('JavaScript Exercises', 'Exercisess'));
+","Easy
+"
+39,JavaScript: Uncapitalize the first character of a string,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to uncapitalize the first character of a string.</title>
+</head>
+<body>
+
+</body>
+</html>
+","function Uncapitalize(str1){
+  return str1.charAt(0).toLowerCase() + str1.slice(1);
+}
+ console.log(Uncapitalize('Js string exercises'));
+ ","Medium
+"
+41,JavaScript: Capitalize each word in the string,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to capitalize each word in the string.</title>
+</head>
+<body>
+
+</body>
+</html>
+","function capitalizeWords(str)
+{
+ return str.replace(/\w\S*/g, function(txt){return txt.substr(0).toUpperCase();});
+}
+console.log(capitalizeWords('js string exercises'));
+","Hard
+"
+43,JavaScript: Test whether the character at the provided character index is upper case,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to test whether the character at the provided index is upper case</title>
+</head>
+<body>
+
+</body>
+</html>
+","function isUpperCaseAt(str, index) {
+ return str.charAt(index).toUpperCase() === str.charAt(index);
+    }
+console.log(isUpperCaseAt('Js STRING EXERCISES', 1));
+","Easy
+"
+45,JavaScript: Get humanized number with the correct suffix,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to get humanized number with the correct suffix</title>
+</head>
+<body>
+
+</body>
+</html>
+","function humanize(number) {
+        if(number % 100 >= 11 && number % 100 <= 13)
+            return number + ""th"";
+        
+        switch(number % 10) {
+            case 1: return number + ""st"";
+            case 2: return number + ""nd"";
+            case 3: return number + ""rd"";
+        }
+        
+        return number + ""th"";
+    }
+console.log(humanize(1));
+console.log(humanize(20));
+console.log(humanize(302));
+","Easy
+"
+46,JavaScript: Test whether a string starts with a specified string,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to test whether a string starts with a specified string</title>
+</head>
+<body>
+
+</body>
+</html>
+","function startsWith(input, string) {
+  return input.indexOf(string) === 0;
+}
+console.log(startsWith('js string exercises', 'js'));
+","Easy
+"
+47,JavaScript: Test whether a string ends with a specified string,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to test whether a string ends with a specified string</title>
+</head>
+<body>
+
+</body>
+</html>
+","function endsWith(input, string) {
+        var index = input.length - string.length;
+        return index >= 0 && input.indexOf(string, index) > -1;
+    }
+console.log(endsWith('JS string exercises', 'exercises'));
+","Easy
+"
+48,JavaScript: Get the successor of a string,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to get the successor of a string</title>
+</head>
+<body>
+
+</body>
+</html>
+","function successor(str) {
+        var alphabet = 'abcdefghijklmnopqrstuvwxyz',
+            length = alphabet.length,
+            result = str,
+            i = str.length;
+
+        while(i >= 0) {
+            var last = str.charAt(--i),
+                next = '',
+                carry = false;
+
+            if (isNaN(last)) {
+                index = alphabet.indexOf(last.toLowerCase());
+
+                if (index === -1) {
+                    next = last;
+                    carry = true;
+                }
+                else {
+                    var isUpperCase = last === last.toUpperCase();
+                    next = alphabet.charAt((index + 1) % length);
+                    if (isUpperCase) {
+                        next = next.toUpperCase();
+                    }
+
+                    carry = index + 1 >= length;
+                    if (carry && i === 0) {
+                        var added = isUpperCase ? 'A' : 'a';
+                        result = added + next + result.slice(1);
+                        break;
+                    }
+                }
+            }
+            else {
+                next = +last + 1;
+                if(next > 9) {
+                    next = 0;
+                    carry = true;
+                }
+
+                if (carry && i === 0) {
+                    result = '1' + next + result.slice(1);
+                    break;
+                }
+            }
+
+            result = result.slice(0, i) + next + result.slice(i + 1);
+            if (!carry) {
+                break;
+            }
+        }
+        return result;
+    }
+
+console.log(successor('abcd'));
+console.log(successor('3456'));
+","Medium
+"
+49,"JavaScript: Get unique guid of the specified length, or 32 by default","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to get unique guid of the specified length, or 32 by default</title>
+</head>
+<body>
+
+</body>
+</html>
+","function guid(len) {
+        var buf = [],
+            chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
+            charlen = chars.length,
+            length = len || 32;
+            
+        for (var i = 0; i < length; i++) {
+            buf[i] = chars.charAt(Math.floor(Math.random() * charlen));
+        }
+        
+        return buf.join('');
+    }
+
+console.log(guid());  
+console.log(guid(15));
+","Medium
+"

@@ -1,0 +1,2786 @@
+1,JavaScript: Compare two objects to determine if the first one contains equivalent property values to the second one,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Compare two objects to determine if the first one contains equivalent property values to the second one</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2
+const matches = (obj, source) =>
+  Object.keys(source).every(key => obj.hasOwnProperty(key) && obj[key] === source[key]);
+console.log(matches({ age: 25, hair: 'long', beard: true }, { hair: 'long', beard: true })); // true
+console.log(matches({ hair: 'long', beard: true }, { age: 25, hair: 'long', beard: true })); // false
+console.log(matches({ hair: 'long', beard: true }, { age: 26, hair: 'long', beard: true })); // false
+","Medium
+"
+3,JavaScript: Converts a comma-separated values string to a 2D array,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Converts a comma-separated values string to a 2D array</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2
+const csv_to_array = (data, delimiter = ',', omitFirstRow = false) =>
+  data
+    .slice(omitFirstRow ? data.indexOf('\n') + 1 : 0)
+    .split('\n')
+    .map(v => v.split(delimiter));
+
+console.log(csv_to_array('a,b\nc,d')); 
+console.log(csv_to_array('a;b\nc;d', ';')); 
+console.log(csv_to_array('head1,head2\na,b\nc,d', ',', true));
+","Medium
+"
+4,JavaScript : Convert a comma-separated values string to a 2D array of objects,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Convert a comma-separated values string to a 2D array of objects</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2
+const CSV_to_JSON = (data, delimiter = ',') => {
+  const titles = data.slice(0, data.indexOf('\n')).split(delimiter);
+  return data
+    .slice(data.indexOf('\n') + 1)
+    .split('\n')
+    .map(v => {
+      const values = v.split(delimiter);
+      return titles.reduce((obj, title, index) => ((obj[title] = values[index]), obj), {});
+    });
+};
+console.log(CSV_to_JSON('col1,col2\na,b\nc,d')); // [{'col1': 'a', 'col2': 'b'}, {'col1': 'c', 'col2': 'd'}];
+console.log(CSV_to_JSON('col1;col2\na;b\nc;d', ';')); // [{'col1': 'a', 'col2': 'b'}, {'col1': 'c', 'col2': 'd'}];
+","Medium
+"
+5,JavaScript: Convert an array of objects to a comma-separated values string that contains only the columns specified,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Convert an array of objects to a comma-separated values string that contains only the columns specified</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2
+const JSON_to_CSV = (arr, columns, delimiter = ',') =>
+  [
+    columns.join(delimiter),
+    ...arr.map(obj =>
+      columns.reduce(
+        (acc, key) => `${acc}${!acc.length ? '' : delimiter}""${!obj[key] ? '' : obj[key]}""`,
+        ''
+      )
+    )
+  ].join('\n');
+
+console.log(JSON_to_CSV([{ x: 100, y: 200 }, { x: 300, y: 400, z: 500 }, { x: 6 }, { y: 7 }], ['x', 'y']));
+console.log(JSON_to_CSV([{ x: 100, y: 200 }, { x: 300, y: 400, z: 500 }, { x: 6 }, { y: 7 }], ['x', 'y'], ';'));
+","Medium
+"
+6,JavaScript: Target a given value in a nested JSON object,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Target a given value in a nested JSON object</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2
+const dig = (obj, target) =>
+  target in obj
+    ? obj[target]
+    : Object.values(obj).reduce((acc, val) => {
+        if (acc !== undefined) return acc;
+        if (typeof val === 'object') return dig(val, target);
+      }, undefined);
+
+const data = {
+  level1: {
+    level2: {
+      level3: 'some data'
+    }
+  }
+};
+
+const dog = {
+    ""status"": ""success"",
+    ""message"": ""https://images.dog.ceo/breeds/african/n02116738_1105.jpg""
+}
+console.log(dig(data, 'level3'));
+console.log(dig(data, 'level4'));
+console.log(dig(dog, 'message'));
+","Medium
+"
+7,JavaScript: Converts a specified number to an array of digits,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Converts a specified number to an array of digits</title>
+</head>
+<body>
+
+</body>
+</html>
+","const digitize = n => [...`${n}`].map(i => parseInt(i));
+
+console.log(digitize(123));
+console.log(digitize(1230));
+","Easy
+"
+8,JavaScript: Filter out the specified values from a specified array,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Filter out the specified values from a specified array</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+ const pull = (arr, ...args) => {
+  let argState = Array.isArray(args[0]) ? args[0] : args;
+  let pulled = arr.filter((v, i) => !argState.includes(v));
+  arr.length = 0;
+  pulled.forEach(v => arr.push(v));
+  return pulled;
+};
+let arra1 = ['a', 'b', 'c', 'a', 'b', 'c'];
+console.log(pull(arra1, 'a', 'c'));
+let arra2 =  ['a', 'b', 'c', 'a', 'b', 'c'];
+console.log(pull(arra2, 'b'));
+","Easy
+"
+9,JavaScript: Combine the numbers of a given array into an array containing all combinations,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Combine the numbers of a given array into an array containing all combinations</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const powerset = arr => arr.reduce((a, v) => a.concat(a.map(r => [v].concat(r))), [[]]);
+console.log(powerset([1, 2]));
+console.log(powerset([1, 2, 3]));
+console.log(powerset([1, 2, 3, 4]));
+","Medium
+"
+10,JavaScript: Extract out the values at the specified indexes from a specified array,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Extract out the values at the specified indexes from a specified array</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const pull_at_Index = (arr, pullArr) => {
+  let removed = [];
+  let pulled = arr
+    .map((v, i) => (pullArr.includes(i) ? removed.push(v) : v))
+    .filter((v, i) => !pullArr.includes(i));
+  arr.length = 0;
+  pulled.forEach(v => arr.push(v));
+  return removed;
+};
+let arra1 = ['a', 'b', 'c', 'd', 'e', 'f'];
+console.log(pull_at_Index(arra1, [1, 3]));
+let arra2 =  [1, 2, 3, 4, 5, 6, 7];
+console.log(pull_at_Index(arra2, [4]));
+","Easy
+"
+11,JavaScript: Generate a random hexadecimal color code,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Generate a random hexadecimal color code</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const random_hex_color_code = () => {
+  let n = (Math.random() * 0xfffff * 1000000).toString(16);
+  return '#' + n.slice(0, 6);
+};
+
+console.log(random_hex_color_code())
+","Medium
+"
+12,JavaScript: Removes non-printable ASCII characters from a given string,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Removes non-printable ASCII characters from a given string</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const remove_non_ASCII = str => str.replace(/[^\x20-\x7E]/g, '');
+console.log(remove_non_ASCII('äÄçÇéÉêw3resouröceÖÐþúÚ'));
+","Medium
+"
+13,JavaScript: Convert the length of a given string in bytes,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Convert the length of a given string in bytes</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const byte_Size = str => new Blob([str]).size;
+console.log(byte_Size('123456'));  
+console.log(byte_Size('Hello World'));  
+console.log(byte_Size('Ã¢')); 
+","Easy
+"
+14,JavaScript: Replace the names of multiple object keys with the values provided,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Replace the names of multiple object keys with the values provided</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const rename_keys = (keysMap, obj) =>
+  Object.keys(obj).reduce(
+    (acc, key) => ({
+      ...acc,
+      ...{ [keysMap[key] || key]: obj[key] }
+    }),
+    {}
+  );
+const obj = { name: 'Bobo', job: 'Programmer', shoeSize: 100 };
+console.log(""Original Object"");
+console.log(obj);
+console.log(""-------------------------------------"");
+result = rename_keys({ name: 'firstName', job: 'Actor' }, obj);
+console.log(""New Object"");
+console.log(result);
+","Medium
+"
+15,"JavaScript: Return the minimum-maximum value of an array, after applying the provided function to set comparing rule","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Return the minimum-maximum value of an array, after applying the provided function to set comparing rule</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const reduce_Which = (arr, comparator = (a, b) => a - b) =>
+  arr.reduce((a, b) => (comparator(a, b) >= 0 ? b : a));
+console.log(reduce_Which([1, 3, 2])); 
+console.log(reduce_Which([10, 30, 20], (a, b) => b - a));  
+console.log(reduce_Which(
+  [{ name: 'Kevin', age: 16 }, { name: 'John', age: 20 }, { name: 'Ani', age: 19 }],
+  (a, b) => a.age - b.age)); 
+","Medium
+"
+16,"JavaScript: Returns true if the provided predicate function returns true for all elements in a collection, false otherwise","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Returns true if the provided predicate function returns true for all elements in a collection, false otherwise</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const all = (arr, fn = Boolean) => arr.every(fn);
+console.log(all([4, 2, 3], x => x > 1)); 
+console.log(all([4, 2, 3], x => x < 1));
+console.log(all([1, 2, 3])); 
+","Easy
+"
+17,JavaScript: Split values of two given arrays into two groups,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Split values of two given arrays into two groups</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const bifurcate = (arr, filter) =>
+  arr.reduce((acc, val, i) => (acc[filter[i] ? 0 : 1].push(val), acc), [[], []]);
+console.log(bifurcate([1, 2, 3, 4], [true, true, false, true]));
+console.log(bifurcate([1, 2, 3, 4], [true, true, true, true]));
+console.log(bifurcate([1, 2, 3, 4], [false, false, false, false]));
+","Medium
+"
+18,JavaScript: Remove specified elements from the left of a given array of elements,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Remove specified elements from the left of a given array of elements</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+function remove_from_left(arr, n = 1){
+  return arr.slice(n); 
+}
+console.log(remove_from_left([1, 2, 3]));
+console.log(remove_from_left([1, 2, 3], 1));
+console.log(remove_from_left([1, 2, 3], 2));
+console.log(remove_from_left([1, 2, 3], 4));
+","Medium
+"
+19,JavaScript: Remove specified elements from the right of a given array of elements,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Remove specified elements from the right of a given array of elements</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+function remove_from_right(arr, n = -1){
+  return arr.slice(n); 
+}
+
+console.log(remove_from_right([1, 2, 3]));
+console.log(remove_from_right([1, 2, 3], -1));
+console.log(remove_from_right([1, 2, 3], -2));
+console.log(remove_from_right([1, 2, 3], -4));
+","Hard
+"
+20,JavaScript: Extend a 3-digit color code to a 6-digit color code,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Extend a 3-digit color code to a 6-digit color code</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const extend_Hex = shortHex =>
+  '#' +
+  shortHex
+    .slice(shortHex.startsWith('#') ? 1 : 0)
+    .split('')
+    .map(x => x + x)
+    .join('');
+
+console.log(extend_Hex('#03f'));
+console.log(extend_Hex('05a'));
+","Easy
+"
+21,,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Get every nth element in a given array</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const every_nth = (arr, nth) => arr.filter((e, i) => i % nth === nth - 1);
+console.log(every_nth([1, 2, 3, 4, 5, 6], 1));
+console.log(every_nth([1, 2, 3, 4, 5, 6], 2));
+console.log(every_nth([1, 2, 3, 4, 5, 6], 3));
+console.log(every_nth([1, 2, 3, 4, 5, 6], 4));
+","Medium
+"
+22,JavaScript: Filter out the non-unique values in an array,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Filter out the non-unique values in an array</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const filter_Non_Unique = arr => arr.filter(i => arr.indexOf(i) === arr.lastIndexOf(i));
+
+console.log(filter_Non_Unique([1, 2, 2, 3, 4, 4, 5]));  
+console.log(filter_Non_Unique([1, 2, 3, 4]));  
+","Easy
+"
+23,"JavaScript: Filter out the non-unique values in an array, based on a provided comparator function","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Filter out the non-unique values in an array, based on a provided comparator function</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const filter_Non_UniqueBy = (arr, fn) =>
+  arr.filter((v, i) => arr.every((x, j) => (i === j) === fn(v, x, i, j)));
+
+console.log(filter_Non_UniqueBy(
+  [
+    { id: 0, value: 'a' },
+    { id: 1, value: 'b' },
+    { id: 2, value: 'c' },
+    { id: 1, value: 'd' },
+    { id: 0, value: 'e' }
+  ],
+  (a, b) => a.id == b.id
+)); 
+","Medium
+"
+24,JavaScript: Decapitalize the first letter of a string,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Decapitalize the first letter of a string</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const decapitalize = ([first, ...rest], upperRest = false) =>
+  first.toLowerCase() + (upperRest ? rest.join('').toUpperCase() : rest.join(''));
+console.log(decapitalize('W3resource'))
+console.log(decapitalize('Red', true));
+","Easy
+"
+25,JavaScript: Create a new array out of the two supplied by creating each possible pair from the arrays,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Create a new array out of the two supplied by creating each possible pair from the arrays</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const xProd = (a, b) => a.reduce((acc, x) => acc.concat(b.map(y => [x, y])), []);
+console.log(xProd([1, 2], ['a', 'b']));
+console.log(xProd([1, 2], [1, 2]));
+console.log(xProd(['a', 'b'], ['a', 'b']));
+","Medium
+"
+26,JavaScript: Return true if the string is y/yes other wise false,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Return true if the string is y/yes other wise false</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const yes_No = (val, def = false) =>
+  /^(y|yes)$/i.test(val) ? true : /^(n|no)$/i.test(val) ? false : def;
+console.log(yes_No('Y')); 
+console.log(yes_No('yes'));  
+console.log(yes_No('No')); 
+console.log(yes_No('Foo', true));  
+","Easy
+"
+27,JavaScript: Find every element that exists in any of the two given arrays once,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Find every element that exists in any of the two given arrays once</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const union_With = (a, b, comp) =>
+ Array.from(new Set([...a, ...b.filter(x => a.findIndex(y => comp(x, y)) === -1)]));
+
+console.log(union_With([1, 1.2, 1.5, 3, 0], [1.9, 3, 0, 3.9], (a, b) => Math.round(a) === Math.round(b)));
+console.log(union_With([1, 2, 3, 4], [1, 2, 3, 4, 5], (a, b) => Math.round(a) === Math.round(b)));
+","Medium
+"
+28,JavaScript: Measure the time taken by a function to execute,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Measure the time taken by a function to execute</title>
+</head>
+<body>
+
+</body>
+</html>
+","const time_taken = callback => {
+  const result = callback();
+  return result;
+};
+console.log(""Time taken: "" + time_taken(() => Math.pow(2, 10))+"" ms""); 
+console.log(""Time taken: "" + time_taken(() => Math.sqrt(225))+"" ms"");
+console.log(""Time taken: "" + time_taken(() => Math.sqrt((5 * 5) + (6 * 6)))+"" ms"");
+","Easy
+"
+29,JavaScript: Convert a value to a safe integer,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Convert a value to a safe integer</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const to_Safe_Integer = num =>
+ Math.round(Math.max(Math.min(num, Number.MAX_SAFE_INTEGER), Number.MIN_SAFE_INTEGER));
+console.log(to_Safe_Integer('5.2'));
+console.log(to_Safe_Integer('5.52'));
+console.log(to_Safe_Integer(Infinity)); 
+","Medium
+"
+30,"JavaScript: Filter out the element(s) of a given array, that have one of the specified values","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Filter out the element(s) of a given array, that have one of the specified values</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const without = (arr, ...args) => arr.filter(v => !args.includes(v));
+
+console.log(without([2, 1, 2, 3], 1, 2));
+console.log(without([2, 1, 2, 3], 3));
+","Medium
+"
+31,JavaScript: Find all elements in a given array except for the first one,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Find all elements in a given array except for the first one</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const tail = arr => (arr.length > 1 ? arr.slice(1) : arr);
+console.log(tail([1, 2, 3])); 
+console.log(tail([1]));
+","Easy
+"
+32,JavaScript: Get the sum of a given array using the provided function,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Get the sum of a given array using the provided function</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const sumBy = (arr, fn) =>
+arr.map(typeof fn === 'function' ? fn : val => val[fn]).reduce((acc, val) => acc + val, 0);
+
+console.log(sumBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], o => o.n));
+console.log(sumBy([{ n: -4 }, { n: -2 }, { n: 8 }, { n: 6 }], 'n'));
+","Medium
+"
+33,JavaScript: Get a random number in the specified range,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Get a random number in the specified range</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const random_Number_In_Range = (min, max) => Math.random() * (max - min) + min;
+console.log(random_Number_In_Range(2, 10)); 
+console.log(random_Number_In_Range(1, 5)); 
+console.log(random_Number_In_Range(-5, -2)); 
+console.log(random_Number_In_Range(0, 1)); 
+","Hard
+"
+34,JavaScript: Get a random integer in the specified range,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Get a random integer in the specified range</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const randomIntegerInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+console.log(randomIntegerInRange(0, 5));
+console.log(randomIntegerInRange(2, 5));
+console.log(randomIntegerInRange(5, -5));
+console.log(randomIntegerInRange(-2, -7));
+","Easy
+"
+35,JavaScript: Get an array of given n random integers in the specified range,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Get an array of given n random integers in the specified range</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const random_intArray_In_Range = (min, max, n = 1) =>
+  Array.from({ length: n }, () => Math.floor(Math.random() * (max - min + 1)) + min);
+console.log(random_intArray_In_Range(1, 20, 10));
+console.log(random_intArray_In_Range(-10, 10, 5));
+","Hard
+"
+36,JavaScript: Create a function that invokes each provided function with the arguments it receives and returns the results,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Create a function that invokes each provided function with the arguments it receives and returns the results</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const over = (...fns) => (...args) => fns.map(fn => fn.apply(null, args));
+const minMax = over(Math.min, Math.max);
+console.log(minMax(1, 2, 3, 4, 5)); 
+console.log(minMax(1, 2, 5, 4, 3)); 
+console.log(minMax(1, 2, 5, -4, 3));
+","Hard
+"
+37,JavaScript fundamental: Get a sorted array of objects ordered by properties and orders,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Get a sorted array of objects ordered by properties and orders</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const orderBy = (arr, props, orders) =>
+  [...arr].sort((a, b) =>
+    props.reduce((acc, prop, i) => {
+      if (acc === 0) {
+        const [p1, p2] = orders && orders[i] === 'desc' ? [b[prop], a[prop]] : [a[prop], b[prop]];
+        acc = p1 > p2 ? 1 : p1 < p2 ? -1 : 0;
+      }
+      return acc;
+    }, 0)
+  );
+const users = [{ name: 'fred', age: 48 }, { name: 'barney', age: 36 }, { name: 'fred', age: 40 }];
+
+console.log(orderBy(users, ['name', 'age'], ['asc', 'desc'])); 
+console.log(orderBy(users, ['name', 'age']));
+","Medium
+"
+38,JavaScript: Pad a string on both sides with the specified character,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Pad a string on both sides with the specified character</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+
+const pad = (str, length, char = ' ') =>
+ str.padStart((str.length + length) / 2, char).padEnd(length, char);
+console.log(pad('cat', 8));
+console.log(pad(String(42), 6, '0'))
+console.log(pad('foobar', 3))
+","Medium
+"
+39,JavaScript: Remove the key-value pairs corresponding to the given keys from an object,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Remove the key-value pairs corresponding to the given keys from an object</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const omit = (obj, arr) =>
+  Object.keys(obj)
+    .filter(k => !arr.includes(k))
+    .reduce((acc, key) => ((acc[key] = obj[key]), acc), {});
+
+console.log(omit({ a: 1, b: '2', c: 3 }, ['b']));
+console.log(omit({ a: 1, b: 2, c: 3 }, ['c']));
+","Medium
+"
+40,JavaScript: Create an array of key-value pair arrays from a given object,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Create an array of key-value pair arrays from a given object</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2
+const object_to_pairs = obj => Object.keys(obj).map(k => [k, obj[k]]);
+console.log(object_to_pairs({ a: 1, b: 2 }));
+console.log(object_to_pairs({ a: 1, b: 2, c: 3 }));
+","Medium
+"
+41,JavaScript: Create an object from the given key-value pairs,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Create an object from the given key-value pairs</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const object_From_Pairs = arr => arr.reduce((a, v) => ((a[v[0]] = v[1]), a), {});
+console.log(object_From_Pairs([['a', 1], ['b', 2]])); 
+console.log(object_From_Pairs([[1, 10], [2, 20], [3, 30]]));
+","Medium
+"
+42,JavaScript: Get a customized coalesce function that returns the first argument that returns true from the provided argument validation function,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Get a customized coalesce function that returns the first argument that returns true from the provided argument validation function</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const coalesceFactory = valid => (...args) => args.find(valid);
+const customCoalesce = coalesceFactory(_ => ![null, undefined, '', NaN].includes(_));
+console.log(customCoalesce(undefined, null, NaN, '', 'Waldo'));
+","Medium
+"
+43,JavaScript: Change function that accepts an array into a variadic function,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Change function that accepts an array into a variadic function</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const collectInto = fn => (...args) => fn(args);
+const Pall = collectInto(Promise.all.bind(Promise));
+let p1 = Promise.resolve(1);
+let p2 = Promise.resolve(2);
+let p3 = new Promise(resolve => setTimeout(resolve, 2000, 3));
+Pall(p1, p2, p3).then(console.log); // [1, 2, 3] (after about 2 seconds)
+","Hard
+"
+44,JavaScript: Remove falsey values from a given array,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Remove falsey values from a given array</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const compact = arr => arr.filter(Boolean);
+console.log(compact([0, 1, false, 2, '', 3, 'a', 'e' * 23, NaN, 's', 34]));
+console.log(compact([false, NaN, 'e' * 23]));
+","Medium
+"
+46,JavaScript: Curry (curries) a function,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Curry (curries) a function</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const curry = (fn, arity = fn.length, ...args) =>
+  arity <= args.length ? fn(...args) : curry.bind(null, fn, arity, ...args);
+console.log(curry(Math.pow)(2)(8));
+console.log(curry(Math.min, 3)(10)(50)(2));
+","Medium
+"
+47,JavaScript: Perform a deep comparison between two values to determine if they are equivalent,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Perform a deep comparison between two values to determine if they are equivalent</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const equals = (a, b) => {
+  if (a === b) return true;
+  if (a instanceof Date && b instanceof Date) return a.getTime() === b.getTime();
+  if (!a || !b || (typeof a !== 'object' && typeof b !== 'object')) return a === b;
+  if (a === null || a === undefined || b === null || b === undefined) return false;
+  if (a.prototype !== b.prototype) return false;
+  let keys = Object.keys(a);
+  if (keys.length !== Object.keys(b).length) return false;
+  return keys.every(k => equals(a[k], b[k]));
+};
+
+console.log(equals({ a: [2, { e: 3 }], b: [4], c: 'foo' }, { a: [2, { e: 3 }], b: [4], c: 'foo' }));
+","Medium
+"
+48,JavaScript: Get an array of function property names from own enumerable properties of an object,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Get an array of function property names from own enumerable properties of an object</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const functions = (obj, inherited = false) =>
+  (inherited
+    ? [...Object.keys(obj), ...Object.keys(Object.getPrototypeOf(obj))]
+    : Object.keys(obj)
+  ).filter(key => typeof obj[key] === 'function');
+function Foo() {
+  this.a = () => 1;
+  this.b = () => 2;
+}
+Foo.prototype.c = () => 3;
+console.log(functions(new Foo()));
+console.log(functions(new Foo(), true));
+","Medium
+"
+49,JavaScript: Retrieve a set of properties indicated by the given selectors from an object,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Retrieve a set of properties indicated by the given selectors from an object</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const get = (from, ...selectors) =>
+  [...selectors].map(s =>
+    s
+      .replace(/\[([^\[\]]*)\]/g, '.$1.')
+      .split('.')
+      .filter(t => t !== '')
+      .reduce((prev, cur) => prev && prev[cur], from)
+  );
+const obj = { selector: { to: { val: 'val to select' } }, target: [1, 2, { a: 'test' }] };
+
+console.log(get(obj, 'selector.to.val', 'target[0]', 'target[2].a')); 
+","Medium
+"
+50,"JavaScript : Convert an integer to a suffixed string, adding am or pm based on its value","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Convert an integer to a suffixed string, adding am or pm based on its value</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const get_Meridiem_Suffix_Of_Integer = num =>
+  num === 0 || num === 24
+    ? 12 + 'am'
+    : num === 12
+      ? 12 + 'pm'
+      : num < 12
+        ? (num % 12) + 'am'
+        : (num % 12) + 'pm';
+
+console.log(get_Meridiem_Suffix_Of_Integer(0));
+console.log(get_Meridiem_Suffix_Of_Integer(11));
+console.log(get_Meridiem_Suffix_Of_Integer(13));
+console.log(get_Meridiem_Suffix_Of_Integer(25));
+","Medium
+"
+51,JavaScript: Get an object containing the parameters of the current URL,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Get an object containing the parameters of the current URL</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+  const get_URL_Parameters = url =>
+  (url.match(/([^?=&]+)(=([^&]*))/g) || []).reduce(
+    (a, v) => ((a[v.slice(0, v.indexOf('='))] = v.slice(v.indexOf('=') + 1)), a),
+    {}
+  );
+console.log(get_URL_Parameters('http://url.com/page?name=Adam&surname=Smith')); 
+console.log(get_URL_Parameters('google.com'));
+console.log(get_URL_Parameters('https://www.w3resource.com'));
+","Hard
+"
+52,JavaScript: Group the elements of a given array based on the given function,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Group the elements of a given array based on the given function</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const group_By = (arr, fn) =>
+  arr.map(typeof fn === 'function' ? fn : val => val[fn]).reduce((acc, val, i) => {
+    acc[val] = (acc[val] || []).concat(arr[i]);
+    return acc;
+  }, {});
+console.log(group_By([6.1, 4.2, 6.3], Math.sqrt)); 
+console.log(group_By([6.1, 4.2, 6.3], Math.floor)); 
+console.log(group_By(['one', 'two', 'three'], 'length'));
+","Hard
+"
+55,"JavaScript: Join all given URL segments together, then normalizes the resulting URL","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Join all given URL segments together, then normalizes the resulting URL</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const URL_Join = (...args) =>
+  args
+    .join('/')
+    .replace(/[\/]+/g, '/')
+    .replace(/^(.+):\//, '$1://')
+    .replace(/^file:/, 'file:/')
+    .replace(/\/(\?|&|#[^!])/g, '$1')
+    .replace(/\?/g, '&')
+    .replace('&', '?');
+
+console.log(URL_Join('http://www.google.com', 'a', '/b/cd', '?foo=123', '?bar=foo'));
+","Medium
+"
+56,JavaScript: Check whether all elements in a given array are equal or not,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Check whether all elements in a given array are equal or not</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const allEqual = arr => arr.every(val => val === arr[0]);
+console.log(allEqual([1, 2, 3, 4, 5, 6]));
+console.log(allEqual([12, 12, 12, 12]));
+","Hard
+"
+57,"JavaScript: Compute the average of an array, after mapping each element to a value using the provided function","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Compute the average of an array, after mapping each element to a value using the provided function</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const averageBy = (arr, fn) =>
+  arr.map(typeof fn === 'function' ? fn : val => val[fn]).reduce((acc, val) => acc + val, 0) /
+  arr.length;
+
+console.log(averageBy([{ a: 40 }, { a: 20 }, { a: 80 }, { a: 60 }], o => o.a));
+console.log(averageBy([{ a: 4 }, { a: 2 }, { a: 8 }, { a: 6 }], 'a'));
+","Medium
+"
+59,JavaScript: Create a function that invokes fn with a given context,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Create a function that invokes fn with a given context</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const bind = (fn, context, ...args) =>
+  function() {
+    return fn.apply(context, args.concat(...arguments));
+  };
+function greet(greeting, punctuation) {
+  return greeting + ' ' + this.user + punctuation;
+}
+const freddy = { user: 'Morning' };
+const freddyBound = bind(greet, freddy);
+console.log(freddyBound('Good', '!'));
+","Medium
+"
+63,JavaScript: Clone a given regular expression,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Clone a given regular expression</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const cloneRegExp = regExp => new RegExp(regExp.source, regExp.flags);
+const regExp = /lorem ipsum/gi;
+console.log(regExp);
+const regExp2 = cloneRegExp(regExp);
+console.log(regExp2);
+","Medium
+"
+64,JavaScript: Get the first non-null / undefined argument,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Get the first non-null / undefined argument</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const coalesce = (...args) => args.find(_ => ![undefined, null].includes(_));
+console.log(coalesce(null, undefined, '', NaN, 'abcd'));
+","Medium
+"
+66,JavaScript: Perform right-to-left function composition,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Perform right-to-left function composition</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const compose = (...fns) => fns.reduce((f, g) => (...args) => f(g(...args)));
+const add5 = x => x + 5;
+const multiply = (x, y) => x * y;
+const multiplyAndAdd5 = compose(
+  add5,
+  multiply
+);
+console.log(multiplyAndAdd5(5, 2)); 
+","Hard
+"
+68,JavaScript: Accepts a converging function and a list of branching functions,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Accepts a converging function and a list of branching functions and returns a function that applies each branching function to the arguments and the results of the branching functions are passed as arguments to the converging function</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const converge = (converger, fns) => (...args) => converger(...fns.map(fn => fn.apply(null, args)));
+const average = converge((a, b) => a / b, [
+  arr => arr.reduce((a, v) => a + v, 0),
+  arr => arr.length
+]);
+console.log(average([ 6, 7]));
+console.log(average([1, 2, 3, 4, 5, 6, 7]));
+","Medium
+"
+70,JavaScript: Count the occurrences of a value in an array,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Count the occurrences of a value in an array</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const countOccurrences = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
+console.log(countOccurrences([1, 1, 2, 1, 2, 3], 1));
+console.log(countOccurrences([1, 1, 2, 1, 2, 3], 2));
+console.log(countOccurrences([1, 1, 2, 1, 2, 3], 3));
+","Medium
+"
+72,JavaScript: Detect whether the website is being opened in a mobile device or a desktop/laptop,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Detect wether the website is being opened in a mobile device or a desktop/laptop</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const detectDeviceType = () =>
+  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    ? 'Mobile'
+    : 'Desktop';
+console.log(detectDeviceType()); // ""Mobile"" or ""Desktop""
+","Hard
+"
+73,JavaScript: Return the difference between two arrays,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Return the difference between two arrays, after applying the provided function to each array element of both</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const differenceBy = (a, b, fn) => {
+  const s = new Set(b.map(v => fn(v)));
+  return a.filter(x => !s.has(fn(x)));
+};
+console.log(differenceBy([2.1, 1.2], [2.3, 3.4], Math.floor));
+console.log(differenceBy([{ x: 2 }, { x: 1 }], [{ x: 1 }], v => v.x));
+","Hard
+"
+76,"JavaScript: Execute a provided function once for each array element, starting from the array's last element","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Execute a provided function once for each array element, starting from the array's last element</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const forEachRight = (arr, callback) =>
+  arr
+    .slice(0)
+    .reverse()
+    .forEach(callback);
+forEachRight([1, 2, 3, 4], val => console.log(val));
+","Hard
+"
+78,"JavaScript: Invert the key-value pairs of an object, without mutating it","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Invert the key-value pairs of an object, without mutating it</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const invertKeyValues = (obj, fn) =>
+  Object.keys(obj).reduce((acc, key) => {
+    const val = fn ? fn(obj[key]) : obj[key];
+    acc[val] = acc[val] || [];
+    acc[val].push(key);
+    return acc;
+  }, {});
+console.log(invertKeyValues({ a: 1, b: 2, c: 1 }));
+console.log(invertKeyValues({ a: 1, b: 2, c: 1 }, value => 'group' + value));
+","Medium
+"
+80,JavaScript: Implement the Luhn Algorithm used to validate a variety of identification numbers,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Implement the Luhn Algorithm used to validate a variety of identification numbers, such as credit card numbers, IMEI numbers, National Provider Identifier numbers etc</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const luhnCheck = num => {
+  let arr = (num + '')
+    .split('')
+    .reverse()
+    .map(x => parseInt(x));
+  let lastDigit = arr.splice(0, 1)[0];
+  let sum = arr.reduce((acc, val, i) => (i % 2 !== 0 ? acc + val : acc + ((val * 2) % 9) || 9), 0);
+  sum += lastDigit;
+  return sum % 10 === 0;
+};
+console.log(luhnCheck('4485275742308327'));
+console.log(luhnCheck(6011329933655299));
+console.log(luhnCheck(123456789));
+","Easy
+"
+82,JavaScript: Map the values of an array to an object using a function,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Map the values of an array to an object using a function</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const mapObject = (arr, fn) =>
+  (a => (
+    (a = [arr, arr.map(fn)]), a[0].reduce((acc, val, ind) => ((acc[val] = a[1][ind]), acc), {})
+  ))();
+const squareIt = arr => mapObject(arr, a => a * a);
+console.log(squareIt([1, 2, 3])); 
+","Medium
+"
+88,JavaScript: Get the median of an array of numbers,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Get the median of an array of numbers</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const median = arr => {
+  const mid = Math.floor(arr.length / 2),
+    nums = [...arr].sort((a, b) => a - b);
+  return arr.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
+};
+console.log(median([5, 6, 50, 1, -5]));
+console.log(median([1, 2, 3, 4, 5]));
+","Medium
+"
+90,JavaScript: Nest a given flat array of objects linked to one another recursively,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Nest a given flat array of objects linked to one another recursively</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const nest = (items, id = null, link = 'parent_id') =>
+  items
+    .filter(item => item[link] === id)
+    .map(item => ({ ...item, children: nest(items, item.id) }));
+// One top level comment
+const comments = [
+  { id: 1, parent_id: null },
+  { id: 2, parent_id: 1 },
+  { id: 3, parent_id: 1 },
+  { id: 4, parent_id: 2 },
+  { id: 5, parent_id: 4 }
+];
+const nestedComments = nest(comments); 
+console.log(nestedComments);
+","Medium
+"
+92,"JavaScript: Create a function that gets the argument at index n. If n is negative, the nth argument from the end is returned","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Create a function that gets the argument at index n</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const nthArg = n => (...args) => args.slice(n)[0];
+const third = nthArg(2);
+third(1, 2, 3); // 3
+third(1, 2); // undefined
+const last = nthArg(-1);
+console.log(last(1, 2, 3, 4, 5));
+","Medium
+"
+93,JavaScript: Remove an event listener from an element,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Remove an event listener from an element</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const off = (el, evt, fn, opts = false) => el.removeEventListener(evt, fn, opts);
+const fn = () => console.log('!');
+document.body.addEventListener('click', fn);
+console.log(off(document.body, 'click', fn)); 
+","Medium
+"
+94,JavaScript: Move the specified amount of elements to the end of the array,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Move the specified amount of elements to the end of the array</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const offset = (arr, offset) => [...arr.slice(offset), ...arr.slice(0, offset)];
+console.log(offset([1, 2, 3, 4, 5], 2));
+console.log(offset([1, 2, 3, 4, 5], -2));
+","Easy
+"
+96,JavaScript: Pick the key-value pairs corresponding to the given keys from an object,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Pick the key-value pairs corresponding to the given keys from an object</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const pick = (obj, arr) =>
+  arr.reduce((acc, curr) => (curr in obj && (acc[curr] = obj[curr]), acc), {});
+console.log(pick({ a: 1, b: '2', c: 3 }, ['a', 'c']));
+","Medium
+"
+98,JavaScript : Filter an array of objects based on a condition while also filtering out unspecified keys,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Filter an array of objects based on a condition while also filtering out unspecified keys</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const reducedFilter = (data, keys, fn) =>
+  data.filter(fn).map(el =>
+    keys.reduce((acc, key) => {
+      acc[key] = el[key];
+      return acc;
+    }, {})
+  );
+const data = [
+  {
+    id: 1,
+    name: 'john',
+    age: 24
+  },
+  {
+    id: 2,
+    name: 'mike',
+    age: 50
+  }
+];
+
+console.log(reducedFilter(data, ['id', 'name'], item => item.age > 24));
+","Easy
+"
+100,"JavaScript : Create an array of elements, grouped based on the position in the original arrays and using function as the last value to specify how grouped values should be combined","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Create an array of elements, grouped based on the position in the original arrays and using function as the last value to specify how grouped values should be combined</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const zipWith = (...array) => {
+  const fn = typeof array[array.length - 1] === 'function' ? array.pop() : undefined;
+  return Array.from(
+    { length: Math.max(...array.map(a => a.length)) },
+    (_, i) => (fn ? fn(...array.map(a => a[i])) : array.map(a => a[i]))
+  );
+};
+
+zipWith([1, 2], [10, 20], [100, 200], (a, b, c) => a + b + c); // [111,222]
+
+console.log(zipWith(
+  [1, 2, 3],
+  [10, 20],
+  [100, 200],
+  (a, b, c) => (a != null ? a : 'a') + (b != null ? b : 'b') + (c != null ? c : 'c')
+)); 
+","Hard
+"
+102,"JavaScript: Create an array of elements, grouped based on the position in the original arrays","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Create an array of elements, grouped based on the position in the original arrays</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const zip = (...arrays) => {
+  const maxLength = Math.max(...arrays.map(x => x.length));
+  return Array.from({ length: maxLength }).map((_, i) => {
+    return Array.from({ length: arrays.length }, (_, k) => arrays[k][i]);
+  });
+};
+
+console.log(zip(['a', 'b'], [1, 2], [true, false]));
+console.log(zip(['a'], [1, 2], [true, false]));
+","Hard
+"
+103,JavaScript: Convert a given string into an array of words,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Convert a given string into an array of words</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const words = (str, pattern = /[^a-zA-Z-]+/) => str.split(pattern).filter(Boolean);
+console.log(words('I love javaScript!!')); 
+console.log(words('python, java, php'));
+","Medium
+"
+106,"JavaScript: Create an array of elements, ungrouping the elements in an array produced by zip and applying the provided function","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Create an array of elements, ungrouping the elements in an array produced by zip and applying the provided function</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const unzipWith = (arr, fn) =>
+  arr
+    .reduce(
+      (acc, val) => (val.forEach((v, i) => acc[i].push(v)), acc),
+      Array.from({
+        length: Math.max(...arr.map(x => x.length))
+      }).map(x => [])
+    )
+    .map(val => fn(...val));
+
+console.log(unzipWith([[1, 10, 100], [2, 20, 200]], (...args) => args.reduce((acc, v) => acc + v, 0)));
+","Medium
+"
+109,JavaScript : Get the nth element of a given array,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Get the nth element of a given array</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const nthElement = (arr, n = 0) => (n > 0 ? arr.slice(n, n + 1) : arr.slice(n))[0];
+console.log(nthElement(['a', 'b', 'c'], 1));
+console.log(nthElement(['a', 'b', 'b'], -3));
+","Medium
+"
+112,JavaScript: Unflatten an object with the paths for keys,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Unflatten an object with the paths for keys</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const unflattenObject = obj =>
+  Object.keys(obj).reduce((acc, k) => {
+    if (k.indexOf('.') !== -1) {
+      const keys = k.split('.');
+      Object.assign(
+        acc,
+        JSON.parse(
+          '{' +
+            keys.map((v, i) => (i !== keys.length - 1 ? `""${v}"":{` : `""${v}"":`)).join('') +
+            obj[k] +
+            '}'.repeat(keys.length)
+        )
+      );
+    } else acc[k] = obj[k];
+    return acc;
+  }, {});
+console.log(unflattenObject({ 'a.b.c': 1, d: 1 }));
+","Medium
+"
+115,"JavaScript: Create a function that accepts up to one argument, ignoring any additional arguments","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Create a function that accepts up to one argument, ignoring any additional arguments</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const unary = fn => val => fn(val);
+console.log(['6', '8', '10'].map(unary(parseInt)));
+","Medium
+"
+122,JavaScript: Add an ordinal suffix to a number,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Add an ordinal suffix to a number</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const toOrdinalSuffix = num => {
+  const int = parseInt(num),
+    digits = [int % 10, int % 100],
+    ordinals = ['st', 'nd', 'rd', 'th'],
+    oPattern = [1, 2, 3, 4],
+    tPattern = [11, 12, 13, 14, 15, 16, 17, 18, 19];
+  return oPattern.includes(digits[0]) && !tPattern.includes(digits[1])
+    ? int + ordinals[digits[0] - 1]
+    : int + ordinals[3];
+};
+
+console.log(toOrdinalSuffix('1')); 
+console.log(toOrdinalSuffix('4')); 
+console.log(toOrdinalSuffix('50')); 
+console.log(toOrdinalSuffix('123'));
+","Medium
+"
+130,JavaScript: Remove n elements from the end of a given array,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Remove n elements from the end of a given array</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const takeRight = (arr, n = 1) => arr.slice(arr.length - n, arr.length);
+
+console.log(takeRight([1, 2, 3], 2));
+console.log(takeRight([1, 2, 3]));
+","Medium
+"
+131,JavaScript: Get an array with n elements removed from the beginning from a given array,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Get an array with n elements removed from the beginning from a given array</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const take = (arr, n = 1) => arr.slice(0, n);
+console.log(take([1, 2, 3], 5));
+console.log(take([1, 2, 3], 0));
+","Hard
+"
+132,"JavaScript: Get the symmetric difference between two given arrays, using a provided function as a comparator","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Get the symmetric difference between two given arrays, using a provided function as a comparator</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const symmetricDifferenceWith = (arr, val, comp) => [
+  ...arr.filter(a => val.findIndex(b => comp(a, b)) === -1),
+  ...val.filter(a => arr.findIndex(b => comp(a, b)) === -1)
+];
+
+console.log(symmetricDifferenceWith(
+  [1, 1.2, 1.5, 3, 0],
+  [1.9, 3, 0, 3.9],
+  (a, b) => Math.round(a) === Math.round(b)
+));
+","Hard
+"
+137,"JavaScript: Perform stable sorting of an array, preserving the initial indexes of items when their values are the same","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Perform stable sorting of an array, preserving the initial indexes of items when their values are the same</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const stableSort = (arr, compare) =>
+  arr
+    .map((item, index) => ({ item, index }))
+    .sort((a, b) => compare(a.item, b.item) || a.index - b.index)
+    .map(({ item }) => item);
+
+const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+console.log(stableSort(arr, () => 0));
+","Hard
+"
+139,JavaScript: Split a multiline string into an array of lines,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Split a multiline string into an array of lines</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const splitLines = str => str.split(/\r?\n/);
+console.log('Original string:');
+console.log('This\nis a\nmultiline\nstring.\n');
+console.log(splitLines('This\nis a\nmultiline\nstring.\n'));
+","Medium
+"
+143,JavaScript: Sort the characters of a string Alphabetically,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Sort the characters of a string Alphabetically</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const sortCharactersInString = str => [...str].sort((a, b) => a.localeCompare(b)).join('');
+
+console.log(sortCharactersInString('cabbage'));
+
+console.log(sortCharactersInString('a7fs23l1n4o6x'));
+","Hard
+"
+144,JavaScript: Get an array of elements that appear in both arrays,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Get an array of elements that appear in both arrays</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const similarity = (arr, values) => arr.filter(v => values.includes(v));
+
+console.log(similarity([1, 2, 3], [1, 2, 4]));
+","Medium
+"
+145,"JavaScript: Randomize the order of the values of an array, returning a new array","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Randomize the order of the values of an array, returning a new array</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const shuffle = ([...arr]) => {
+  let m = arr.length;
+  while (m) {
+    const i = Math.floor(Math.random() * m--);
+    [arr[m], arr[i]] = [arr[i], arr[m]];
+  }
+  return arr;
+};
+const foo = [1, 2, 3];
+
+console.log(shuffle(foo));
+","Easy
+"
+146,JavaScript: Create a shallow clone of an object,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Create a shallow clone of an object</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const shallowClone = obj => Object.assign({}, obj);
+const a = { x: true, y: 1 };
+const b = shallowClone(a);  
+
+console.log(b);
+","Medium
+"
+148,JavaScript: Hash the input string into a whole number,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Hash the input string into a whole number</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const sdbm = str => {
+  let arr = str.split('');
+  return arr.reduce(
+    (hashCode, currentVal) =>
+      (hashCode = currentVal.charCodeAt(0) + (hashCode << 6) + (hashCode << 16) - hashCode),
+    0
+  );
+};
+
+console.log(sdbm('name'));
+","Hard
+"
+149,JavaScript: Get a random element from an array,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Get a random element from an array</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const sample = arr => arr[Math.floor(Math.random() * arr.length)];
+console.log(sample([3, 7, 9, 11]));
+","Easy
+"
+150,JavaScript: Run a given array of promises in series,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Run a given array of promises in series</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const runPromisesInSeries = ps => ps.reduce((p, next) => p.then(next), Promise.resolve());
+const delay = d => new Promise(r => setTimeout(r, d));
+
+// Executes each promise sequentially, taking a total of 3 seconds to complete
+
+runPromisesInSeries([() => delay(1000), () => delay(2000)]);
+","Easy
+"
+152,JavaScript: Round a number to a specified amount of digits,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Round a number to a specified amount of digits</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const round = (n, decimals = 0) => Number(`${Math.round(`${n}e${decimals}`)}e-${decimals}`);
+
+console.log(round(1.005, 2));
+console.log(round(1.05, 2));
+console.log(round(1.0005, 2));
+","Medium
+"
+154,JavaScript: Create an object composed of the properties the given function returns falsey for,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Create an object composed of the properties the given function returns falsey for</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const omitBy = (obj, fn) =>
+  Object.keys(obj)
+    .filter(k => !fn(obj[k], k))
+    .reduce((acc, key) => ((acc[key] = obj[key]), acc), {});
+
+console.log(omitBy({ a: 1, b: '2', c: 3 }, x => typeof x === 'number'));
+","Medium
+"
+155,"JavaScript: Takes a predicate and array, like Array.filter(), but only keeps x if pred(x) === false","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Takes a predicate and array, like Array.filter(), but only keeps x if pred(x) === false</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const reject = (pred, array) => array.filter((...args) => !pred(...args));
+
+console.log(reject(x => x % 2 === 0, [1, 2, 3, 4, 5]));
+
+console.log(reject(word => word.length > 4, ['Apple', 'Pear', 'Kiwi', 'Banana']));
+","Medium
+"
+157,JavaScript: Redirect to a specified URL,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Redirect to a specified URL</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const redirect = (url, asLink = true) =>
+  asLink ? (window.location.href = url) : window.location.replace(url);
+redirect('https://google.com');
+","Hard
+"
+158,JavaScript: Create a function that invokes the provided function with its arguments arranged according to the specified indexes,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Create a function that invokes the provided function with its arguments arranged according to the specified indexes</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const rearg = (fn, indexes) => (...args) => fn(...indexes.map(i => args[i]));
+var rearged = rearg(
+  function(a, b, c) {
+    return [a, b, c];
+  },
+  [2, 0, 1]
+);
+console.log(rearged('b', 'c', 'a'));
+","Hard
+"
+162,JavaScript: Convert an asynchronous function to return a promise,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Convert an asynchronous function to return a promise</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const promisify = func => (...args) =>
+  new Promise((resolve, reject) =>
+    func(...args, (err, result) => (err ? reject(err) : resolve(result)))
+  );
+const delay = promisify((d, cb) => setTimeout(cb, d));
+delay(2000).then(() => console.log('Hi!')); // // Promise resolves after 2s
+","Easy
+"
+163,JavaScript: Convert a number in bytes to a human-readable string,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Convert a number in bytes to a human-readable string</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const prettyBytes = (num, precision = 3, addSpace = true) => {
+  const UNITS = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+  if (Math.abs(num) < 1) return num + (addSpace ? ' ' : '') + UNITS[0];
+  const exponent = Math.min(Math.floor(Math.log10(num < 0 ? -num : num) / 3), UNITS.length - 1);
+  const n = Number(((num < 0 ? -num : num) / 1000 ** exponent).toPrecision(precision));
+  return (num < 0 ? '-' : '') + n + (addSpace ? ' ' : '') + UNITS[exponent];
+};
+console.log(prettyBytes(1000));
+console.log(prettyBytes(-27145424323.5821, 5));
+console.log(prettyBytes(123456789, 3, false));
+","Hard
+"
+164,JavaScript: Return the singular or plural form of the word based on the input number,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Return the singular or plural form of the word based on the input number</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const pluralize = (val, word, plural = word + 's') => {
+  const _pluralize = (num, word, plural = word + 's') =>
+    [1, -1].includes(Number(num)) ? word : plural;
+  if (typeof val === 'object') return (num, word) => _pluralize(num, word, val[word]);
+  return _pluralize(val, word, plural);
+};
+pluralize(0, 'apple'); // 'apples'
+pluralize(1, 'apple'); // 'apple'
+pluralize(2, 'apple'); // 'apples'
+pluralize(2, 'person', 'people'); // 'people'
+
+const PLURALS = {
+  person: 'people',
+  radius: 'radii'
+};
+const autoPluralize = pluralize(PLURALS);
+console.log(autoPluralize(2, 'person')); // 'people'
+","Medium
+"
+165,JavaScript: Perform left-to-right function composition,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Perform left-to-right function composition</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const pipeFunctions = (...fns) => fns.reduce((f, g) => (...args) => g(f(...args)));
+const add5 = x => x + 5;
+const multiply = (x, y) => x * y;
+const multiplyAndAdd5 = pipeFunctions(multiply, add5);
+
+console.log(multiplyAndAdd5(5, 2));
+console.log(multiplyAndAdd5(16, 2));
+","Easy
+"
+166,JavaScript: Perform left-to-right function composition for asynchronous functions,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Perform left-to-right function composition for asynchronous functions</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const pipeAsyncFunctions = (...fns) => arg => fns.reduce((p, f) => p.then(f), Promise.resolve(arg));
+const sum = pipeAsyncFunctions(
+  x => x + 1,
+  x => new Promise(resolve => setTimeout(() => resolve(x + 2), 1000)),
+  x => x + 3,
+  async x => (await x) + 4
+);
+(async () => {
+  console.log(await sum(5)); // 15 (after one second)
+})();
+","Medium
+"
+167,JavaScript: Calculate how many numbers in the given array are less or equal to the given value using the percentile formula,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Calculate how many numbers in the given array are less or equal to the given value using the percentile formula</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const percentile = (arr, val) =>
+  (100 * arr.reduce((acc, v) => acc + (v < val ? 1 : 0) + (v === val ? 0.5 : 0), 0)) / arr.length;
+
+console.log(percentile([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 6));
+","Hard
+"
+169,JavaScript: Create a function that invokes fn with partials appended to the arguments it receives,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Create a function that invokes fn with partials appended to the arguments it receives</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const partialRight = (fn, ...partials) => (...args) => fn(...args, ...partials);
+const greet = (greeting, name) => greeting + ' ' + name + '!';
+const greetJohn = partialRight(greet, 'John');
+console.log(greetJohn('Hello'));
+","Hard
+"
+171,JavaScript: Parse a HTTP Cookie header string and return an object of all cookie name-value pairs,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Parse a HTTP Cookie header string and return an object of all cookie name-value pairs</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const parseCookie = str =>
+  str
+    .split(';')
+    .map(v => v.split('='))
+    .reduce((acc, v) => {
+      acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
+      return acc;
+    }, {});
+console.log(parseCookie('foo=bar; equation=E%3Dmc%5E2'));
+","Medium
+"
+173,,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Get the nth element of a given array</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const nthElement = (arr, n = 0) => (n > 0 ? arr.slice(n, n + 1) : arr.slice(n))[0];
+console.log(nthElement(['a', 'b', 'c'], 1));
+console.log(nthElement(['a', 'b', 'b'], -3));
+","Medium
+"
+174,JavaScript: Convert a NodeList to an array,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Convert a NodeList to an array</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const nodeListToArray = nodeList => Array.prototype.slice.call(nodeList);
+console.log(nodeListToArray(document.childNodes));
+","Medium
+"
+175,JavaScript: Get the index of the function in an array of functions which executed the fastest,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Get the index of the function in an array of functions which executed the fastest</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const mostPerformant = (fns, iterations = 10000) => {
+  const times = fns.map(fn => {
+    const before = performance.now();
+    for (let i = 0; i < iterations; i++) fn();
+    return performance.now() - before;
+  });
+  return times.indexOf(Math.min(...times));
+};
+
+console.log(mostPerformant([
+  () => {
+    // Loops through the entire array before returning `false`
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, '10'].every(el => typeof el === 'number');
+  },
+  () => {
+    // Only needs to reach index `1` before returning false
+    [1, '2', 3, 4, 5, 6, 7, 8, 9, 10].every(el => typeof el === 'number');
+  }
+])); // 1
+","Medium
+"
+177,"JavaScript: Get the minimum value of an array, after mapping each element to a value using the provided function","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Get the minimum value of an array, after mapping each element to a value using the provided function</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const minBy = (arr, fn) => Math.min(...arr.map(typeof fn === 'function' ? fn : val => val[fn]));
+console.log(minBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], o => o.n));
+console.log(minBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], 'n'));
+","Easy
+"
+178,JavaScript: Create a new object from the combination of two or more objects,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Create a new object from the combination of two or more objects</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const merge = (...objs) =>
+  [...objs].reduce(
+    (acc, obj) =>
+      Object.keys(obj).reduce((a, k) => {
+        acc[k] = acc.hasOwnProperty(k) ? [].concat(acc[k]).concat(obj[k]) : obj[k];
+        return acc;
+      }, {}),
+    {}
+  );
+const object = {
+  a: [{ x: 2 }, { y: 4 }],
+  b: 1
+};
+const other = {
+  a: { z: 3 },
+  b: [2, 3],
+  c: 'foo'
+};
+console.log(merge(object, other));
+","Easy
+"
+179,"JavaScript: Compare two objects to determine if the first one contains equivalent property values to the second one, based on a provided function","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Compare two objects to determine if the first one contains equivalent property values to the second one, based on a provided function</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const matchesWith = (obj, source, fn) =>
+  Object.keys(source).every(
+    key =>
+      obj.hasOwnProperty(key) && fn
+        ? fn(obj[key], source[key], key, obj, source)
+        : obj[key] == source[key]
+  );
+const isGreeting = val => /^h(?:i|ello)$/.test(val);
+
+console.log(matchesWith(
+  { greeting: 'hello' },
+  { greeting: 'hi' },
+  (oV, sV) => isGreeting(oV) && isGreeting(sV)
+));
+","Medium
+"
+180,"JavaScript: Create a new object from the specified object, where all the keys are in lowercase","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Create a new object from the specified object, where all the keys are in lowercase</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const lowercaseKeys = obj =>
+  Object.keys(obj).reduce((acc, key) => {
+    acc[key.toLowerCase()] = obj[key];
+    return acc;
+  }, {});
+const myObj = { Name: 'Adam', sUrnAME: 'Smith' };
+const myObjLower = lowercaseKeys(myObj);
+console.log(myObjLower);
+","Easy
+"
+186,JavaScript: Check whether the given argument is a symbol,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Check whether the given argument is a symbol</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const isSymbol = val => typeof val === 'symbol';
+console.log(isSymbol(Symbol('x')));
+console.log(isSymbol(Symbol(1)));
+console.log(isSymbol(Symbol(')')));
+","Medium
+"
+188,"JavaScript: Return 1 if the array is sorted in ascending order, -1 if it is sorted in descending order or 0 if it is not sorted","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Return 1 if the array is sorted in ascending order, -1 if it is sorted in descending order or 0 if it is not sorted</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const isSorted = arr => {
+  let direction = -(arr[0] - arr[1]);
+  for (let [i, val] of arr.entries()) {
+    direction = !direction ? -(arr[i - 1] - arr[i]) : direction;
+    if (i === arr.length - 1) return !direction ? 0 : direction;
+    else if ((val - arr[i + 1]) * direction > 0) return 0;
+  }
+};
+console.log(isSorted([0, 1, 2, 2]));
+console.log(isSorted([4, 3, 2]));
+console.log(isSorted([4, 3, 5]));
+","Hard
+"
+189,"JavaScript: Return true if an object looks like a Promise, false otherwise","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Return true if an object looks like a Promise, false otherwise</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const isPromiseLike = obj =>
+  obj !== null &&
+  (typeof obj === 'object' || typeof obj === 'function') &&
+  typeof obj.then === 'function';
+
+console.log(isPromiseLike({
+  then: function() {
+    return '';
+  }
+})); 
+console.log(isPromiseLike(null));
+console.log(isPromiseLike({}));
+","Medium
+"
+190,JavaScript: Get a boolean determining if the passed value is primitive or not,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Get a boolean determining if the passed value is primitive or not</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const isPrimitive = val => !['object', 'function'].includes(typeof val) || val === null;
+
+console.log(isPrimitive(null));
+console.log(isPrimitive(50));
+console.log(isPrimitive('Hello!'));
+console.log(isPrimitive(false));
+console.log(isPrimitive(Symbol()));
+console.log(isPrimitive([]));
+","Hard
+"
+191,JavaScript: Check whether the provided integer is a prime number or not,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Check whether the provided integer is a prime number or not</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const isPrime = num => {
+  const boundary = Math.floor(Math.sqrt(num));
+  for (var i = 2; i <= boundary; i++) if (num % i === 0) return false;
+  return num >= 2;
+};
+
+console.log(isPrime(11));
+console.log(isPrime(17));
+console.log(isPrime(8));
+","Medium
+"
+195,JavaScript: Check if a given argument is a number,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Check if a given argument is a number</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const isNumber = val => typeof val === 'number';
+
+console.log(isNumber('1'));
+console.log(isNumber(1));
+","Medium
+"
+201,JavaScript: Check whether the first numeric argument is divisible by the second one,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Check whether the first numeric argument is divisible by the second one</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const isDivisible = (dividend, divisor) => dividend % divisor === 0;
+
+console.log(isDivisible(6, 3));
+console.log(isDivisible(5, 3));
+console.log(isDivisible(100, 10));
+console.log(isDivisible(0, 3));
+","Hard
+"
+206,"JavaScript: Check whether a given string is an anagram of another string (case-insensitive, ignores spaces, punctuation and special characters)","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Check whether a given string is an anagram of another string</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const isAnagram = (str1, str2) => {
+  const normalize = str =>
+    str
+      .toLowerCase()
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
+      .sort()
+      .join('');
+  return normalize(str1) === normalize(str2);
+};
+console.log(isAnagram('iceman', 'cinema')); 
+console.log(isAnagram('madam', 'madam'));
+","Easy
+"
+210,"JavaScript: Get a list of elements that exist in both arrays, after applying the provided function to each array element of both","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Get a list of elements that exist in both arrays, after applying the provided function to each array element of both</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const intersectionBy = (a, b, fn) => {
+  const s = new Set(b.map(x => fn(x)));
+  return a.filter(x => s.has(fn(x)));
+};
+
+console.log(intersectionBy([2.1, 1.2], [2.3, 3.4], Math.floor));
+","Hard
+"
+212,JavaScript: Create a n-dimensional array with given value,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Create a n-dimensional array with given value</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const initializeNDArray = (val, ...args) =>
+  args.length === 0
+    ? val
+    : Array.from({ length: args[0] }).map(() => initializeNDArray(val, ...args.slice(1)));
+
+console.log(initializeNDArray(1, 3));
+console.log(initializeNDArray(5, 2, 2, 2));
+","Medium
+"
+215,JavaScript: Get all the elements of an array except the last one,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Get all the elements of an array except the last one</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const initial = arr => arr.slice(0, -1);
+console.log(initial([1, 2, 3]));  
+console.log(initial([0, -1, -2]));
+","Medium
+"
+223,JavaScript: Calculate the greatest common divisor between two or more numbers/arrays,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Calculate the greatest common divisor between two or more numbers/arrays</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const gcd = (...arr) => {
+  const _gcd = (x, y) => (!y ? x : gcd(y, x % y));
+  return [...arr].reduce((a, b) => _gcd(a, b));
+};
+console.log(gcd(8, 36));
+console.log(gcd(...[12, 8, 32]));
+","Medium
+"
+224,JavaScript: Remove HTML/XML tags from string,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Remove HTML/XML tags from string</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const stripHTMLTags = str => str.replace(/<[^>]*>/g, '');
+console.log(stripHTMLTags('<p><em>lorem</em> <strong>ipsum</strong></p>'));
+","Medium
+"
+225,JavaScript: Get the standard deviation of an array of numbers,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Get the standard deviation of an array of numbers</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const standardDeviation = (arr, usePopulation = false) => {
+  const mean = arr.reduce((acc, val) => acc + val, 0) / arr.length;
+  return Math.sqrt(
+    arr.reduce((acc, val) => acc.concat((val - mean) ** 2), []).reduce((acc, val) => acc + val, 0) /
+      (arr.length - (usePopulation ? 0 : 1))
+  );
+};
+
+console.log(standardDeviation([10, 2, 38, 23, 38, 23, 21]));
+console.log(standardDeviation([10, 2, 38, 23, 38, 23, 21], true));
+","Medium
+"
+226,JavaScript: Get n random elements at unique keys from array up to the size of array,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Get n random elements at unique keys from array up to the size of array</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const sampleSize = ([...arr], n = 1) => {
+  let m = arr.length;
+  while (m) {
+    const i = Math.floor(Math.random() * m--);
+    [arr[m], arr[i]] = [arr[i], arr[m]];
+  }
+  return arr.slice(0, n);
+};
+
+console.log(sampleSize([1, 2, 3], 2)); 
+console.log(sampleSize([1, 2, 3], 4));
+","Medium
+"
+233,JavaScript: Flatten an object with the paths for keys,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Flatten an object with the paths for keys</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const flattenObject = (obj, prefix = '') =>
+  Object.keys(obj).reduce((acc, k) => {
+    const pre = prefix.length ? prefix + '.' : '';
+    if (typeof obj[k] === 'object') Object.assign(acc, flattenObject(obj[k], pre + k));
+    else acc[pre + k] = obj[k];
+    return acc;
+  }, {});
+console.log(flattenObject({ a: { b: { c: 1 } }, d: 1 }));
+","Medium
+"
+237,"JavaScript: Generate an array, containing the Fibonacci sequence, up until the nth term","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Generate an array, containing the Fibonacci sequence, up until the nth term</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const fibonacci = n =>
+  Array.from({ length: n }).reduce(
+    (acc, val, i) => acc.concat(i > 1 ? acc[i - 1] + acc[i - 2] : i),
+    []
+  );
+console.log(fibonacci(2)); 
+console.log(fibonacci(3)); 
+console.log(fibonacci(6));
+","Medium
+"
+238,JavaScript: Calculate the factorial of a number,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Calculate the factorial of a number</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const factorial = n =>
+  n < 0
+    ? (() => {
+        throw new TypeError('Negative numbers are not allowed!');
+      })()
+    : n <= 1
+      ? 1
+      : n * factorial(n - 1);
+
+console.log(factorial(1));
+console.log(factorial(5));
+console.log(factorial(7));
+","Medium
+"
+241,JavaScript: Remove elements in an array until the passed function returns true,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Remove elements in an array until the passed function returns true</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const dropWhile = (arr, func) => {
+  while (arr.length > 0 && !func(arr[0])) arr = arr.slice(1);
+  return arr;
+};
+
+console.log(dropWhile([1, 2, 3, 4], n => n >= 3));
+","Hard
+"
+246,JavaScript: Convert an given angle from degrees to radians,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Convert an given angle from degrees to radians</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const degreesToRads = deg => (deg * Math.PI) / 180.0;
+console.log(degreesToRads(90.0));
+console.log(degreesToRads(30.0));
+","Hard
+"
+248,JavaScript: Deep flatten an array,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Deep flatten an array</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const deepFlatten = arr => [].concat(...arr.map(v => (Array.isArray(v) ? deepFlatten(v) : v)));
+console.log(deepFlatten([1, [2], [[3], 4], 5]));
+","Easy
+"
+251,JavaScript: Write a JSON object to a file,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Write a JSON object to a file</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const fs = require('fs');
+const JSONToFile = (obj, filename) =>
+  fs.writeFile(`${filename}.json`, JSON.stringify(obj, null, 2));
+JSONToFile({ test: 'is passed' }, 'testJsonFile'); // writes the object to 'testJsonFile.json'
+","Medium
+"
+255,"JavaScript: Return true if the provided predicate function returns true for at least one element in a collection, false otherwise","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Return true if the provided predicate function returns true for at least one element in a collection, false otherwise</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const any = (arr, fn = Boolean) => arr.some(fn);
+console.log(any([0, 1, 2, 0], x => x >= 2));
+console.log(any([0, 0, 1, 0]));
+","Medium
+"
+264,JavaScript: Capitalize the first letter of every word in a string,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Capitalize the first letter of every word in a string</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const capitalizeEveryWord = str => str.replace(/\b[a-z]/g, char => char.toUpperCase());
+console.log(capitalizeEveryWord('hello world!'));
+","Easy
+"
+265,JavaScript: Chunk an array into smaller arrays of a specified size,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Chunk an array into smaller arrays of a specified size</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const chunk = (arr, size) =>
+  Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
+    arr.slice(i * size, i * size + size)
+  );
+console.log(chunk([1, 2, 3, 4, 5], 2));
+","Easy
+"
+266,JavaScript: Clamp number within the inclusive range specified by the given boundary values a and b,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Clamp number within the inclusive range specified by the given boundary values a and b</title>
+</head>
+<body>
+
+</body>
+</html>
+","//#Source https://bit.ly/2neWfJ2 
+const clampNumber = (num, a, b) => Math.max(Math.min(num, Math.max(a, b)), Math.min(a, b));
+console.log(clampNumber(2, 3, 5));
+console.log(clampNumber(1, -1, -5));
+","Easy
+"
