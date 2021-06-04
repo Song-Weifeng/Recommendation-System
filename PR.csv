@@ -1,0 +1,31 @@
+,id,sim_value,
+0,1,1,JavaScript: Get the first element of an array
+2,3,1,JavaScript: Get the first element of an array
+3,4,0.997756172,JavaScript: Get the last element of an array
+39,40,0.993353877,"JavaScript: Generate an array of specified length, the content of the array is integer numbers, increase by one from starting"
+203,204,0.990582533,JavaScript: Minimum date from an array of dates
+445,443,0.990199048,JavaScript: Get an array of lines from the specified file
+392,391,0.987548241,"JavaScript: Get all unique values (form the right side of the array) of an array, based on a provided comparator function"
+636,636,0.986781986,JavaScript: Compute the sum of an array of integers 
+202,203,0.985130682,JavaScript: Maximum date from an array of dates
+393,392,0.981999384,"JavaScript: Get?all unique values of an array, based on a provided comparator function"
+578,579,0.980446358,JavaScript: Calculate the sum of values in an array 
+500,500,0.979930631,JavaScript: Get all indices of values in an array
+579,580,0.976993464,JavaScript: Calculate the product of values in an array 
+7,7,0.976983467,JavaScript: Sort the items of an array
+320,319,0.973960048,JavaScript: Get?an array of given n random integers in the specified range
+461,459,0.972445607,JavaScript: Get the index of the function in an array of functions which executed the fastest
+9,10,0.971571043,JavaScript: Print the elements of an array
+509,509,0.970949288,JavaScript: Get the standard deviation of an array of numbers
+373,372,0.969549408,JavaScript: Get the median of an array of numbers
+172,173,0.968735867,JavaScript: Create an array of prefix sums of the given array
+372,371,0.968428645,JavaScript: Get the n maximum elements from the provided array
+11,12,0.968147796,JavaScript: Compute the sum and product of an array of integers
+307,307,0.967963618,"JavaScript: Filter out the non-unique values in an array, based on a provided comparator function"
+499,499,0.967451547,JavaScript: Get all the elements of an array except the last one
+397,396,0.964322009,JavaScript: Unflatten an object with the paths for keys
+514,515,0.962894857,"JavaScript: Iterate over all own properties of an object in reverse, running a callback for each one"
+516,517,0.961882407,JavaScript: Flatten an object with the paths for keys
+1,2,0.960582273,JavaScript: Clone an array
+709,707,0.959533039,JavaScript: Escapes special characters for use in HTML
+167,168,0.958434615,JavaScript: Get the largest even number from an array of integers
