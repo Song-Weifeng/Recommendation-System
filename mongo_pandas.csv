@@ -1,0 +1,47 @@
+id,title
+1,JavaScript: Check whether an 'input' is a string or not 
+2,JavaScript: Check whether a string is blank or not 
+3,JavaScript: Split a string and convert it into an array of words 
+4,JavaScript: Extract a specific number of characters from a string 
+5,JavaScript: Convert a string in abbreviated form 
+6,JavaScript: Hide email addresses to protect from unauthorized user 
+7,JavaScript: Parameterize a string 
+8,JavaScript: Make capitalize the first letter of a string 
+9,JavaScript: Make capitalize the first letter of each word in a string 
+10,JavaScript: Input a string and converts upper case letters to lower and vice versa 
+11,JavaScript: Convert a string into camel case 
+12,JavaScript: Make a string uncamelize
+13,JavaScript: Concatenate a specific string for a specific number of times
+14,JavaScript: Insert a string within a specific position in another string
+15,JavaScript: Formats a number to a human-readable string
+16,JavaScript: Truncate a string if it is longer than the specified number of characters
+17,JavaScript: Chop a string into chunks of a specific length
+18,JavaScript: Count the occurrence of a substring in a string
+19,JavaScript: Escape a HTML string
+20,"JavaScript: Pad (left, right) a string to get to a determined length"
+21,JavaScript: Repeat a string a specified times
+22,JavaScript: Get a part of string after a specified character
+23,JavaScript: Strip leading and trailing spaces from a string
+24,JavaScript: Truncate a string to a certain number of words
+25,JavaScript: Alphabetize a given string
+26,JavaScript: Remove the first occurrence of a given 'search string' from a string
+27,JavaScript: Convert ASCII to Hexadecimal format
+28,JavaScript: Convert Hexadecimal to ASCII format
+29,JavaScript: Find a word within a string
+30,JavaScript: Check if a string ends with specified suffix
+31,JavaScript: Escapes special characters for use in HTML
+32,JavaScript: Remove non-printable ASCII chars
+33,JavaScript: Remove non-word characters
+34,JavaScript: Convert a string to title case
+35,JavaScript: Remove HTML/XML tags from string
+37,JavaScript: Test case insensitive (except special Unicode characters) string comparison
+38,JavaScript: Create a case-insensitive search
+39,JavaScript: Uncapitalize the first character of a string
+41,JavaScript: Capitalize each word in the string
+42,JavaScript: Uncapitalize each word in the string
+43,JavaScript: Test whether the character at the provided character index is upper case
+45,JavaScript: Get humanized number with the correct suffix
+46,JavaScript: Test whether a string starts with a specified string
+47,JavaScript: Test whether a string ends with a specified string
+48,JavaScript: Get the successor of a string
+49,"JavaScript: Get unique guid of the specified length, or 32 by default"
