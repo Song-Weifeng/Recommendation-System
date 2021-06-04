@@ -1,0 +1,56 @@
+2,JavaScript: Store and display the values of text boxes of a form,"<!DOCTYPE html>
+<html><head>
+<meta charset=utf-8 />
+<title>Return first and last name from a form - w3resource</title>
+</head><body>
+<form id=""form1"" onsubmit=""getFormvalue()"">
+First name: <input type=""text"" name=""fname"" value=""David""><br>
+Last name: <input type=""text"" name=""lname"" value=""Beckham""><br>
+<input type=""submit"" value=""Submit"">
+</form>
+</body>
+</html>
+","function getFormvalue()
+{
+  var x=document.getElementById(""form1"");
+  for (var i=0;i<x.length;i++)
+  {
+   if (x.elements[i].value!='Submit')
+    {  
+      console.log(x.elements[i].value);
+     }  
+   }
+}
+","Easy
+"
+7,"JavaScript: Create a user defined table, accepting rows and columns","
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Change the content of a cell</title>
+<style type=""text/css"">
+body {margin: 30px;}
+</style>  
+</head><body>
+<table id=""myTable"" border=""1"">
+</table><form>
+<input type=""button"" onclick=""createTable()"" value=""Create the table"">
+</form></body></html>
+","function createTable()
+{
+rn = window.prompt(""Input number of rows"", 1);
+cn = window.prompt(""Input number of columns"",1);
+  
+ for(var r=0;r<parseInt(rn,10);r++)
+  {
+   var x=document.getElementById('myTable').insertRow(r);
+   for(var c=0;c<parseInt(cn,10);c++)  
+    {
+     var y=  x.insertCell(c);
+     y.innerHTML=""Row-""+r+"" Column-""+c; 
+    }
+   }
+}
+","Easy
+"

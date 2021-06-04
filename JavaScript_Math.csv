@@ -1,0 +1,1316 @@
+1,JavaScript: Convert a number from one base to another,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Base convert</title>
+</head>
+<body>
+
+</body>
+</html>
+","var base_convert = function(number, initial_base, change_base) {
+   if ((initial_base && change_base) <2 || (initial_base && change_base)>36)
+    return 'Base between 2 and 36';
+   
+    return parseInt(number + '', initial_base)
+    .toString(change_base);
+}
+
+console.log(base_convert('E164',16,8));
+console.log(base_convert(1000,2,8));
+","Easy
+"
+2,JavaScript: Convert a binary number to a decimal number,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Binary number to a decimal number</title>
+</head>
+<body>
+
+</body>
+</html>
+","function bin_to_dec(bstr) { 
+    return parseInt((bstr + '')
+    .replace(/[^01]/gi, ''), 2);
+}
+console.log(bin_to_dec('110011'));
+console.log(bin_to_dec('100'));
+","Easy
+"
+3,"JavaScript: Convert a decimal number to binary, hexadecimal or octal number","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Convert a decimal number to binary, hexadecimal or octal number</title>
+</head>
+<body>
+
+</body>
+</html>
+","dec_to_bho  = function(n, base) {
+ 
+    if (n < 0) {
+      n = 0xFFFFFFFF + n + 1;
+     } 
+switch (base)  
+{  
+case 'B':  
+return parseInt(n, 10).toString(2);
+break;  
+case 'H':  
+return parseInt(n, 10).toString(16);
+break;  
+case 'O':  
+return parseInt(n, 10).toString(8);
+break;  
+default:  
+return(""Wrong input........."");  
+}  
+}
+
+console.log(dec_to_bho(120,'B'));
+console.log(dec_to_bho(120,'H'));
+console.log(dec_to_bho(120,'O'));
+","Easy
+"
+4,JavaScript: Generate a random integer,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Javascript random function</title>
+</head>
+<body>
+
+</body>
+</html>
+","rand = function(min, max) {
+  if (min==null && max==null)
+    return 0;    
+  
+  if (max == null) {
+      max = min;
+      min = 0;
+    }
+    return min + Math.floor(Math.random() * (max - min + 1));
+  };
+ console.log(rand(20,1));
+ console.log(rand(1,10));
+ console.log(rand(6));
+ console.log(rand());
+ ","Easy
+"
+5,JavaScript: Format a number up to specified decimal places,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+ <title>JS Bin</title>
+</head>
+<body>
+
+</body>
+</html>
+","function decimals(n, d) {
+ if ((typeof n !== 'number') || (typeof d !== 'number'))
+   return false;
+    	n = parseFloat(n) || 0;
+	return n.toFixed(d);
+	}
+console.log(decimals(2.100212, 2));
+console.log(decimals(2.100212, 3));
+console.log(decimals(2100, 2));
+","Medium
+"
+6,JavaScript: Find the highest value in an array,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Find the highest value in an array</title>
+</head>
+<body>
+
+</body>
+</html>
+","function max(input) {
+     if (toString.call(input) !== ""[object Array]"")  
+       return false;
+  return Math.max.apply(null, input);
+	}
+
+console.log(max([12,34,56,1]));
+console.log(max([-12,-34,0,-56,-1]));
+","Medium
+"
+7,JavaScript: Find the lowest value in an array,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+<title>Javascript random function</title>
+</head>
+<body>
+
+</body>
+</html>
+","function min(input) {
+     if (toString.call(input) !== ""[object Array]"")  
+       return false;
+  return Math.min.apply(null, input);
+	}
+
+console.log(min([12,34,56,1]));
+console.log(min([-12,-34,0,-56,-1]));
+","Medium
+"
+8,JavaScript: Greatest common divisor (gcd) of two integers,"<!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset=""utf-8"">
+  <title>GCD of two numbers</title>
+  </head>
+  <body>
+</body>
+  </html>
+  ","function gcd_two_numbers(x, y) {
+  if ((typeof x !== 'number') || (typeof y !== 'number')) 
+    return false;
+  x = Math.abs(x);
+  y = Math.abs(y);
+  while(y) {
+    var t = y;
+    y = x % y;
+    x = t;
+  }
+  return x;
+}
+
+console.log(gcd_two_numbers(12, 13));
+console.log(gcd_two_numbers(9, 3));
+","Medium
+"
+9,JavaScript: Find the Greatest Common Divisor or GCD of more than 2 integers,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>GCD (greatest common divisor) of more than 2 integers</title>
+</head>
+<body>
+</body>
+</html>
+","function gcd_more_than_two_numbers(input) {
+  if (toString.call(input) !== ""[object Array]"")  
+        return  false;  
+  var len, a, b;
+	len = input.length;
+	if ( !len ) {
+		return null;
+	}
+	a = input[ 0 ];
+	for ( var i = 1; i < len; i++ ) {
+		b = input[ i ];
+		a = gcd_two_numbers( a, b );
+	}
+	return a;
+}
+
+function gcd_two_numbers(x, y) {
+  if ((typeof x !== 'number') || (typeof y !== 'number')) 
+    return false;
+  x = Math.abs(x);
+  y = Math.abs(y);
+  while(y) {
+    var t = y;
+    y = x % y;
+    x = t;
+  }
+  return x;
+}
+console.log(gcd_more_than_two_numbers([3,15,27]));
+console.log(gcd_more_than_two_numbers([5,10,15,25]));
+","Easy
+"
+10,JavaScript: Least common multiple (LCM) of two numbers,"<!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset=""utf-8"">
+  <title>LCM of two numbers</title>
+  </head>
+  <body>
+</body>
+  </html>
+  ","function lcm_two_numbers(x, y) {
+   if ((typeof x !== 'number') || (typeof y !== 'number')) 
+    return false;
+  return (!x || !y) ? 0 : Math.abs((x * y) / gcd_two_numbers(x, y));
+}
+
+function gcd_two_numbers(x, y) {
+  x = Math.abs(x);
+  y = Math.abs(y);
+  while(y) {
+    var t = y;
+    y = x % y;
+    x = t;
+  }
+  return x;
+}
+console.log(lcm_two_numbers(3,15));
+console.log(lcm_two_numbers(10,15));
+","Easy
+"
+11,JavaScript: Least common multiple (LCM) of more than 2 integers,"<!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset=""utf-8"">
+  <title>LCM more than two numbers</title>
+  </head>
+  <body>
+</body>
+  </html>
+  ","function lcm_more_than_two_numbers(input_array) {
+    if (toString.call(input_array) !== ""[object Array]"")  
+        return  false;  
+ var r1 = 0, r2 = 0;
+    var l = input_array.length;
+    for(i=0;i<l;i++) {
+        r1 = input_array[i] % input_array[i + 1];
+        if(r1 === 0) {
+            input_array[i + 1] = (input_array[i] * input_array[i+1]) / input_array[i + 1];
+        }
+        else {
+            r2 = input_array[i + 1] % r1;
+            if(r2 === 0) {
+                input_array[i + 1] = (input_array[i] * input_array[i + 1]) / r1;
+            }
+            else {
+                input_array[i+1] = (input_array[i] * input_array[i + 1]) / r2;
+            }
+        }
+    }
+    return input_array[l - 1];
+}
+
+console.log(lcm_more_than_two_numbers([100,90,80,7])); 
+console.log(lcm_more_than_two_numbers([5,10,15,25]));
+","Medium
+"
+12,JavaScript: Find out if a number is a natural number or not,"<!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset=""utf-8"">
+  <title>Checking for Natural Number</title>
+  </head>
+  <body>
+</body>
+  </html>
+  ",,"Easy
+"
+13,JavaScript: Test if a number is a power of 2,"<!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset=""utf-8"">
+  <title>Test if a number is a power of 2</title>
+  </head>
+  <body>
+</body>
+  </html>
+  ","function power_of_2(n) {
+ if (typeof n !== 'number') 
+      return 'Not a number'; 
+
+    return n && (n & (n - 1)) === 0;
+}
+
+console.log(power_of_2(16));
+console.log(power_of_2(18));
+console.log(power_of_2(256));
+","Easy
+"
+14,JavaScript: Round a number to a given specific decimal places,"<!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset=""utf-8"">
+  <title>Round a number to a given decimal places</title>
+  </head>
+  <body>
+</body>
+  </html>
+  ","function precise_round(num, dec){
+ 
+  if ((typeof num !== 'number') || (typeof dec !== 'number')) 
+return false; 
+
+  var num_sign = num >= 0 ? 1 : -1;
+    
+  return (Math.round((num*Math.pow(10,dec))+(num_sign*0.0001))/Math.pow(10,dec)).toFixed(dec);
+}
+
+
+console.log(precise_round(12.375,2));
+console.log(precise_round(12.37499,2));
+console.log(precise_round(-10.3079499, 3));
+","Easy
+"
+15,JavaScript: Check whether a value is an integer or not,"<!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset=""utf-8"">
+  <title>Check whether a value is an integer or not</title>
+  </head>
+  <body>
+</body>
+  </html>
+  ","function is_Int(num) {
+  
+   if (typeof num !== 'number')
+       return false; 
+  
+  return !isNaN(num) && 
+         parseInt(Number(num)) == num && 
+         !isNaN(parseInt(num, 10));
+}
+console.log(is_Int(23));
+console.log(is_Int(4e2));
+console.log(is_Int(NaN));
+console.log(is_Int(23.75));
+console.log(is_Int(-23));
+","Medium
+"
+16,JavaScript: Check whether a variable is numeric or not ,"<!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset=""utf-8"">
+  <title>Check whether a variable is numeric or not</title>
+  </head>
+  <body>
+</body>
+  </html>
+  ","function is_Numeric(num) {
+  return !isNaN(parseFloat(num)) && isFinite(num);
+}
+
+console.log(is_Numeric(12));
+console.log(is_Numeric('abcd'));
+console.log(is_Numeric('12'));
+console.log(is_Numeric(' '));
+console.log(is_Numeric(1.20));
+console.log(is_Numeric(-200));
+","Hard
+"
+17,JavaScript: Calculate the sum of values in an array ,"<!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset=""utf-8"">
+  <title>Sum of values in an array</title>
+  </head>
+  <body>
+</body>
+  </html>
+  ","function sum(input){
+             
+ if (toString.call(input) !== ""[object Array]"")
+    return false;
+      
+            var total =  0;
+            for(var i=0;i<input.length;i++)
+              {                  
+                if(isNaN(input[i])){
+                continue;
+                 }
+                  total += Number(input[i]);
+               }
+             return total;
+            }
+console.log(sum([1,2,3]));
+console.log(sum([100,-200,3]));
+console.log(sum([1,2,'a',3]));
+","Medium
+"
+18,JavaScript: Calculate the product of values in an array ,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>Product of values in an array</title>
+</head>
+<body></body>
+</html>
+","function product(input){
+ if (toString.call(input) !== ""[object Array]"")
+    return false;
+  
+         var total   =   1;
+  
+       for(var i=0;i<input.length;i++){
+               if(isNaN(input[i])){
+                 continue;
+               }
+                total   *=  Number(input[i]);
+            }
+          return total;
+        }
+console.log(product([1,2,3]));
+console.log(product([100,-200,3]));
+console.log(product([1,2,'a',3]));
+","Medium
+"
+19,JavaScript : Pythagorean function in JavaScript ,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>Pythagorean Theorem</title>
+</head>
+<body></body>
+</html>
+","function pythagorean_theorem(x, y) {
+  if ((typeof x !== 'number') || (typeof y !== 'number')) 
+return false; 
+		return Math.sqrt(x * x + y * y);
+	}
+
+console.log(pythagorean_theorem(2, 4));
+console.log(pythagorean_theorem(3, 4));
+","Easy
+"
+20,JavaScript: Evaluate binomial coefficients ,"<!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset=""utf-8"">
+  <title>Binomial coefficient</title>
+  </head>
+  <body>
+</body>
+  </html>
+  ","function binomial(n, k) {
+     if ((typeof n !== 'number') || (typeof k !== 'number')) 
+  return false; 
+    var coeff = 1;
+    for (var x = n-k+1; x <= n; x++) coeff *= x;
+    for (x = 1; x <= k; x++) coeff /= x;
+    return coeff;
+}
+
+console.log(binomial(8,3));
+console.log(binomial(10,2));
+","Easy
+"
+22,JavaScript: Convert Roman Numeral to Integer ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Write a JavaScript function that Convert Roman Numeral to Integer</title>
+</head>
+<body>
+
+</body>
+</html>
+","function roman_to_Int(str1) {
+if(str1 == null) return -1;
+var num = char_to_int(str1.charAt(0));
+var pre, curr;
+
+for(var i = 1; i < str1.length; i++){
+curr = char_to_int(str1.charAt(i));
+pre = char_to_int(str1.charAt(i-1));
+if(curr <= pre){
+num += curr;
+} else {
+num = num - pre*2 + curr;
+}
+}
+
+return num;
+}
+
+function char_to_int(c){
+switch (c){
+case 'I': return 1;
+case 'V': return 5;
+case 'X': return 10;
+case 'L': return 50;
+case 'C': return 100;
+case 'D': return 500;
+case 'M': return 1000;
+default: return -1;
+}
+}
+console.log(roman_to_Int('XXVI'));
+console.log(roman_to_Int('CI'));
+","Medium
+"
+23,JavaScript: Function to create a UUID identifier ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Write a JavaScript function to create a UUID</title>
+</head>
+<body>
+
+</body>
+</html>
+","function create_UUID(){
+    var dt = new Date().getTime();
+    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = (dt + Math.random()*16)%16 | 0;
+        dt = Math.floor(dt/16);
+        return (c=='x' ? r :(r&0x3|0x8)).toString(16);
+    });
+    return uuid;
+}
+
+console.log(create_UUID());
+","Easy
+"
+24,JavaScript: Round a number to a specified number of digits and strip extra zeros ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to round a number to a specified number of digitsand strip extra zeros (if any).</title>
+</head>
+<body>
+
+</body>
+</html>
+","//var a = -1.1230000;
+//var a = 0.0000009999999;
+//var a = 1.000000000;
+//var a = -4.55555;
+//var a = 5.0001000;
+var a = 1.1234000;
+
+var result = parseFloat(a.toFixed(4));
+console.log(result);
+","Easy
+"
+25,"JavaScript: Currency math (add, subtract, multiply, division etc.) ","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Write a JavaScript function to make currency math (add, subtract, multiply, division etc.).</title>
+</head>
+<body>
+
+</body>
+</html>
+","var n1 = '$40.24';
+var n2 = '$21.57';
+var regp = /[^0-9.-]+/g;
+
+console.log(parseFloat(n1.replace(regp, '')) +       parseFloat(n2.replace(regp, '')));
+
+console.log(parseFloat(n1.replace(regp, '')) -         parseFloat(n2.replace(regp, '')));
+
+console.log(parseFloat(n1.replace(regp, '')) *         parseFloat(n2.replace(regp, '')));
+
+console.log(parseFloat(n1.replace(regp, '')) /         parseFloat(n2.replace(regp, '')));
+","Easy
+"
+26,JavaScript: Calculate the nth root of a number ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to calculate the nth root of a number</title>
+</head>
+<body>
+
+</body>
+</html>
+","function nthroot(x, n)
+   {
+    ng = n % 2;
+    if((ng == 1) || x<0)
+       x = -x;
+    var r = Math.pow(x, 1 / n);
+    n = Math.pow(r, n);
+  
+    if(Math.abs(x - n) < 1 && (x > 0 === n > 0))
+      return ng ? -r : r; 
+   }
+console.log(nthroot(64, 2));
+console.log(nthroot(64, -2));
+","Medium
+"
+27,JavaScript: Calculate degrees between 2 points with inverse Y axis ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Write a JavaScript function to calculate degrees between 2 points with inverse Y axis</title>
+</head>
+<body>
+
+</body>
+</html>
+","function pointDirection(x1, y1, x2, y2) {
+    return Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+}
+
+console.log(pointDirection(1, 0, 12, 0));
+console.log(pointDirection(1, 0, 1, 10));
+","Easy
+"
+28,JavaScript: Round up an integer value to the next multiple of 5 ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to round up an integer value to the next multiple of 5</title>
+</head>
+<body>
+
+</body>
+</html>
+","function int_round5(num)
+{
+    return Math.ceil(num/5)*5;
+}
+
+console.log(int_round5(32));
+console.log(int_round5(137));
+console.log(int_round5(142));
+","Medium
+"
+29,JavaScript: Convert a positive number to negative number ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to convert a positive number to negative number.</title>
+</head>
+<body>
+
+</body>
+</html>
+","function pos_to_neg(num)
+{
+return -Math.abs(num);
+}
+
+console.log(pos_to_neg(15));
+","Easy
+"
+30,JavaScript: Cast a square root of a number to an integer ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to cast a square root of a number to an integer.</title>
+</head>
+<body>
+
+</body>
+</html>
+","function sqrt_to_int(num)
+{
+return parseInt(Math.sqrt(num)+"""");
+}
+
+console.log(sqrt_to_int(17));
+","Hard
+"
+31,JavaScript: Get the highest number from three different numbers ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to get the highest number from three different numbers</title>
+</head>
+<body>
+
+</body>
+</html>
+","function highest_of_three(num1, num2, num3)
+{
+    return Math.max(num1, num2, num3);  
+}
+
+console.log(highest_of_three(-5, 4, 2));
+","Easy
+"
+32,JavaScript: Calculate the percentage of a number ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to to calculate the percentage (%) of a number</title>
+</head>
+<body>
+
+</body>
+</html>
+","function percentage(num, per)
+{
+  return (num/100)*per;
+}
+          
+console.log(percentage(1000, 47.12));
+","Easy
+"
+33,JavaScript: Convert degrees to radians ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to convert degrees to radians</title>
+</head>
+<body>
+
+</body>
+</html>
+","function degrees_to_radians(degrees)
+{
+  var pi = Math.PI;
+  return degrees * (pi/180);
+}
+
+console.log(degrees_to_radians(45));
+","Easy
+"
+34,JavaScript: Convert radians to degrees ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to convert radians to degrees</title>
+</head>
+<body>
+
+</body>
+</html>
+","function radians_to_degrees(radians)
+{
+  var pi = Math.PI;
+  return radians * (180/pi);
+}
+          
+console.log(radians_to_degrees(0.7853981633974483));
+","Easy
+"
+35,JavaScript: The Pythagorean theorem ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Write a JavaScript function for the Pythagorean theorem</title>
+</head>
+<body>
+
+</body>
+</html>
+","function pythagorean(sideA, sideB){
+  return Math.sqrt(Math.pow(sideA, 2) + Math.pow(sideB, 2));
+}
+
+console.log(pythagorean(4, 3));
+","Medium
+"
+36,JavaScript: Return values that are powers of two ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function which will return values that are powers of two</title>
+</head>
+<body>
+
+</body>
+</html>
+","function isPower_of_two(num)
+  {
+     return num && (num & (num - 1)) === 0;
+}
+
+console.log(isPower_of_two(64));  
+console.log(isPower_of_two(94));
+","Hard
+"
+37,JavaScript: Limit a value inside a certain range ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to limit a value inside a certain range.</title>
+</head>
+<body>
+
+</body>
+</html>
+","function value_limit(val, min, max) {
+  return val < min ? min : (val > max ? max : val);
+}
+
+console.log(value_limit(7, 1, 12));
+console.log(value_limit(-7, 0, 12));
+console.log(value_limit(15, 0, 12));
+","Easy
+"
+38,JavaScript: Check if a number is a whole number or has a decimal place ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to check if a number is a whole number or has a decimal place</title>
+</head>
+<body>
+
+</body>
+</html>
+","function number_test(n)
+{
+   var result = (n - Math.floor(n)) !== 0; 
+   
+  if (result)
+    return 'Number has a decimal place.';
+   else
+     return 'It is a whole number.';
+  }
+
+console.log(number_test(25.66));
+
+console.log(number_test(10));
+","Easy
+"
+39,JavaScript: Print an integer with commas as thousands separators ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to print an integer with commas as thousands separators</title>
+</head>
+<body>
+
+</body>
+</html>
+","function thousands_separators(num)
+  {
+    var num_parts = num.toString().split(""."");
+    num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, "","");
+    return num_parts.join(""."");
+  }
+
+console.log(thousands_separators(1000));
+console.log(thousands_separators(10000.23));
+console.log(thousands_separators(100000));
+","Medium
+"
+40,JavaScript: Create random background color ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to create random background color</title>
+</head>
+<body>
+
+</body>
+</html>
+","function random_bg_color() {
+    var x = Math.floor(Math.random() * 256);
+    var y = Math.floor(Math.random() * 256);
+    var z = Math.floor(Math.random() * 256);
+    var bgColor = ""rgb("" + x + "","" + y + "","" + z + "")"";
+ console.log(bgColor);
+  
+    document.body.style.background = bgColor;
+    }
+
+random_bg_color();
+","Easy
+"
+41,JavaScript: Count the digits of an integer ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to count the digits of an integer.</title>
+</head>
+<body>
+
+</body>
+</html>
+","function digits_count(n) {
+  var count = 0;
+  if (n >= 1) ++count;
+
+  while (n / 10 >= 1) {
+    n /= 10;
+    ++count;
+  }
+
+  return count;
+}
+
+console.log(digits_count(12112));
+
+console.log(digits_count(457));
+","Easy
+"
+42,JavaScript: Calculate the combination of n and r ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to calculate the combination of n and r. The formula is : n!/(r!*(n - r)!)</title>
+</head>
+<body>
+
+</body>
+</html>
+","function product_Range(a,b) {
+  var prd = a,i = a;
+ 
+  while (i++< b) {
+    prd*=i;
+  }
+  return prd;
+}
+
+
+function combinations(n, r) 
+{
+  if (n==r) 
+  {
+    return 1;
+  } 
+  else 
+  {
+    r=(r < n-r) ? n-r : r;
+    return product_Range(r+1, n)/product_Range(1,n-r);
+  }
+}
+
+
+console.log(combinations(6, 2));
+console.log(combinations(5, 3));
+","Easy
+"
+43,JavaScript: Get all prime numbers from 0 to a specified number ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to get all prime numbers from 0 to num</title>
+</head>
+<body>
+
+</body>
+</html>
+","function primeFactorsTo(max)
+{
+    var store  = [], i, j, primes = [];
+    for (i = 2; i <= max; ++i) 
+    {
+        if (!store [i]) 
+          {
+            primes.push(i);
+            for (j = i << 1; j <= max; j += i) 
+            {
+                store[j] = true;
+            }
+        }
+    }
+    return primes;
+}
+
+console.log(primeFactorsTo(5));
+
+console.log(primeFactorsTo(15));
+","Medium
+"
+44,JavaScript: Show the Hamming numbers ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to show the Hamming numbers</title>
+</head>
+<body>
+
+</body>
+</html>
+","function Hamming(n) {
+        var succession = [1];
+        var length = succession.length;
+        var candidate = 2;
+        while (length < n) {
+            if (isHammingNumber(candidate)) {
+                succession[length] = candidate;
+                length++;
+            }
+            candidate++;
+        }
+        return succession;
+  }
+ function isHammingNumber(num) {
+        while (num % 5 === 0) num /= 5;
+        while (num % 3 === 0) num /= 3;
+        while (num % 2 === 0) num /= 2;
+
+        return num == 1;
+    }
+
+console.log(Hamming(20));
+","Medium
+"
+45,JavaScript: Subtract elements from one another in an array ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to subtract elements from one another in array</title>
+</head>
+<body>
+
+</body>
+</html>
+","function subtraction(arr) 
+ {
+  if (Object.prototype.toString.call(arr) === '[object Array]') {
+    var total = arr[0];
+    if (typeof (total) !== 'number') {
+      return false;
+    }
+    for (var i = 1, length = arr.length; i < length; i++)
+    {
+      if (typeof (arr[i]) === 'number')
+      {
+        total -= arr[i];
+      } 
+      else 
+      return false;
+    }
+    return total;
+   } 
+    else
+     return false;
+  }
+console.log(subtraction([7,3, 2,-1]));
+","Medium
+"
+47,JavaScript: Calculate the extended Euclid Algorithm or extended GCD ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to calculate the extended Euclid Algorithm or extended GCD</title>
+</head>
+<body>
+
+</body>
+</html>
+","function Euclid_gcd(a, b) {
+  a = +a;
+  b = +b;
+  if (a !== a || b !== b) {
+    return [NaN, NaN, NaN];
+  }
+  
+  if (a === Infinity || a === -Infinity || b === Infinity || b === -Infinity) {
+    return [Infinity, Infinity, Infinity];
+  }
+  // Checks if a or b are decimals
+  if ((a % 1 !== 0) || (b % 1 !== 0)) {
+    return false;
+  }
+  var signX = (a < 0) ? -1 : 1,
+    signY = (b < 0) ? -1 : 1,
+    x = 0,
+    y = 1,
+    u = 1,
+    v = 0,
+    q, r, m, n;
+  a = Math.abs(a);
+  b = Math.abs(b);
+
+  while (a !== 0) {
+    q = Math.floor(b / a);
+    r = b % a;
+    m = x - u * q;
+    n = y - v * q;
+    b = a;
+    a = r;
+    x = u;
+    y = v;
+    u = m;
+    v = n;
+  }
+  return [b, signX * x, signY * y];
+}
+
+console.log(Euclid_gcd(17, 4));
+","Medium
+"
+48,JavaScript: Calculate the falling factorial of a number ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to calculate the falling factorial of a number</title>
+</head>
+<body>
+
+</body>
+</html>
+","function fallingFactorial(n, k) 
+{
+  var i = (n - k + 1),
+    r = 1;
+  if (n < 0) 
+  {
+    throw new Error(""n must be positive."");
+  }
+  if (k > n)
+  {
+    throw new Error(""k cannot be greater than n."");
+  }
+  while (i <= n) 
+  {
+    r *= i++;
+  }
+  return r;
+}
+console.log(fallingFactorial(10, 2));
+","Easy
+"
+50,JavaScript: Add two complex numbers ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to add two complex numbers</title>
+</head>
+<body>
+
+</body>
+</html>
+","function Complex(real, imaginary) {
+  this.real = 0;
+  this.imaginary = 0;
+  this.real = (typeof real === 'undefined') ? this.real : parseFloat(real);
+  this.imaginary = (typeof imaginary === 'undefined') ? this.imaginary : parseFloat(imaginary);
+}
+Complex.transform = function(num) {
+  var complex;
+  complex = (num instanceof Complex) ? num : complex;
+  complex = (typeof num === 'number') ? new Complex(num, 0) : num;
+  return complex;
+};
+function display_complex(re, im) {
+  if(im === '0') return '' + re;
+  if(re === 0) return '' + im + 'i';
+  if(im < 0) return '' + re + im + 'i';
+  return '' + re + '+' + im + 'i';
+}
+function complex_num_add(first, second) {
+  var num1, num2;
+  num1 = Complex.transform(first);
+  num2 = Complex.transform(second);
+  var real = num1.real + num2.real;
+  var imaginary = num1.imaginary + num2.imaginary;
+  return display_complex(real, imaginary);
+}
+ var a = new Complex(2, -7);
+ var b = new Complex(4,  3);
+console.log(complex_num_add(a,b));
+","Easy
+"
+51,JavaScript: Subtract two complex numbers ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to subtract two complex numbers</title>
+</head>
+<body>
+
+</body>
+</html>
+","function Complex(real, imaginary) {
+  this.real = 0;
+  this.imaginary = 0;
+  this.real = (typeof real === 'undefined') ? this.real : parseFloat(real);
+  this.imaginary = (typeof imaginary === 'undefined') ? this.imaginary : parseFloat(imaginary);
+}
+Complex.transform = function(num) {
+  var complex;
+  complex = (num instanceof Complex) ? num : complex;
+  complex = (typeof num === 'number') ? new Complex(num, 0) : num;
+  return complex;
+};
+function display_complex(re, im) {
+  if(im === '0') return '' + re;
+  if(re === 0) return '' + im + 'i';
+  if(im < 0) return '' + re + im + 'i';
+  return '' + re + '+' + im + 'i';
+}
+function complex_num_subtract(first, second) {
+  var num1, num2;
+  num1 = Complex.transform(first);
+  num2 = Complex.transform(second);
+  var real = num1.real - num2.real;
+  var imaginary = num1.imaginary - num2.imaginary;
+  return display_complex(real, imaginary);   
+}
+ var a = new Complex(2, -7);
+ var b = new Complex(4,  3);
+console.log(complex_num_subtract(a,b));
+","Easy
+"
+52,JavaScript: Multiply two complex numbers ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to multiply two complex numbers</title>
+</head>
+<body>
+
+</body>
+</html>
+","function Complex(real, imaginary) {
+  this.real = 0;
+  this.imaginary = 0;
+  this.real = (typeof real === 'undefined') ? this.real : parseFloat(real);
+  this.imaginary = (typeof imaginary === 'undefined') ? this.imaginary : parseFloat(imaginary);
+}
+Complex.transform = function(num) {
+  var complex;
+  complex = (num instanceof Complex) ? num : complex;
+  complex = (typeof num === 'number') ? new Complex(num, 0) : num;
+  return complex;
+};
+function display_complex(re, im) {
+  if(im === '0') return '' + re;
+  if(re === 0) return '' + im + 'i';
+  if(im < 0) return '' + re + im + 'i';
+  return '' + re + '+' + im + 'i';
+}
+function complex_num_multiply(first, second) {
+  var num1, num2;
+  num1 = Complex.transform(first);
+  num2 = Complex.transform(second);
+   var real = (num1.real * num2.real)-(num1.imaginary * num2.imaginary);
+  var imaginary = (num1.real * num2.imaginary)+(num1.imaginary * num2.real); 
+   return display_complex(real, imaginary);   
+}
+ var a = new Complex(2, -7);
+ var b = new Complex(4,  3);
+console.log(complex_num_multiply(a,b));
+","Easy
+"
+53,JavaScript: Divide two complex numbers ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to divide two complex numbers</title>
+</head>
+<body>
+
+</body>
+</html>
+","function Complex(real, imaginary) {
+  this.real = 0;
+  this.imaginary = 0;
+  this.real = (typeof real === 'undefined') ? this.real : parseFloat(real);
+  this.imaginary = (typeof imaginary === 'undefined') ? this.imaginary : parseFloat(imaginary);
+}
+Complex.transform = function(num) {
+  var complex;
+  complex = (num instanceof Complex) ? num : complex;
+  complex = (typeof num === 'number') ? new Complex(num, 0) : num;
+  return complex;
+};
+function display_complex(re, im) {
+  if(im === '0') return '' + re;
+  if(re === 0) return '' + im + 'i';
+  if(im < 0) return '' + re + im + 'i';
+  return '' + re + '+' + im + 'i';
+}
+function complex_num_divide(first, second) {
+  var num1, num2;
+  num1 = Complex.transform(first);
+  num2 = Complex.transform(second);
+  var denom = num2.imaginary * num2.imaginary + num2.real * num2.real;
+var real = (num1.real * num2.real + num1.imaginary * num2.imaginary) /denom;
+var imaginary = (num2.real * num1.imaginary - num1.real * num2.imaginary) /denom; 
+return display_complex(real, imaginary);   
+}
+ var a = new Complex(2, -7);
+ var b = new Complex(4,  3);
+console.log(complex_num_divide(a,b));
+","Medium
+"

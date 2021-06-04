@@ -1,0 +1,752 @@
+id,exercise_title
+1,JavaScript: Get the first element of an array
+2,JavaScript: Clone an array
+3,JavaScript: Get the first element of an array
+4,JavaScript: Get the last element of an array
+5,JavaScript: Join all elements of an array into a string
+6,JavaScript: Insert dashes (-) between each two even digits of a specific number
+9,"JavaScript: Swap the case of each character of a string, upper case to lower and vice versa"
+7,JavaScript: Sort the items of an array
+8,JavaScript: Find the most frequent item of an array
+10,JavaScript: Print the elements of an array
+11,JavaScript: Find the sum of squares of a numeric vector
+12,JavaScript: Compute the sum and product of an array of integers
+13,JavaScript: Add items in a blank array and display the items
+14,"JavaScript: Remove duplicate items from an array, ignore case sensitivity"
+15,JavaScript: Display the colors entered in an array by a specific format
+16,JavaScript: Find the leap years from a given range of years
+17,JavaScript: Randomly arrange or shuffle an array
+18,JavaScript: Perform a binary search within an array
+19,JavaScript: Compute the sum of each individual index value of two or more arrays
+20,JavaScript: Find duplicate values in a array
+21,JavaScript: Flatten a nested array
+22,JavaScript: Compute the union of two arrays
+23,JavaScript: Find the difference of two arrays
+25,JavaScript: Sort the specified array of objects by title value
+24,"JavaScript: Remove null, 0, blank, false, undefined and NaN values from an array"
+26,JavaScript: Find a pair of elements from an specified array whose sum equals a specific target number
+27,JavaScript: Retrieve the value of a specified property from all elements in an array
+28,JavaScript: Find the longest common starting substring in a set of strings
+29,JavaScript: Fill an array with values on supplied bounds
+30,JavaScript: Merge two arrays and removes all duplicates elements
+31,JavaScript: Remove a specific element from an array
+32,JavaScript: Find if an array contains a specific element
+33,JavaScript: Empty an array keeping the original
+34,JavaScript: Get nth largest element from an unsorted array
+35,JavaScript: Get a random item from an array
+36,JavaScript: Create a specified number of elements and pre-filled numeric value array
+37,JavaScript: Create a specified number of elements and pre-filled string value array
+38,JavaScript: Move an array element from one position to another
+39,"JavaScript: Filter false, null, 0 and blank values from an array"
+40,"JavaScript: Generate an array of specified length, the content of the array is integer numbers, increase by one from starting"
+41,JavaScript: Generate an array between two integers of 1 step length
+42,JavaScript: Find the unique elements from two arrays
+43,JavaScript: Display the current day and time in a specific format
+44,JavaScript: Print the contents of the current window
+45,JavaScript : Display the current date
+46,"JavaScript: Find the area of a triangle where lengths of the three of its sides are 5, 6, 7"
+47,JavaScript: Rotate a string from left to right
+48,JavaScript: Check whether a given year is a leap year in the Gregorian calendar
+49,JavaScript: Find 1st January be a Sunday between a range of years
+50,JavaScript: Display a message when a number is between a range
+51,JavaScript: Calculate number of days left until next Christmas
+52,JavaScript: Calculate multiplication and division of two numbers
+53,"JavaScript: Convert temperatures to and from celsius, fahrenheit"
+54,JavaScript: Get the website URL (loading page)
+55,JavaScript: Create a variable using a user-defined name
+56,JavaScript: Get the extension of a filename
+57,JavaScript: Get the difference between a given number
+58,JavaScript: Compute the sum of the two given integers
+59,JavaScript: Compute the absolute difference between a specified number and 19
+60,JavaScript: Check two given numbers and return true if one of the number is 50 or if their sum is 50
+61,JavaScript: Check whether a given integer is within 20 of 100 or 400
+62,"JavaScript: Check two given integers, whether one is positive and another one is negative"
+63,"JavaScript: Create a new string adding ""Py"" in front of a given string"
+64,JavaScript: Remove a character at the specified position of a given string and return the new string
+65,JavaScript: Create a new string from a given string changing the position of first and last characters
+66,JavaScript: Create a new string from a given string with the first character of the given string added at the front and back
+67,JavaScript: Check whether a given positive number is a multiple of 3 or a multiple of 7
+68,JavaScript: Create a new string from a given string taking the last 3 characters and added at both the front and back
+69,JavaScript: Check whether a string starts with 'Java' and false otherwise
+70,JavaScript: Check whether two given integer values are in the range 50..99
+71,JavaScript: Check whether three given integer values are in the range 50..99
+72,"JavaScript: Check whether a string ""Script"" presents at 5th (index 4) position in a given string"
+73,JavaScript: Find the largest of three given integers
+74,JavaScript: Find a value which is nearest to 100 from two different given integer values
+75,JavaScript: Check whether two numbers are in range 40..60 or in the range 70..100 inclusive
+78,JavaScript: Check whether the last digit of the three given positive integers is same
+76,JavaScript: Find the larger number from the two given positive integers
+77,JavaScript: Check a given string contains 2 to 4 numbers of a specified character
+79,JavaScript: Create new string with first 3 characters are in lower case
+80,JavaScript: Check the total marks of a student in various examinations
+81,JavaScript: Compute the sum of the two given integers
+82,JavaScript: Check from two given integers whether one of them is 8 or their sum or difference is 8
+83,"JavaScript: Check three given numbers, if the three numbers are same return 30 otherwise return 20 and if two numbers are same return 40 "
+84,JavaScript: Check whether three given numbers are increasing in strict mode or in soft mode
+85,JavaScript: Check from three given numbers that two or all of them have the same rightmost digit
+86,JavaScript: Check from three given integers that whether a number is greater than or equal to 20 and less than one of the others
+87,JavaScript: Check two given integer values and return true if one of the number is 15 or if their sum or difference is 15
+88,JavaScript: Check from two given non-negative integers that whether one of the number is multiple of 7 or 11
+89,JavaScript: Check whether a given number presents in the range 40..10000
+90,JavaScript: Reverse a given string
+91,JavaScript: Replace every character in a given string with the character following it in the alphabet
+92,JavaScript: Capitalize the first letter of each word of a given string
+93,JavaScript: Convert a given number to hours and minutes
+94,JavaScript: Convert the letters of a given string in alphabetical order
+95,JavaScript: Check whether the characters a and b are separated by exactly 3 places anywhere in a given string
+96,JavaScript: Count the number of vowels in a given string
+97,JavaScript: Check whether a given string contains equal number of p's and t's
+98,JavaScript: Divide two positive numbers and return a string with properly formatted commas
+99,JavaScript: Create a new string of specified copies of a given string
+100,JavaScript: Create a new string of 4 copies of the last 3 characters of a given original string
+101,JavaScript: Extract the first half of a string of even length
+102,JavaScript: Create a new string without the first and last character of a given string
+103,JavaScript: Concatenate two strings except their first character
+104,JavaScript: Move last three character to the start of a specified string
+105,JavaScript: Create a string using the middle three characters of a given string of odd length
+106,JavaScript: Concatenate two strings and return the result 
+107,"JavaScript: Test whether a string end with ""Script"" "
+108,"JavaScript: Display the city name if the string begins with ""Los"" or ""New"" otherwise return blank "
+109,"JavaScript: Create a new string from a given string, removing the first and last characters of the string if the first or last character are 'P' "
+110,JavaScript: Create a new string taking the first and last n characters from a given string 
+111,JavaScript: Compute the sum of three elements of a given array of integers of length 3 
+112,JavaScript: Rotate the elements left of a given array of integers of length 3
+113,JavaScript: Check whether 1 appears in first or last position of a given array of integers
+114,JavaScript: Check whether the first and last elements are equal of a given array of integers length 3
+115,JavaScript: Reverse the elements of a given array of integers length 3
+116,JavaScript: Find the larger value between the first or last and set all the other elements with that value
+117,JavaScript: Create a new array taking the middle elements of the two arrays of integer and each length 3
+118,JavaScript: Create a new array taking the first and last elements from a given array of integers and length must be greater or equal to 1
+119,JavaScript: Test whether an array of integers of length 2 contains 1 or a 3
+120,JavaScript: Test whether an array of integers of length 2 does not contain 1 or a 3
+121,JavaScript: Test whether a given array of integers contains 30 or 40 twice
+122,JavaScript: Swap the first and last elements of a given array of integers
+123,JavaScript: Add two digits of a given positive integer of length two
+124,JavaScript: Add two positive integers without carry
+125,JavaScript: Find the longest string from a given array of strings
+126,JavaScript: Replace each character of a given string by the next one in the English alphabet
+127,JavaScript: Compute the sum of two parts and store into an array of size two
+128,JavaScript: Find the types of a specified angle
+129,JavaScript: Check whether two arrays of integers of same length are similar or not
+130,JavaScript: Check whether two given integers are similar or not
+131,JavaScript: Check whether it is possible to replace $ in a specified expression
+132,JavaScript: Find the kth greatest element of a given array of integers
+133,JavaScript: Find the maximum possible sum of some of its k consecutive numbers of a specified array of positive integers
+134,JavaScript: Find the maximum difference between any two adjacent elements of a given array of integers
+135,JavaScript: Find the maximum difference among all possible pairs of a given array of integers
+136,JavaScript: Find the number which appears most in a given array of integers
+137,JavaScript: Replace all the numbers with a specified number of a given array of integers
+138,JavaScript: Compute the sum of absolute differences of consecutive numbers of a given array of integers
+139,JavaScript: Find the shortest possible string which can create a string to make it a palindrome by adding characters to the end of it
+140,JavaScript: Switch case of the minimum possible number of letters to make a given string written in the upper case or in the lower case
+141,JavaScript: Rearrange characters of a given string in such way that it will become equal to another given string
+142,JavaScript: Check whether there is at least one element which occurs in two given sorted arrays of integers
+143,JavaScript: Check whether a given string contains only Latin letters and no two uppercase and no two lowercase letters are in adjacent positions
+144,JavaScript: Find the number of inversions of a specified array of integers
+145,JavaScript: Find the maximum number from a given positive integer by deleting exactly one digit of the given number
+146,JavaScript: Find two elements of the array such that their absolute difference is not greater than a given integer but is as close to the said integer
+147,JavaScript: Find the number of times to replace a given number with the sum of its digits until it convert to a single digit number
+148,JavaScript: Divide an integer by another integer as long as the result is an integer and return the result
+149,JavaScript: Find the number of sorted pairs formed by its elements of a given array of integers such that one element in the pair is divisible by the other one
+150,JavaScript: Create the dot products of two given 3D vectors
+151,JavaScript: Sort an array of all prime numbers between 1 and a given integer
+152,JavaScript: Find the number of even values in sequence before the first occurrence of a given number
+153,"JavaScript: Check a number from three given numbers where two numbers are equal, find the third one"
+154,JavaScript: Find the number of trailing zeros in the decimal representation of the factorial of a given number
+155,JavaScript: Calculate the sum of n + n/2 + n/4 + n/8 + ....
+156,JavaScript: Check whether a given string represents a correct sentence or not
+157,JavaScript: Check whether a matrix is a diagonal matrix or not
+158,JavaScript: Find all the possible options to replace the hash in a string
+159,JavaScript: Check whether a given matrix is an identity matrix
+160,JavaScript: Check whether a given number is in a given range
+161,JavaScript: Check whether a given integer has an increasing digits sequence
+162,JavaScript: Check whether a point lies strictly inside a given circle
+163,JavaScript: Check whether a given matrix is lower triangular or not
+164,JavaScript: Check whether a given array of integers represents either a strictly increasing or a strictly decreasing sequence
+165,JavaScript: Find whether the members of a given array of integers is a permutation of numbers from 1 to a given integer
+166,JavaScript: Create the value of NOR of two given booleans
+167,JavaScript: Find the longest string from a given array
+168,JavaScript: Get the largest even number from an array of integers
+169,JavaScript: Reverse the order of the bits in a given integer
+170,JavaScript: Find the smallest round number that is not less than a given value
+171,JavaScript: Find the smallest prime number strictly greater than a given number
+172,JavaScript: Find the number of even digits in a given integer
+173,JavaScript: Create an array of prefix sums of the given array
+174,JavaScript: Find all distinct prime factors of a given integer
+175,JavaScript: Check whether a given fraction is proper or not
+176,"JavaScript: Change the characters (lower case) in a string where a turns into z, b turns into y, c turns into x, ..., n turns into m, m turns into n, ..., z turns into a"
+177,JavaScript: Remove all characters from a given string that appear more than once
+178,JavaScript: Replace the first digit in a string (should contains at least digit) with $ character
+179,"JavaScript: Test whether a given integer is greater than 15 return the given number, otherwise return 15"
+180,JavaScript: Reverse the bits of a given 16 bits unsigned short integer
+181,JavaScript: Find the position of a rightmost round number in an array of integers. Returns 0 if there are no round number
+182,JavaScript: Check whether all the digits in a given number are the same or not
+183,JavaScript: Find the number of elements which presents in both of the given arrays
+184,JavaScript: Simplify a given absolute path for a file in Unix-style
+185,JavaScript: Sort the strings of a given array of strings in the order of increasing lengths
+186,JavaScript: Break an address of an url and put it's part into an array
+187,JavaScript: Find the maximum integer n
+188,JavaScript: Compute the sum of cubes of all integer from 1 to an given integer
+189,JavaScript: Compute the sum of all digits that occur in a given string
+190,JavaScript: Swap two halves of a given array of integers of even length
+191,JavaScript: Change the capitalization of all letters in a given string
+192,JavaScript: Swap pairs of adjacent digits of a given integer of even length
+193,JavaScript: Check whether an input is a date object or not
+194,JavaScript: Get the current date
+195,JavaScript: Get the number of days in a month
+196,JavaScript: Get the month name from a particular date
+197,JavaScript: Comparison between two dates
+198,JavaScript: Add minutes to a Date object
+199,JavaScript: Check whether a date is a weekend date
+200,JavaScript: Difference between two dates in days
+201,JavaScript: Find out the last day of a month
+202,JavaScript: Find out which day was in yesterday
+203,JavaScript: Maximum date from an array of dates
+204,JavaScript: Minimum date from an array of dates
+205,JavaScript: Return the number of minutes in hours and minutes
+206,JavaScript: Get the amount of days of a year
+207,JavaScript: Get the quarter of the year
+208,JavaScript: Count the number of days passed since beginning of the year
+209,JavaScript: Convert a Unix timestamp to time
+210,JavaScript: Calculate age
+211,"JavaScript: Get the day of the month, 2 digits with leading zeros"
+212,JavaScript: Get a textual representation of a day
+213,JavaScript: Get a full textual representation of the day of the week
+214,JavaScript: Get ISO-8601 numeric representation of the day of the week
+215,JavaScript: Get English ordinal suffix for the day of the month
+216,"JavaScript: Get ISO-8601 week number of year, weeks starting on Monday"
+217,JavaScript: Get a full textual representation of a month
+218,JavaScript: Get a numeric representation of a month
+219,JavaScript: Get a short textual representation of a month
+220,JavaScript: Get a full numeric representation of a year
+221,JavaScript: Get a two digit representation of a year
+222,JavaScript: Get lowercase Ante meridiem and Post meridiem
+223,JavaScript: Get uppercase Ante meridiem and Post meridiem
+224,JavaScript: swatch Internet time
+225,JavaScript: Get 12-hour format of an hour with leading zeros
+226,JavaScript: Get 24-hour format of an hour without leading zeros
+227,JavaScript: Get minutes with leading zeros
+228,JavaScript: Get seconds with leading zeros
+229,JavaScript: Get Timezone
+230,JavaScript: Find whether or not the date is in daylights savings time
+231,JavaScript: Get difference to Greenwich time in hours
+232,JavaScript: Get timezone offset in seconds
+233,JavaScript: Add specified years to a date
+234,JavaScript: Add specified weeks to a date
+235,JavaScript: Add specified months to a date
+236,JavaScript: Get time differences in minutes between two dates
+237,JavaScript: Get time differences in hours between two dates
+238,JavaScript: Get time differences in days between two dates 
+239,JavaScript: Get time differences in weeks between two dates 
+240,JavaScript: Get time differences in months between two dates
+241,JavaScript: Get time differences in years between two dates
+242,JavaScript: Get the week start date
+243,JavaScript: Get the week end date
+244,JavaScript: Get the month start date
+245,JavaScript: Get the month end date
+246,JavaScript: Modify paragraph text style through javascript code using button
+247,JavaScript: Store and display the values of text boxes of a form
+248,JavaScript: Set the background color of a paragraph
+249,"JavaScript: Collect the value of href, hreflang, rel, target, and type attributes of a link"
+250,JavaScript: Draw a rectangular shape
+251,JavaScript: Draw a circle
+252,"JavaScript: Draw two intersecting rectangles, one of which has alpha transparency"
+253,JavaScript: Draw a right-angled triangle
+254,JavaScript: Draw a diagram using moveto() function
+255,"JavaScript: Draw a diagram with diagonal, white to black circles"
+256,JavaScript: Reverse a number
+257,JavaScript: Check whether a passed string is palindrome or not
+258,JavaScript: Generates all combinations of a string
+259,JavaScript: Returns a passed string with letters in alphabetical order
+261,JavaScript: Find the longest word within a string
+260,JavaScript: Converts the first letter of each word of a string in upper case
+262,JavaScript: Counts the number of vowels within a string
+263,JavaScript: Check a number is prime or not
+264,JavaScript: Get the data type
+265,JavaScript: Returns n rows by n columns identity matrix
+266,JavaScript: Find the second lowest and second greatest numbers from an array
+267,JavaScript: Find a perfect number
+268,JavaScript: Compute the factors of a positive integer
+269,JavaScript: Convert an amount to coins
+270,JavaScript: Compute the value of bn where n is the exponent and b is the bases
+271,JavaScript: Extract unique characters from a string
+272,JavaScript: Number of occurrences of each letter in specified string
+273,JavaScript: Search JavaScript arrays with a binary search
+274,JavaScript: Bigger elements in an array
+275,JavaScript: Generates a string id (specified length) of random characters
+276,JavaScript: Get all possible subset with a fixed length combinations in an array
+277,JavaScript: Letter count within a string
+278,JavaScript: Find the first not repeated character
+279,JavaScript: Bubble Sort algorithm
+280,JavaScript: Accept a list of words and returns the longest
+281,JavaScript: Find longest substring in a given string without repeating characters
+282,JavaScript: The longest palindrome in a specified string
+283,JavaScript: Pass a JavaScript function as parameter
+284,JavaScript: Get the function name
+285,JavaScript: Compare two objects to determine if the first one contains equivalent property values to the second one
+286,JavaScript: Copy a string to the clipboard
+287,JavaScript: Converts a comma-separated values string to a 2D array
+288,JavaScript : Convert a comma-separated values string to a 2D array of objects
+512,JavaScript: Log the name of a function
+289,JavaScript: Convert an array of objects to a comma-separated values string that contains only the columns specified
+290,JavaScript: Target a given value in a nested JSON object
+291,JavaScript: Converts a specified number to an array of digits
+292,JavaScript: Filter out the specified values from a specified array
+293,JavaScript: Combine the numbers of a given array into an array containing all combinations
+294,JavaScript: Extract out the values at the specified indexes from a specified array
+295,JavaScript: Generate a random hexadecimal color code
+296,JavaScript: Removes non-printable ASCII characters from a given string
+297,JavaScript: Convert the length of a given string in bytes
+298,JavaScript: Replace the names of multiple object keys with the values provided
+299,"JavaScript: Return the minimum-maximum value of an array, after applying the provided function to set comparing rule"
+300,"JavaScript: Returns true if the provided predicate function returns true for all elements in a collection, false otherwise"
+301,JavaScript: Split values of two given arrays into two groups
+302,JavaScript: Remove specified elements from the left of a given array of elements
+303,JavaScript: Remove specified elements from the right of a given array of elements
+304,JavaScript: Extend a 3-digit color code to a 6-digit color code
+305,
+306,JavaScript: Filter out the non-unique values in an array
+307,"JavaScript: Filter out the non-unique values in an array, based on a provided comparator function"
+308,JavaScript: Decapitalize the first letter of a string
+309,JavaScript: Create a new array out of the two supplied by creating each possible pair from the arrays
+310,JavaScript: Return true if the string is y/yes other wise false
+311,JavaScript: Find every element that exists in any of the two given arrays once
+312,JavaScript: Measure the time taken by a function to execute
+313,JavaScript: Convert a value to a safe integer
+314,"JavaScript: Filter out the element(s) of a given array, that have one of the specified values"
+315,JavaScript: Find all elements in a given array except for the first one
+316,JavaScript: Get the sum of a given array using the provided function
+481,JavaScript: Check whether a string is lower case or not
+317,JavaScript: Get a random number in the specified range
+318,JavaScript: Get a random integer in the specified range
+319,JavaScript: Get an array of given n random integers in the specified range
+320,JavaScript: Create a function that invokes each provided function with the arguments it receives and returns the results
+321,JavaScript fundamental: Get a sorted array of objects ordered by properties and orders
+322,JavaScript: Pad a string on both sides with the specified character
+323,JavaScript: Remove the key-value pairs corresponding to the given keys from an object
+324,JavaScript: Create an array of key-value pair arrays from a given object
+325,JavaScript: Create an object from the given key-value pairs
+326,JavaScript: Get a customized coalesce function that returns the first argument that returns true from the provided argument validation function
+327,JavaScript: Change function that accepts an array into a variadic function
+328,JavaScript: Remove falsey values from a given array
+329,JavaScript: Split values into two groups with condition 
+330,JavaScript: Curry (curries) a function
+331,JavaScript: Perform a deep comparison between two values to determine if they are equivalent
+332,JavaScript: Get an array of function property names from own enumerable properties of an object
+333,JavaScript: Retrieve a set of properties indicated by the given selectors from an object
+334,"JavaScript : Convert an integer to a suffixed string, adding am or pm based on its value"
+335,JavaScript: Get an object containing the parameters of the current URL
+336,JavaScript: Group the elements of a given array based on the given function
+337,JavaScript: Initialize a two dimension array of given width and height and value
+338,JavaScript: Initialize an array containing the numbers in the specified range where start and end are inclusive with their common difference step
+339,"JavaScript: Join all given URL segments together, then normalizes the resulting URL"
+340,JavaScript: Check whether all elements in a given array are equal or not
+341,"JavaScript: Compute the average of an array, after mapping each element to a value using the provided function"
+342,JavaScript: Split values into two groups according to a predicate function
+343,JavaScript: Create a function that invokes fn with a given context
+344,JavaScript: Create a function that invokes the method at a given key of an object
+345,JavaScript: Cast the provided value as an array if it's not one
+346,JavaScript: Chain asynchronous functions
+347,JavaScript: Clone a given regular expression
+348,JavaScript: Get the first non-null / undefined argument
+349,JavaScript: Add special characters to text to print in color in the console
+350,JavaScript: Perform right-to-left function composition
+351,JavaScript: Perform left-to-right function composition
+352,JavaScript: Accepts a converging function and a list of branching functions
+353,JavaScript: Group the elements of an array based on the given function and returns the count of elements in each group
+354,JavaScript: Count the occurrences of a value in an array
+355,JavaScript: Create a deep clone of an object
+356,JavaScript: Detect whether the website is being opened in a mobile device or a desktop/laptop
+357,JavaScript: Return the difference between two arrays
+358,JavaScript: Filter out all values from an array for which the comparator function does not return true
+359,JavaScript: Compute the new ratings between two or more opponents using the Elo rating system
+360,"JavaScript: Execute a provided function once for each array element, starting from the array's last element"
+361,"JavaScript: Iterate over all own properties of an object, running a callback for each one"
+362,"JavaScript: Invert the key-value pairs of an object, without mutating it"
+363,JavaScript: Take any number of iterable objects or objects with a length property and returns the longest one
+364,JavaScript: Implement the Luhn Algorithm used to validate a variety of identification numbers
+365,JavaScript: Create an object with keys generated by running the provided function for each key and the same values as the provided object
+366,JavaScript: Map the values of an array to an object using a function
+367,JavaScript: Create a new string with the results of calling a provided function on every character in the calling string
+368,JavaScript: Create an object with the same keys as the provided object and values generated by running the provided function for each value
+369,JavaScript: Replace all but the last number of characters with the specified mask character
+370,"JavaScript: Get the maximum value of an array, after mapping each element to a value using the provided function"
+371,JavaScript: Get the n maximum elements from the provided array
+372,JavaScript: Get the median of an array of numbers
+373,JavaScript: Negates a predicate function
+374,JavaScript: Nest a given flat array of objects linked to one another recursively
+375,"JavaScript: Return true if the provided predicate function returns false for all elements in a collection, false otherwise"
+376,"JavaScript: Create a function that gets the argument at index n. If n is negative, the nth argument from the end is returned"
+377,JavaScript: Remove an event listener from an element
+378,JavaScript: Move the specified amount of elements to the end of the array
+379,JavaScript: Add an event listener to an element with the ability to use event delegation
+380,JavaScript: Pick the key-value pairs corresponding to the given keys from an object
+381,JavaScript : Create an object composed of the properties the given function returns truthy for
+382,JavaScript : Filter an array of objects based on a condition while also filtering out unspecified keys
+383,JavaScript : Hash an given input string into a whole number
+384,"JavaScript : Create an array of elements, grouped based on the position in the original arrays and using function as the last value to specify how grouped values should be combined"
+385,JavaScript: Return the object associating the properties to the values of a given array of valid property identifiers and an array of values
+386,"JavaScript: Create an array of elements, grouped based on the position in the original arrays"
+387,JavaScript: Convert a given string into an array of words
+388,"JavaScript: Test a value, x, against a predicate function"
+389,"JavaScript: Return true if the given value is a number, false otherwise"
+390,"JavaScript: Create an array of elements, ungrouping the elements in an array produced by zip and applying the provided function"
+391,"JavaScript: Get all unique values (form the right side of the array) of an array, based on a provided comparator function"
+392,"JavaScript: Get all unique values of an array, based on a provided comparator function"
+393,JavaScript : Get the nth element of a given array
+394,JavaScript: Get every element that exists in any of the two arrays once
+395,"JavaScript: Build an array, using an iterator function and an initial seed value"
+396,JavaScript: Unflatten an object with the paths for keys
+397,JavaScript: Unescape escaped HTML characters
+398,JavaScript: Uncurry a function up to depth n
+399,"JavaScript: Create a function that accepts up to one argument, ignoring any additional arguments"
+400,JavaScript: Check if the predicate is truthy on all elements of a collection
+401,JavaScript: Truncate a string up to a specified length
+402,JavaScript: Apply a function against an accumulator and each key in the object
+403,JavaScript: Create tomorrow's date in a string representation
+404,JavaScript: Convert a string to snake case
+405,JavaScript: Convert a value to a safe integer
+406,JavaScript: Add an ordinal suffix to a number
+407,JavaScript: Convert a string to kebab case
+408,JavaScript: Reduce a given Array-like into a value hash 
+409,JavaScript: Convert a float-point arithmetic to the Decimal mark form and It will make a comma separated string from a number
+410,JavaScript: Create a specified currency formatting from a given number
+411,JavaScript: Iterate over a callback n times
+412,JavaScript: Get removed elements of an given array until the passed function returns true
+413,JavaScript: Get removed elements from the end of a given array until the passed function returns true
+414,JavaScript: Remove n elements from the end of a given array
+415,JavaScript: Get an array with n elements removed from the beginning from a given array
+416,"JavaScript: Get the symmetric difference between two given arrays, using a provided function as a comparator"
+417,"JavaScript: Get the symmetric difference between two given arrays, after applying the provided function to each array element of both"
+418,JavaScript: Get the symmetric difference between two given arrays
+419,JavaScript: Get the sum of the powers of all the numbers from start to end
+420,JavaScript: Generate all permutations of a string
+421,"JavaScript: Perform stable sorting of an array, preserving the initial indexes of items when their values are the same"
+422,JavaScript: Takes a variadic function and returns a closure that accepts an array of arguments to map to the inputs of the function
+423,JavaScript: Split a multiline string into an array of lines
+468,JavaScript: Check if a given string is upper case or not
+424,"JavaScript : Get the highest index at which value should be inserted into array in order to maintain its sort order, based on a provided iterator function"
+425,JavaScript: Get the highest index at which value should be inserted into array in order to maintain its sort order
+426,JavaScript: Get the lowest index at which value should be inserted into array in order to maintain its sort order
+427,JavaScript: Sort the characters of a string Alphabetically
+428,JavaScript: Get an array of elements that appear in both arrays
+429,"JavaScript: Randomize the order of the values of an array, returning a new array"
+430,JavaScript: Create a shallow clone of an object
+431,JavaScript: Serialize a cookie name-value pair into a Set-Cookie header string
+432,JavaScript: Hash the input string into a whole number
+433,JavaScript: Get a random element from an array
+434,JavaScript: Run a given array of promises in series
+435,"JavaScript: Run a function in a separate thread by using a Web Worker, allowing long running functions to not block the UI"
+436,JavaScript: Round a number to a specified amount of digits
+437,JavaScript: Reverse the order of the characters in the string
+438,JavaScript: Create an object composed of the properties the given function returns falsey for
+439,"JavaScript: Takes a predicate and array, like Array.filter(), but only keeps x if pred(x) === false"
+440,"JavaScript: Apply a function against an accumulator and each element in the array (from left to right), returning an array of successively reduced values"
+441,JavaScript: Redirect to a specified URL
+442,JavaScript: Create a function that invokes the provided function with its arguments arranged according to the specified indexes
+443,JavaScript: Get an array of lines from the specified file
+444,"JavaScript: Mutate the original array to filter out the values specified, based on a given iterator function"
+445,JavaScript: Mutate the original array to filter out the values specified
+446,JavaScript: Convert an asynchronous function to return a promise
+447,JavaScript: Convert a number in bytes to a human-readable string
+448,JavaScript: Return the singular or plural form of the word based on the input number
+449,JavaScript: Perform left-to-right function composition
+450,JavaScript: Perform left-to-right function composition for asynchronous functions
+451,JavaScript: Calculate how many numbers in the given array are less or equal to the given value using the percentile formula
+452,"JavaScript: Group the elements into two arrays, depending on the provided function's truthiness for each element"
+453,JavaScript: Create a function that invokes fn with partials appended to the arguments it receives
+454,JavaScript: Create a function that invokes fn with partials prepended to the arguments it receives
+455,JavaScript: Parse a HTTP Cookie header string and return an object of all cookie name-value pairs
+456,JavaScript : Create a function that invokes the provided function with its arguments transformed
+457,
+458,JavaScript: Convert a NodeList to an array
+459,JavaScript: Get the index of the function in an array of functions which executed the fastest
+460,JavaScript: Get the n minimum elements from the provided array
+461,"JavaScript: Get the minimum value of an array, after mapping each element to a value using the provided function"
+462,JavaScript: Create a new object from the combination of two or more objects
+463,"JavaScript: Compare two objects to determine if the first one contains equivalent property values to the second one, based on a provided function"
+464,"JavaScript: Create a new object from the specified object, where all the keys are in lowercase"
+465,JavaScript: Get the last element from a given array
+466,JavaScript: Join all elements of an array into a string and returns this string
+467,JavaScript: Check whether the provided argument is a valid JSON
+469,"JavaScript: Return true if the specified value is undefined, false otherwise"
+470,JavaScript: Check whether the given argument is a symbol
+471,JavaScript: Check whether the given argument is a string
+472,"JavaScript: Return 1 if the array is sorted in ascending order, -1 if it is sorted in descending order or 0 if it is not sorted"
+473,"JavaScript: Return true if an object looks like a Promise, false otherwise"
+474,JavaScript: Get a boolean determining if the passed value is primitive or not
+475,JavaScript: Check whether the provided integer is a prime number or not
+476,JavaScript: Check whether the provided value is an object created by the Object constructor
+477,JavaScript: Check whether a value is object-like also check whether the provided value is not null and its typeof is equal to 'object'
+478,JavaScript: Get a boolean determining if the passed value is an object or not
+479,JavaScript: Check if a given argument is a number
+480,"JavaScript: Return true if the specified value is null, false otherwise"
+482,JavaScript: Check whether the given argument is a function
+483,"JavaScript: Return true if the given number is even, false otherwise"
+484,"JavaScript: Return true if a value is an empty object, collection, map or set, has no enumerable properties or is any type that is not considered a collection"
+485,JavaScript: Check whether the first numeric argument is divisible by the second one
+486,"JavaScript: Return true if the browser tab of the page is focused, false otherwise"
+487,JavaScript: Determine whether the current runtime environment is a browser
+488,JavaScript: Check whether the given argument is a native boolean element
+489,JavaScript: Check whether the provided argument is array-like 
+490,"JavaScript: Check whether a given string is an anagram of another string (case-insensitive, ignores spaces, punctuation and special characters)"
+491,"JavaScript: Return true if the given string is an absolute URL, false otherwise"
+492,JavaScript: Check whether the provided value is of the specified type
+493,"JavaScript: Get a list of elements that exist in both arrays, using a provided comparator function"
+494,"JavaScript: Get a list of elements that exist in both arrays, after applying the provided function to each array element of both"
+495,JavaScript: Get a list of elements that exist in both arrays
+496,JavaScript: Create a n-dimensional array with given value
+497,JavaScript: Initialize and fill an array with the specified values
+498,JavaScript: Initializes an array containing the numbers in the specified range (in reverse) where start and end are inclusive with their common difference step
+499,JavaScript: Get all the elements of an array except the last one
+500,JavaScript: Get all indices of values in an array
+501,JavaScript: Check if the given number falls within the given range
+502,JavaScript: Get the number of times a function executed per second
+503,JavaScript: Check if the current process's arguments contain the specified flags
+504,JavaScript: Get the native type of a value
+505,JavaScript: Get a string of the form HH:MM:SS from a Date object
+506,JavaScript: Initializes an array containing the numbers in the specified range
+507,JavaScript: Calculate the greatest common divisor between two or more numbers/arrays
+508,JavaScript: Remove HTML/XML tags from string
+509,JavaScript: Get the standard deviation of an array of numbers
+510,JavaScript: Get n random elements at unique keys from array up to the size of array
+511,JavaScript: Remove elements from an array for which the given function returns false
+513,JavaScript: Convert a string from camelcase
+514,JavaScript: Get the human readable format of the given number of milliseconds
+515,"JavaScript: Iterate over all own properties of an object in reverse, running a callback for each one"
+516,"JavaScript: Takes a function as an argument, then makes the first argument the last"
+517,JavaScript: Flatten an object with the paths for keys
+518,JavaScript: Flatten a given array up to the specified depth
+519,"JavaScript: Get the last key that satisfies the provided testing function, otherwise undefined is returned"
+520,JavaScript: Get the first key that satisfies the provided testing function
+521,"JavaScript: Generate an array, containing the Fibonacci sequence, up until the nth term"
+522,JavaScript: Calculate the factorial of a number
+523,JavaScript: Escape a string to use in a regular expression
+524,"JavaScript: Return true if the parent element contains the child element, false otherwise"
+525,JavaScript: Remove elements in an array until the passed function returns true
+526,JavaScript: Remove elements from the end of an array until the passed function returns true
+527,JavaScript: Get the distance between two given points
+528,JavaScript: Get the difference between two given arrays
+529,JavaScript: Invokes the provided function after wait milliseconds
+530,JavaScript: Convert an given angle from degrees to radians
+531,JavaScript: Assigns default values for all properties in an object that are undefined
+532,JavaScript: Deep flatten an array
+533,JavaScript: Get the current URL
+534,JavaScript: Create an element from a string 
+535,JavaScript: Write a JSON object to a file
+536,JavaScript: Convert the values of RGB components to a color code
+537,JavaScript: Generate a UUID in a browser
+538,JavaScript: Generate a UUID in Node.JS.
+539,"JavaScript: Return true if the provided predicate function returns true for at least one element in a collection, false otherwise"
+540,JavaScript: Check if two given numbers are approximately equal to each other
+541,JavaScript: Convert a 2D array to a comma-separated values (CSV) string
+542,"JavaScript: Create a function that accepts up to n arguments, ignoring any additional arguments"
+543,JavaScript: Decode a string of data which has been encoded using base-64 encoding
+544,JavaScript: Evaluate the binomial coefficient of two integers n and k
+545,"JavaScript: Return true if the bottom of the page is visible, false otherwise"
+546,JavaScript: Create a base-64 encoded ASCII string from a String object in which each character in the string is treated as a byte of binary data
+547,JavaScript: Capitalize the first letter of a string
+548,JavaScript: Capitalize the first letter of every word in a string
+549,JavaScript: Chunk an array into smaller arrays of a specified size
+550,JavaScript: Clamp number within the inclusive range specified by the given boundary values a and b
+551,JavaScript: Accept two integers and display the larger
+552,JavaScript: Find the sign of product of three numbers
+553,JavaScript: How to sort three numbers
+554,JavaScript: Find the largest of five numbers
+555,JavaScript: For loop that will iterate from 0 to 15 to find even and odd numbers
+557,JavaScript: Iterates the integers from 1 to 100
+556,JavaScript: Compute the average and grade of the students
+558,JavaScript: Find and print the first 5 happy numbers
+559,JavaScript: Find the armstrong numbers of 3 digits
+560,"JavaScript: Construct a pattern, using a nested for loop"
+561,JavaScript: Compute the greatest common divisor (GCD) of two positive integers
+562,JavaScript: Sum the multiples of 3 and 5 under 1000
+563,JavaScript: Convert a number from one base to another
+564,JavaScript: Convert a binary number to a decimal number
+565,"JavaScript: Convert a decimal number to binary, hexadecimal or octal number"
+566,JavaScript: Generate a random integer
+567,JavaScript: Format a number up to specified decimal places
+568,JavaScript: Find the highest value in an array
+569,JavaScript: Find the lowest value in an array
+570,JavaScript: Greatest common divisor (gcd) of two integers
+571,JavaScript: Find the Greatest Common Divisor or GCD of more than 2 integers
+572,JavaScript: Least common multiple (LCM) of two numbers
+573,JavaScript: Least common multiple (LCM) of more than 2 integers
+574,JavaScript: Find out if a number is a natural number or not
+575,JavaScript: Test if a number is a power of 2
+576,JavaScript: Round a number to a given specific decimal places
+577,JavaScript: Check whether a value is an integer or not
+578,JavaScript: Check whether a variable is numeric or not 
+579,JavaScript: Calculate the sum of values in an array 
+580,JavaScript: Calculate the product of values in an array 
+581,JavaScript : Pythagorean function in JavaScript 
+582,JavaScript: Evaluate binomial coefficients 
+583,JavaScript: Convert an integer into a Roman Numeral 
+584,JavaScript: Convert Roman Numeral to Integer 
+585,JavaScript: Function to create a UUID identifier 
+586,JavaScript: Round a number to a specified number of digits and strip extra zeros 
+587,"JavaScript: Currency math (add, subtract, multiply, division etc.) "
+588,JavaScript: Calculate the nth root of a number 
+589,JavaScript: Calculate degrees between 2 points with inverse Y axis 
+590,JavaScript: Round up an integer value to the next multiple of 5 
+591,JavaScript: Convert a positive number to negative number 
+592,JavaScript: Cast a square root of a number to an integer 
+593,JavaScript: Get the highest number from three different numbers 
+594,JavaScript: Calculate the percentage of a number 
+595,JavaScript: Convert degrees to radians 
+596,JavaScript: Convert radians to degrees 
+597,JavaScript: The Pythagorean theorem 
+598,JavaScript: Return values that are powers of two 
+599,JavaScript: Limit a value inside a certain range 
+600,JavaScript: Check if a number is a whole number or has a decimal place 
+601,JavaScript: Print an integer with commas as thousands separators 
+602,JavaScript: Create random background color 
+603,JavaScript: Count the digits of an integer 
+604,JavaScript: Calculate the combination of n and r 
+605,JavaScript: Get all prime numbers from 0 to a specified number 
+606,JavaScript: Show the Hamming numbers 
+607,JavaScript: Subtract elements from one another in an array 
+608,JavaScript: Calculate the divisor and modulus of two integers 
+609,JavaScript: Calculate the extended Euclid Algorithm or extended GCD 
+610,JavaScript: Calculate the falling factorial of a number 
+611,JavaScript: Calculate Lanczos approximation gamma 
+612,JavaScript: Add two complex numbers 
+613,JavaScript: Subtract two complex numbers 
+614,JavaScript: Multiply two complex numbers 
+615,JavaScript: Divide two complex numbers 
+616,JavaScript: List the properties of a JavaScript object 
+617,JavaScript: Delete a property from an object and print before or after deleting 
+618,JavaScript: Find the length of an object 
+619,JavaScript: Gather and display infromation from an object 
+620,JavaScript: Calculate the volume of a Cylinder 
+621,JavaScript: Sort an array using Bubble Sorting method 
+633,JavaScript: Check whether a specified value is a DOM element 
+622,JavaScript: Returns a subset of a string 
+623,JavaScript: Create a clock and display the time in each second 
+624,JavaScript: Calculate the area and perimeter of a circle 
+625,JavaScript: Sort an array of JavaScript objects 
+626,JavaScript: Print all the methods in an JavaScript object 
+627,JavaScript: Parse an URL 
+628,JavaScript: Retrieve all the names of object's own and inherited properties 
+629,JavaScript: Retrieve all the values of an object's properties 
+630,JavaScript: Convert an object into a list of pairs 
+631,JavaScript: Get a copy of the object where the keys have become the values and the values the keys 
+632,JavaScript: Check whether an object contains specified property 
+633,JavaScript: Calculate the factorial of a number 
+634,JavaScript: Find the greatest common divisor of two positive numbers 
+635,JavaScript: Get the integers in a range 
+636,JavaScript: Compute the sum of an array of integers 
+637,JavaScript: Compute the exponent of a number 
+638,JavaScript: Get the first n Fibonacci numbers 
+639,JavaScript: Check whether a number is even or not 
+640,JavaScript: Binary search using recursion 
+641,JavaScript: Marge sort - recursion 
+642,JavaScript: Check whether the first character of a string is uppercase or not 
+643,JavaScript: Check a credit card number format
+644,JavaScript: Check whether the pattern of an e-mail address matches a specific format 
+645,JavaScript: Search a date within a string 
+646,JavaScript: Alternet of trim function using regular expression 
+647,JavaScript: Count number of words in string 
+649,JavaScript: Count the number of vowels in a given string 
+648,JavaScript: Check whether a given value is IP value or not 
+650,JavaScript: Check whether a given value is an valid url or not 
+651,JavaScript: Check whether a given value is alpha numeric or not 
+652,JavaScript: Check whether a given value is time string or not 
+653,JavaScript: Check whether a given value is US zip code or not 
+654,JavaScript: Check whether a given value is UK Post Code or not 
+655,JavaScript: Check whether a given value is Canada Post Code or not 
+656,JavaScript: Check whether a given value is a social security number or not 
+657,JavaScript: Check whether a given value is hexadecimal value or not 
+658,JavaScript: Check whether a given value is hexcolor value or not 
+659,JavaScript: Check whether a given value represents a domain or not 
+660,JavaScript: Check whether a given value is html or not 
+661,"JavaScript: Check a given value contains alpha, dash and underscore "
+662,JavaScript: Print an integer with commas as thousands separators 
+663,JavaScript Searching and Sorting Algorithm: Quick sort
+664, JavaScript Searching and Sorting Algorithm: Merge sort
+666, JavaScript Searching and Sorting Algorithm: Insertion sort 
+665,JavaScript Searching and Sorting Algorithm: Heap sort 
+667, JavaScript Searching and Sorting Algorithm: Selection sort 
+668, JavaScript Searching and Sorting Algorithm: Shell sort 
+669,JavaScript Searching and Sorting Algorithm: Bubble sort 
+670,JavaScript Searching and Sorting Algorithm: Cocktail shaker sort 
+671, JavaScript Searching and Sorting Algorithm: Comb sort 
+672,JavaScript Searching and Sorting Algorithm: Gnome sort 
+673, JavaScript Searching and Sorting Algorithm: Counting sort 
+674, JavaScript Searching and Sorting Algorithm: Flash sort 
+675, JavaScript Searching and Sorting Algorithm: Pancake sort 
+676,JavaScript Searching and Sorting Algorithm: Bogosort 
+677,JavaScript: Check whether an 'input' is a string or not 
+678,JavaScript: Check whether a string is blank or not 
+679,JavaScript: Split a string and convert it into an array of words 
+680,JavaScript: Extract a specific number of characters from a string 
+681,JavaScript: Convert a string in abbreviated form 
+695,JavaScript: Escape a HTML string
+712,"JavaScript: Create a Zerofilled value with optional +, - sign"
+713,JavaScript: Test case insensitive (except special Unicode characters) string comparison
+682,JavaScript: Hide email addresses to protect from unauthorized user 
+683,JavaScript: Parameterize a string 
+684,JavaScript: Make capitalize the first letter of a string 
+685,JavaScript: Make capitalize the first letter of each word in a string 
+686,JavaScript: Input a string and converts upper case letters to lower and vice versa 
+687,JavaScript: Convert a string into camel case 
+688,JavaScript: Make a string uncamelize
+689,JavaScript: Concatenate a specific string for a specific number of times
+690,JavaScript: Insert a string within a specific position in another string
+691,JavaScript: Formats a number to a human-readable string
+692,JavaScript: Truncate a string if it is longer than the specified number of characters
+693,JavaScript: Chop a string into chunks of a specific length
+694,JavaScript: Count the occurrence of a substring in a string
+696,"JavaScript: Pad (left, right) a string to get to a determined length"
+697,JavaScript: Repeat a string a specified times
+698,JavaScript: Get a part of string after a specified character
+699,JavaScript: Strip leading and trailing spaces from a string
+700,JavaScript: Truncate a string to a certain number of words
+701,JavaScript: Alphabetize a given string
+702,JavaScript: Remove the first occurrence of a given 'search string' from a string
+703,JavaScript: Convert ASCII to Hexadecimal format
+704,JavaScript: Convert Hexadecimal to ASCII format
+706,JavaScript: Check if a string ends with specified suffix
+705,JavaScript: Find a word within a string
+707,JavaScript: Escapes special characters for use in HTML
+708,JavaScript: Remove non-printable ASCII chars
+709,JavaScript: Remove non-word characters
+710,JavaScript: Convert a string to title case
+711,JavaScript: Remove HTML/XML tags from string
+714,JavaScript: Create a case-insensitive search
+715,JavaScript: Uncapitalize the first character of a string
+716,JavaScript: Uncapitalize the first letter of each word of a string
+717,JavaScript: Capitalize each word in the string
+718,JavaScript: Uncapitalize each word in the string
+719,JavaScript: Test whether the character at the provided character index is upper case
+720,JavaScript: Test whether the character at the provided character index is lower case
+721,JavaScript: Get humanized number with the correct suffix
+722,JavaScript: Test whether a string starts with a specified string
+723,JavaScript: Test whether a string ends with a specified string
+724,JavaScript: Get the successor of a string
+725,"JavaScript: Get unique guid of the specified length, or 32 by default"
+1,{'_id': 1},_id_,JS_exercise.validation
+1,{'_id': 1},_id_,JS_exercise.array
+1,{'_id': 1},_id_,JS_exercise.basic
+1,{'_id': 1},_id_,JS_exercise.date
+1,{'_id': 1},_id_,JS_exercise.dom
+1,{'_id': 1},_id_,JS_exercise.drawing
+1,{'_id': 1},_id_,JS_exercise.function
+1,{'_id': 1},_id_,JS_exercise.fundamental
+1,{'_id': 1},_id_,JS_exercise.loops
+1,{'_id': 1},_id_,JS_exercise.math
+1,{'_id': 1},_id_,JS_exercise.object
+1,{'_id': 1},_id_,JS_exercise.recursion
+1,{'_id': 1},_id_,JS_exercise.regular
+1,{'_id': 1},_id_,JS_exercise.sort
+1,{'_id': 1},_id_,JS_exercise.string
+726,JavaScript: Validate whether a given value type is Boolean or not
+727, JavaScript: Validate whether a given value type is error or not
+728, JavaScript: Validate whether a given value type is NaN or not
+729,JavaScript: Validate whether a given value type is null or not
+730, JavaScript: Validate whether a given value is number or not
+731, JavaScript: Validate whether a given value is object or not
+732, JavaScript: Validate whether a given value type is pure json object or not
+733,JavaScript: Validate whether a given value is RegExp or not
+734, JavaScript: Validate whether a given value type is char or not
+735, JavaScript: Check whether given value types are same or not

@@ -1,0 +1,146 @@
+1,JavaScript: Draw a rectangular shape,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Draw a rectangular shape</title>
+</head>
+<body onload=""draw();"">
+<canvas id=""canvas"" width=""150"" height=""150""></canvas>
+</body>
+</html>
+","function draw() {
+  var canvas = document.getElementById('canvas');
+  if (canvas.getContext) {
+    var context = canvas.getContext('2d');
+
+    context.fillRect(20,20,100,100);
+    context.clearRect(40,40,60,60);
+    context.strokeRect(45,45,50,50);
+  }
+}
+","Easy
+"
+2,JavaScript: Draw a circle,"<!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset=utf-8 />
+  <title>Draw a circle</title>
+  </head>
+  <body onload=""draw();"">
+  <canvas id=""circle"" width=""150"" height=""150""></canvas>
+  </body>
+  </html>
+  ","function draw()
+  {
+var canvas = document.getElementById('circle');
+if (canvas.getContext)
+{
+var ctx = canvas.getContext('2d'); 
+var X = canvas.width / 2;
+var Y = canvas.height / 2;
+var R = 45;
+ctx.beginPath();
+ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+ctx.lineWidth = 3;
+ctx.strokeStyle = '#FF0000';
+ctx.stroke();
+}
+}
+","Medium
+"
+3,"JavaScript: Draw two intersecting rectangles, one of which has alpha transparency","<!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset=utf-8 />
+  <title>Draw two intersecting rectangles, one of which has alpha transparency</title>
+  </head>
+  <body onload=""draw();"">
+  <canvas id=""canvas"" width=""150"" height=""150""></canvas>
+  </body>
+  </html>
+  ","function draw() 
+  {
+      var canvas = document.getElementById(""canvas"");
+      if (canvas.getContext)
+      {
+        var context = canvas.getContext(""2d"");
+
+        context.fillStyle = ""rgb(256,0,0)"";
+        context.fillRect (15, 10, 55, 50);
+        
+        context.fillStyle = ""rgba(0, 0, 200, 0.6)"";
+        context.fillRect (35, 30, 55, 50);
+      }
+  }
+  ","Medium
+"
+4,JavaScript: Draw a right-angled triangle,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Draw a right-angled triangle</title>
+</head>
+<body onload=""draw();"">
+<canvas id=""canvas"" width=""150"" height=""150""></canvas>
+</body>
+</html>
+","function draw() 
+{
+  var canvas = document.getElementById('canvas');
+  if (canvas.getContext)
+  {
+    var context = canvas.getContext('2d');
+
+    context.beginPath();
+    context.moveTo(75,75);
+    context.lineTo(10,75);
+    context.lineTo(10,25);
+    context.fill();
+  }
+}
+","Medium
+"
+5,JavaScript: Draw a diagram using moveto() function,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Draw diagram using moveto() function</title>
+</head>
+<body onload=""draw();"">
+<canvas id=""canvas"" width=""250"" height=""250""></canvas>
+</body>
+</html>
+","function draw() 
+{
+  var canvas = document.getElementById('canvas');
+  if (canvas.getContext)
+  {
+    var context = canvas.getContext('2d');
+    context.beginPath();
+   // Outer circle
+    context.arc(75,75,50,0,Math.PI*2,true);
+    context.moveTo(110,75);
+    // Mouth 
+    context.arc(75,75,35,0,Math.PI,false); 
+    // Lefy and Right eye
+    context.moveTo(55,65);
+    context.arc(60,65,5,0,Math.PI*2,true); 
+    context.arc(90,65,5,0,Math.PI*2,true);
+    context.stroke();
+  }
+}
+","Medium
+"
+6,"JavaScript: Draw a diagram with diagonal, white to black circles","<!DOCTYPE html>
+  <html>
+  <head>
+  <title>Diagonal, White to Black circles</title>
+  </head>
+ <body>
+  <canvas id=""myCanvas"" width=""1500"" height=""800"">
+  <p>Update your browser!</p>
+  </canvas>
+  </body> 
+  </html>
+  ",,"Medium
+"

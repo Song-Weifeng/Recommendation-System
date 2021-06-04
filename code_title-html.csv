@@ -1,0 +1,50 @@
+id,exercise_title
+1,JavaScript: Get the first element of an array
+2,JavaScript: Clone an array
+3,JavaScript: Get the first element of an array
+4,JavaScript: Get the last element of an array
+5,JavaScript: Join all elements of an array into a string
+6,JavaScript: Insert dashes (-) between each two even digits of a specific number
+9,"JavaScript: Swap the case of each character of a string, upper case to lower and vice versa"
+7,JavaScript: Sort the items of an array
+8,JavaScript: Find the most frequent item of an array
+10,JavaScript: Print the elements of an array
+11,JavaScript: Find the sum of squares of a numeric vector
+12,JavaScript: Compute the sum and product of an array of integers
+13,JavaScript: Add items in a blank array and display the items
+14,"JavaScript: Remove duplicate items from an array, ignore case sensitivity"
+15,JavaScript: Display the colors entered in an array by a specific format
+16,JavaScript: Find the leap years from a given range of years
+17,JavaScript: Randomly arrange or shuffle an array
+18,JavaScript: Perform a binary search within an array
+19,JavaScript: Compute the sum of each individual index value of two or more arrays
+20,JavaScript: Find duplicate values in a array
+21,JavaScript: Flatten a nested array
+22,JavaScript: Compute the union of two arrays
+23,JavaScript: Find the difference of two arrays
+25,JavaScript: Sort the specified array of objects by title value
+24,"JavaScript: Remove null, 0, blank, false, undefined and NaN values from an array"
+26,JavaScript: Find a pair of elements from an specified array whose sum equals a specific target number
+27,JavaScript: Retrieve the value of a specified property from all elements in an array
+28,JavaScript: Find the longest common starting substring in a set of strings
+29,JavaScript: Fill an array with values on supplied bounds
+30,JavaScript: Merge two arrays and removes all duplicates elements
+31,JavaScript: Remove a specific element from an array
+32,JavaScript: Find if an array contains a specific element
+33,JavaScript: Empty an array keeping the original
+34,JavaScript: Get nth largest element from an unsorted array
+35,JavaScript: Get a random item from an array
+36,JavaScript: Create a specified number of elements and pre-filled numeric value array
+37,JavaScript: Create a specified number of elements and pre-filled string value array
+38,JavaScript: Move an array element from one position to another
+39,"JavaScript: Filter false, null, 0 and blank values from an array"
+40,"JavaScript: Generate an array of specified length, the content of the array is integer numbers, increase by one from starting"
+41,JavaScript: Generate an array between two integers of 1 step length
+42,JavaScript: Find the unique elements from two arrays
+43,JavaScript: Display the current day and time in a specific format
+44,JavaScript: Print the contents of the current window
+45,JavaScript : Display the current date
+46,"JavaScript: Find the area of a triangle where lengths of the three of its sides are 5, 6, 7"
+47,JavaScript: Rotate a string from left to right
+48,JavaScript: Check whether a given year is a leap year in the Gregorian calendar
+49,JavaScript: Find 1st January be a Sunday between a range of years

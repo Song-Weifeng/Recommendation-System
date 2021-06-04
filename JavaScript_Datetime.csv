@@ -1,0 +1,990 @@
+1,JavaScript: Check whether an input is a date object or not,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>Checking a date object</title>
+</head>
+<body>
+</body>
+</html>
+","var is_date = function(input) {
+  if ( Object.prototype.toString.call(input) === ""[object Date]"" ) 
+    return true;
+  return false;   
+    };
+
+console.log(is_date(""October 13, 2014 11:13:00""));
+console.log(is_date(new Date(86400000)));
+console.log(is_date(new Date(99,5,24,11,33,30,0)));
+console.log(is_date([1, 2, 4, 0]));
+","Medium
+"
+2,JavaScript: Get the current date,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>Get the current date</title>
+</head>
+<body>
+</body>
+</html>
+","var curday = function(sp){
+today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //As January is 0.
+var yyyy = today.getFullYear();
+
+if(dd<10) dd='0'+dd;
+if(mm<10) mm='0'+mm;
+return (mm+sp+dd+sp+yyyy);
+};
+console.log(curday('/'));
+console.log(curday('-'));
+","Easy
+"
+3,JavaScript: Get the number of days in a month,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>Get days in Month</title>
+</head>
+<body>
+</body>
+</html>
+","var getDaysInMonth = function(month,year) {
+  // Here January is 1 based
+  //Day 0 is the last day in the previous month
+ return new Date(year, month, 0).getDate();
+// Here January is 0 based
+// return new Date(year, month+1, 0).getDate();
+};
+console.log(getDaysInMonth(1, 2012));
+console.log(getDaysInMonth(2, 2012));
+console.log(getDaysInMonth(9, 2012));
+console.log(getDaysInMonth(12, 2012));
+","Medium
+"
+4,JavaScript: Get the month name from a particular date,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>Get the month name from a particular date</title>
+</head>
+<body>
+</body>
+</html>
+","var month_name = function(dt){
+mlist = [ ""January"", ""February"", ""March"", ""April"", ""May"", ""June"", ""July"", ""August"", ""September"", ""October"", ""November"", ""December"" ];
+  return mlist[dt.getMonth()];
+};
+console.log(month_name(new Date(""10/11/2009"")));
+console.log(month_name(new Date(""11/13/2014"")));
+","Easy
+"
+5,JavaScript: Comparison between two dates,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>Compare Dates</title>
+</head>
+<body>
+</body>
+</html>
+","var compare_dates = function(date1,date2){
+     if (date1>date2) return (""Date1 > Date2"");
+   else if (date1<date2) return (""Date2 > Date1"");
+   else return (""Date1 = Date2""); 
+  }
+
+console.log(compare_dates(new Date('11/14/2013 00:00'), new Date('11/14/2013 00:00')));
+console.log(compare_dates(new Date('11/14/2013 00:01'), new Date('11/14/2013 00:00')));
+console.log(compare_dates(new Date('11/14/2013 00:00'), new Date('11/14/2013 00:01')));
+","Easy
+"
+6,JavaScript: Add minutes to a Date object,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>Add minutes to a date object.</title>
+</head>
+<body>
+</body>
+</html> 
+","var add_minutes =  function (dt, minutes) {
+    return new Date(dt.getTime() + minutes*60000);
+}
+console.log(add_minutes(new Date(2014,10,2), 30).toString());
+","Easy
+"
+7,JavaScript: Check whether a date is a weekend date,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>JavaScript Weekend test</title>
+</head>
+<body>
+</body>
+</html>
+","var is_weekend =  function(date1){
+    var dt = new Date(date1);
+     
+    if(dt.getDay() == 6 || dt.getDay() == 0)
+       {
+        return ""weekend"";
+        } 
+}
+
+console.log(is_weekend('Nov 15, 2014'));
+console.log(is_weekend('Nov 16, 2014'));
+console.log(is_weekend('Nov 17, 2014'));
+","Easy
+"
+8,JavaScript: Difference between two dates in days,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>JavaScript difference between two dates in days</title>
+</head>
+<body>
+</body>
+</html>
+","var date_diff_indays = function(date1, date2) {
+dt1 = new Date(date1);
+dt2 = new Date(date2);
+return Math.floor((Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) - Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate()) ) /(1000 * 60 * 60 * 24));
+}
+console.log(date_diff_indays('04/02/2014', '11/04/2014'));
+console.log(date_diff_indays('12/02/2014', '11/04/2014'));
+","Medium
+"
+9,JavaScript: Find out the last day of a month,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>Find out the last day of a month</title>
+</head>
+<body>
+</body>
+</html>
+","var lastday = function(y,m){
+return  new Date(y, m +1, 0).getDate();
+}
+console.log(lastday(2014,0));
+console.log(lastday(2014,1));
+console.log(lastday(2014,11));
+","Easy
+"
+10,JavaScript: Find out which day was in yesterday,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>Find out which day was in yesterday</title>
+</head>
+<body>
+</body>
+</html>
+","var yesterday =  function(date1){
+    var dt = new Date(date1);
+  return new Date((dt.setDate(dt.getDate()-1))).toString();
+}
+console.log(yesterday('Nov 15, 2014'));
+console.log(yesterday('Nov 16, 2015'));
+console.log(yesterday('Nov 17, 2016'));
+","Easy
+"
+11,JavaScript: Maximum date from an array of dates,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>Maximum date from an array of dates</title>
+</head>
+<body>
+</body>
+</html>
+","function max_date(all_dates) {
+var max_dt = all_dates[0],
+  max_dtObj = new Date(all_dates[0]);
+all_dates.forEach(function(dt, index)
+  {
+  if ( new Date( dt ) > max_dtObj)
+  {
+  max_dt = dt;
+  max_dtObj = new Date(dt);
+  }
+  });
+ return max_dt;
+  }
+console.log(max_date(['2015/02/01', '2015/02/02', '2015/01/03']));
+","Easy
+"
+12,JavaScript: Minimum date from an array of dates,"<!DOCTYPE html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<title>Minimum date from an array of dates</title>
+</head>
+<body>
+</body>
+</html>
+","function min_date(all_dates) {
+ var min_dt = all_dates[0],
+  min_dtObj = new Date(all_dates[0]);
+ all_dates.forEach(function(dt, index)
+  {
+  if ( new Date( dt ) < min_dtObj)
+  {
+  min_dt = dt;
+  min_dtObj = new Date(dt);
+  }
+  });
+ return min_dt;
+  }
+console.log(min_date(['2015/02/01', '2015/02/02', '2015/01/03']));
+","Easy
+"
+13,JavaScript: Return the number of minutes in hours and minutes,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Return the number of minutes in hours and minutes.</title>
+</head>
+<body>
+
+</body>
+</html>
+","function timeConvert(n) {
+var num = n;
+var hours = (num / 60);
+var rhours = Math.floor(hours);
+var minutes = (hours - rhours) * 60;
+var rminutes = Math.round(minutes);
+return num + "" minutes = "" + rhours + "" hour(s) and "" + rminutes + "" minute(s)."";
+}
+
+console.log(timeConvert(200));
+","Medium
+"
+14,JavaScript: Get the amount of days of a year,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to get the amount of days of a year</title>
+</head>
+<body>
+
+</body>
+</html>
+","function days_of_a_year(year) 
+{
+   
+  return isLeapYear(year) ? 366 : 365;
+}
+
+function isLeapYear(year) {
+     return year % 400 === 0 || (year % 100 !== 0 && year % 4 === 0);
+}
+
+console.log(days_of_a_year(2015));
+console.log(days_of_a_year(2016));
+","Medium
+"
+15,JavaScript: Get the quarter of the year,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to get the the quarter (1 to 4) of the year</title>
+</head>
+<body>
+
+</body>
+</html>
+","function quarter_of_the_year(date) 
+  {
+    var month = date.getMonth() + 1;
+    return (Math.ceil(month / 3));
+  }
+
+
+console.log(quarter_of_the_year(new Date()));
+console.log(quarter_of_the_year(new Date(2015, 1, 21))); 
+console.log(quarter_of_the_year(new Date(2015, 10, 18)));
+","Easy
+"
+16,JavaScript: Count the number of days passed since beginning of the year,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to count the number of days passed since beginning of the year</title>
+</head>
+<body>
+
+</body>
+</html>
+","function days_passed(dt) {
+  var current = new Date(dt.getTime());
+  var previous = new Date(dt.getFullYear(), 0, 1);
+
+  return Math.ceil((current - previous + 1) / 86400000);
+}
+console.log(days_passed(new Date(2015, 0, 15)));
+console.log(days_passed(new Date(2015, 11, 14)));
+","Easy
+"
+17,JavaScript: Convert a Unix timestamp to time,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to convert a Unix timestamp to time.</title>
+</head>
+<body>
+
+</body>
+</html>
+","function Unix_timestamp(t)
+{
+var dt = new Date(t*1000);
+var hr = dt.getHours();
+var m = ""0"" + dt.getMinutes();
+var s = ""0"" + dt.getSeconds();
+return hr+ ':' + m.substr(-2) + ':' + s.substr(-2);  
+}
+
+console.log(Unix_timestamp(1412743274));
+","Medium
+"
+18,JavaScript: Calculate age,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript program to calculate age</title>
+</head>
+<body>
+
+</body>
+</html>
+","function calculate_age(dob) { 
+    var diff_ms = Date.now() - dob.getTime();
+    var age_dt = new Date(diff_ms); 
+  
+    return Math.abs(age_dt.getUTCFullYear() - 1970);
+}
+
+console.log(calculate_age(new Date(1982, 11, 4)));
+
+console.log(calculate_age(new Date(1962, 1, 1)));
+","Easy
+"
+19,"JavaScript: Get the day of the month, 2 digits with leading zeros","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to get the day of the month, 2 digits with leading zeros.</title>
+</head>
+<body>
+
+</body>
+</html>
+","function day_of_the_month(d)
+{ 
+  return (d.getDate() < 10 ? '0' : '') + d.getDate();
+}
+
+d= new Date();
+console.log(day_of_the_month(d));
+
+d= new Date(2015, 10, 1);
+console.log(day_of_the_month(d));
+","Easy
+"
+20,JavaScript: Get a textual representation of a day,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to get a textual representation of a day (three letters).</title>
+</head>
+<body>
+
+</body>
+</html>
+","Date.shortDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+function short_Days(dt)
+{ 
+   return Date.shortDays[dt.getDay()];
+}
+
+dt = new Date();
+console.log(short_Days(dt));
+
+dt = new Date(2015, 10, 1);
+console.log(short_Days(dt));
+","Hard
+"
+21,JavaScript: Get a full textual representation of the day of the week,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to get a full textual representation of the day of the week (Sunday through Saturday).</title>
+</head>
+<body>
+
+</body>
+</html>
+","Date.longDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+function long_Days(dt)
+    { 
+      return Date.longDays[dt.getDay()]; 
+    }
+
+dt = new Date();
+console.log(long_Days(dt));
+
+dt = new Date(2015, 10, 1);
+console.log(long_Days(dt));
+","Easy
+"
+23,JavaScript: Get English ordinal suffix for the day of the month,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to get English ordinal suffix for the day of the month, 2 characters (st, nd, rd or th.)</title>
+</head>
+<body>
+
+</body>
+</html>
+","function english_ordinal_suffix(dt)
+  {
+    return dt.getDate()+(dt.getDate() % 10 == 1 && dt.getDate() != 11 ? 'st' : (dt.getDate() % 10 == 2 && dt.getDate() != 12 ? 'nd' : (dt.getDate() % 10 == 3 && dt.getDate() != 13 ? 'rd' : 'th'))); 
+  }
+
+dt = new Date();
+console.log(english_ordinal_suffix(dt));
+
+dt = new Date(2015, 10, 1);
+console.log(english_ordinal_suffix(dt));
+","Easy
+"
+24,"JavaScript: Get ISO-8601 week number of year, weeks starting on Monday","<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to get ISO-8601 week number of year, weeks starting on Monday</title>
+</head>
+<body>
+
+</body>
+</html>
+","function ISO8601_week_no(dt) 
+  {
+     var tdt = new Date(dt.valueOf());
+     var dayn = (dt.getDay() + 6) % 7;
+     tdt.setDate(tdt.getDate() - dayn + 3);
+     var firstThursday = tdt.valueOf();
+     tdt.setMonth(0, 1);
+     if (tdt.getDay() !== 4) 
+       {
+      tdt.setMonth(0, 1 + ((4 - tdt.getDay()) + 7) % 7);
+        }
+     return 1 + Math.ceil((firstThursday - tdt) / 604800000);
+        }
+
+dt = new Date();
+console.log(ISO8601_week_no(dt));
+
+dt = new Date(2015, 10, 1);
+console.log(ISO8601_week_no(dt));
+","Medium
+"
+25,JavaScript: Get a full textual representation of a month,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to get a full textual representation of a month, such as January or June.</title>
+</head>
+<body>
+
+</body>
+</html>
+","Date.longMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+function full_month(dt)
+  { 
+   return Date.longMonths[dt.getMonth()]; 
+  }
+
+dt = new Date(); 
+console.log(full_month(dt)); 
+
+dt = new Date(2015, 10, 1); 
+console.log(full_month(dt));
+","Hard
+"
+27,JavaScript: Get a short textual representation of a month,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>avaScript function to get a short textual representation of a month, three letters (Jan through Dec)</title>
+</head>
+<body>
+
+</body>
+</html>
+"," Date.shortMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+function short_months(dt)
+   { 
+     return Date.shortMonths[dt.getMonth()]; 
+   }
+
+dt = new Date(); 
+console.log(short_months(dt)); 
+
+dt = new Date(2015, 10, 1); 
+console.log(short_months(dt));
+","Easy
+"
+32,JavaScript: swatch Internet time,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to swatch Internet time (000 through 999)</title>
+</head>
+<body>
+
+</body>
+</html>
+","function internet_time(dt) 
+{ 
+  return Math.floor((((dt.getUTCHours() + 1) % 24) + dt.getUTCMinutes() / 60 + dt.getUTCSeconds() / 3600) * 1000 / 24);
+}
+
+dt = new Date(); 
+console.log(internet_time(dt)); 
+
+dt = new Date(1989, 10, 1); 
+console.log(internet_time(dt));
+","Hard
+"
+33,JavaScript: Get 12-hour format of an hour with leading zeros,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to get 12-hour format of an hour with leading zeros</title>
+</head>
+<body>
+
+</body>
+</html>
+","function hours_with_zeroes(dt) 
+{ 
+  return ((dt.getHours() % 12 || 12) < 10 ? '0' : '') + (dt.getHours() % 12 || 12);
+}
+
+dt = new Date(); 
+console.log(hours_with_zeroes(dt)); 
+
+dt = new Date(1989, 10, 1); 
+console.log(hours_with_zeroes(dt));
+","Medium
+"
+34,JavaScript: Get 24-hour format of an hour without leading zeros,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to get 24-hour format of an hour without leading zeros</title>
+</head>
+<body>
+
+</body>
+</html>
+","function hours_without_zeroes(dt) 
+{ 
+  return dt.getHours();
+}
+
+dt = new Date(); 
+console.log(hours_without_zeroes(dt)); 
+
+dt = new Date(1989, 10, 1); 
+console.log(hours_without_zeroes(dt));
+","Easy
+"
+35,JavaScript: Get minutes with leading zeros,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to get minutes with leading zeros.</title>
+</head>
+<body>
+
+</body>
+</html>
+","function minutes_with_leading_zeros(dt) 
+{ 
+  return (dt.getMinutes() < 10 ? '0' : '') + dt.getMinutes();
+}
+
+dt = new Date(); 
+console.log(minutes_with_leading_zeros(dt)); 
+
+dt = new Date(1989, 10, 1); 
+console.log(minutes_with_leading_zeros(dt));
+","Medium
+"
+36,JavaScript: Get seconds with leading zeros,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to get seconds with leading zeros (00 through 59)</title>
+</head>
+<body>
+
+</body>
+</html>
+","function seconds_with_leading_zeros(dt) 
+{ 
+  return (dt.getMinutes() < 10 ? '0' : '') + dt.getMinutes();
+}
+
+dt = new Date(); 
+console.log(seconds_with_leading_zeros(dt)); 
+
+dt = new Date(1989, 10, 1); 
+console.log(seconds_with_leading_zeros(dt));
+","Medium
+"
+37,JavaScript: Get Timezone,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to get Timezone.</title>
+</head>
+<body>
+
+</body>
+</html>
+","function seconds_with_leading_zeros(dt) 
+{ 
+  return /\((.*)\)/.exec(new Date().toString())[1];
+}
+
+dt = new Date(); 
+console.log(seconds_with_leading_zeros(dt)); 
+
+dt = new Date(1989, 10, 1); 
+console.log(seconds_with_leading_zeros(dt));
+","Medium
+"
+39,JavaScript: Get difference to Greenwich time in hours,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to get difference to Greenwich time (GMT) in hours.</title>
+</head>
+<body>
+
+</body>
+</html>
+","
+function diff_to_GMT(dt) 
+{ 
+   return (-dt.getTimezoneOffset() < 0 ? '-' : '+') + (Math.abs(dt.getTimezoneOffset() / 60) < 10 ? '0' : '') + (Math.abs(dt.getTimezoneOffset() / 60)) + '00';
+}
+
+dt = new Date(); 
+console.log(diff_to_GMT(dt)); 
+
+dt = new Date(1989, 10, 1); 
+console.log(diff_to_GMT(dt));
+","Easy
+"
+40,JavaScript: Get timezone offset in seconds,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to get timezone offset in seconds</title>
+</head>
+<body>
+
+</body>
+</html>
+","function timezone_offset_in_seconds(dt) 
+{ 
+   return -dt.getTimezoneOffset() * 60;
+}
+
+dt = new Date(); 
+console.log(timezone_offset_in_seconds(dt)); 
+
+dt = new Date(1989, 10, 1); 
+console.log(timezone_offset_in_seconds(dt));
+","Medium
+"
+41,JavaScript: Add specified years to a date,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to add specified years to a date</title>
+</head>
+<body>
+<p id=""demo""></p>
+</body>
+</html>
+","function add_years(dt,n) 
+ {
+ return new Date(dt.setFullYear(dt.getFullYear() + n));      
+ }
+
+dt = new Date();
+console.log(add_years(dt, 10).toString());  
+
+dt = new Date(2014,10,2);
+console.log(add_years(dt, 10).toString());
+","Easy
+"
+42,JavaScript: Add specified weeks to a date,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to add specified weeks to a date</title>
+</head>
+<body>
+
+</body>
+</html>
+","function add_weeks(dt, n) 
+ {
+ return new Date(dt.setDate(dt.getDate() + (n * 7)));      
+ }
+
+dt = new Date();
+console.log(add_weeks(dt, 10).toString());  
+
+dt = new Date(2014,10,2);
+console.log(add_weeks(dt, 10).toString());
+","Easy
+"
+43,JavaScript: Add specified months to a date,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to add specified months to a date</title>
+</head>
+<body>
+
+</body>
+</html>
+","function add_months(dt, n) 
+ {
+
+   return new Date(dt.setMonth(dt.getMonth() + n));      
+ }
+
+dt = new Date();
+console.log(add_months(dt, 10).toString());  
+
+dt = new Date(2014,10,2);
+console.log(add_months(dt, 10).toString());
+","Medium
+"
+44,JavaScript: Get time differences in minutes between two dates,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to get time differences in minutes between two dates</title>
+</head>
+<body>
+
+</body>
+</html>
+","function diff_minutes(dt2, dt1) 
+ {
+
+  var diff =(dt2.getTime() - dt1.getTime()) / 1000;
+  diff /= 60;
+  return Math.abs(Math.round(diff));
+  
+ }
+
+dt1 = new Date(2014,10,2);
+dt2 = new Date(2014,10,3);
+console.log(diff_minutes(dt1, dt2));
+","Medium
+"
+45,JavaScript: Get time differences in hours between two dates,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to get time differences in hours between two dates</title>
+</head>
+<body>
+
+</body>
+</html>
+","function diff_hours(dt2, dt1) 
+ {
+
+  var diff =(dt2.getTime() - dt1.getTime()) / 1000;
+  diff /= (60 * 60);
+  return Math.abs(Math.round(diff));
+  
+ }
+
+dt1 = new Date(2014,10,2);
+dt2 = new Date(2014,10,3);
+console.log(diff_hours(dt1, dt2));
+
+
+dt1 = new Date(""October 13, 2014 08:11:00"");
+dt2 = new Date(""October 13, 2014 11:13:00"");
+console.log(diff_hours(dt1, dt2));
+","Easy
+"
+46,JavaScript: Get time differences in days between two dates ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to get time differences in days between two dates</title>
+</head>
+<body>
+
+</body>
+</html>
+","function diff_days(dt2, dt1) 
+ {
+
+  var diff =(dt2.getTime() - dt1.getTime()) / 1000;
+  diff /= (60 * 60 * 24);
+  return Math.abs(Math.round(diff));
+  
+ }
+
+dt1 = new Date(2014,10,2);
+dt2 = new Date(2014,10,6);
+console.log(diff_days(dt1, dt2));
+
+dt1 = new Date(""October 13, 2014 08:11:00"");
+dt2 = new Date(""October 19, 2014 11:13:00"");
+console.log(diff_days(dt1, dt2));
+","Medium
+"
+47,JavaScript: Get time differences in weeks between two dates ,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>JavaScript function to get time differences in weeks between two dates</title>
+</head>
+<body>
+
+</body>
+</html>
+","function diff_weeks(dt2, dt1) 
+ {
+
+  var diff =(dt2.getTime() - dt1.getTime()) / 1000;
+  diff /= (60 * 60 * 24 * 7);
+  return Math.abs(Math.round(diff));
+  
+ }
+
+dt1 = new Date(2014,10,2);
+dt2 = new Date(2014,10,11);
+console.log(diff_weeks(dt1, dt2));
+
+dt1 = new Date(""June 13, 2014 08:11:00"");
+dt2 = new Date(""October 19, 2014 11:13:00"");
+console.log(diff_weeks(dt1, dt2));
+","Easy
+"
+50,JavaScript: Get the week start date,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Write a JavaScript function to get the week start date</title>
+</head>
+<body>
+
+</body>
+</html>
+","function startOfWeek(date)
+  {
+    var diff = date.getDate() - date.getDay() + (date.getDay() === 0 ? -6 : 1);
+  
+    return new Date(date.setDate(diff));
+ 
+  }
+
+dt = new Date(); 
+
+console.log(startOfWeek(dt).toString());
+","Easy
+"
+51,JavaScript: Get the week end date,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Write a JavaScript function to get the week end date</title>
+</head>
+<body>
+
+</body>
+</html>
+","function endOfWeek(date)
+  {
+     
+    var lastday = date.getDate() - (date.getDay() - 1) + 6;
+    return new Date(date.setDate(lastday));
+ 
+  }
+
+dt = new Date(); 
+
+console.log(endOfWeek(dt).toString());
+","Medium
+"
+52,JavaScript: Get the month start date,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Write a JavaScript function to get the month start date</title>
+</head>
+<body>
+
+</body>
+</html>
+","function startOfMonth(date)
+  {
+     
+   return new Date(date.getFullYear(), date.getMonth(), 1);
+ 
+  }
+
+dt = new Date(); 
+
+console.log(startOfMonth(dt).toString());
+","Easy
+"
+53,JavaScript: Get the month end date,"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=""utf-8"">
+  <title>Write a JavaScript function to get the month end date</title>
+</head>
+<body>
+
+</body>
+</html>
+","function endOfMonth(date)
+  {
+     
+  return new Date(date.getFullYear(), date.getMonth() + 1, 0);
+ 
+  }
+
+dt = new Date(); 
+
+console.log(endOfMonth(dt).toString());
+","Easy
+"
